@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+import { generateBreadcrumbSchema } from '../lib/seo';
+import Hero from '../components/global/Hero.astro';
+import HeroZone from '../components/global/HeroZone.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Kontakt', url: 'https://www.plasticsurf.de/kontakt' },
+]);
+---
+
+<BaseLayout title="Kontakt - PlasticSurf">
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
+
+  <HeroZone backgroundImage={{
+    desktop: '/images/kontakt-hero-desktop.webp',
+    tablet:  '/images/kontakt-hero-tablet.webp',
+    mobile:  '/images/kontakt-hero-mobile.webp',
+  }}>
+    <Hero
+      eyebrow="Mandat anfragen"
+      headline="New Business. Strategie-Dialog."
+      subline="Ich übernehme Mandate, wenn Hebelwirkung und Anspruch zusammenpassen."
+      layout="left"
+    />
+  </HeroZone>
+
+  <!-- Kontakt Section -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Kontaktdaten + Hinweis -->
+        <div class="reveal">
+
+          <!-- Hinweistext -->
+          <div class="space-y-4 mb-16">
+            <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed">Formulieren Sie Ihr Vorhaben in 3 Punkten: Ziel, Hindernis, Zeithorizont.</p>
+            <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">Ich melde mich werktags mit dem nächsten Schritt – Termin oder kurzer Hinweis, falls es nicht passt.</p>
+            <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed">Vertraulich. Antwort kommt in der Regel innerhalb von 24–48 Stunden.</p>
+          </div>
+
+          <div class="space-y-8">
+
+            <div class="reveal reveal-delay-100 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-text mb-1">E-Mail</h3>
+                <a href="mailto:mk@plasticsurf.de" class="font-body text-base text-primary hover:underline">
+                  mk@plasticsurf.de
+                </a>
+              </div>
+            </div>
+
+            <div class="reveal reveal-delay-200 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-text mb-1">Mobil</h3>
+                <a href="tel:+4917395444420" class="font-body text-base text-primary hover:underline">
+                  0173 95 444 20
+                </a>
+              </div>
+            </div>
+
+            <div class="reveal reveal-delay-300 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-text mb-1">Adresse</h3>
+                <p class="font-body text-base text-text/60">
+                  Guntramstraße 47<br />
+                  79106 Freiburg<br />
+                  Deutschland
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Kontaktformular -->
+        <div class="reveal reveal-delay-300">
+          <ContactForm formName="kontakt-kontaktseite" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

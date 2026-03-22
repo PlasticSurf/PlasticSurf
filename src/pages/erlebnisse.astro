@@ -1,0 +1,517 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../lib/seo';
+import Hero from '../components/global/Hero.astro';
+import HeroZone from '../components/global/HeroZone.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+]);
+
+const pageTitle = 'Referenzen – Kreativagentur Freiburg | PlasticSurf';
+const pageDescription = 'Kreativagentur aus Freiburg: Über 20 Referenzprojekte aus eCommerce, Verpackungsdesign, Marketing und WebDesign. Echte Erlebnisse von PlasticSurf.';
+
+type Ref = {
+  client: string;
+  project: string;
+  category: string;
+  gradient: string;
+  image?: string;
+  alt?: string;
+  size: 'large' | 'medium';
+  href?: string;
+};
+
+// Große/Featured Referenzen → Bento-Grid
+const featuredRefs: Ref[] = [
+  {
+    client: 'Brands of Soul',
+    project: 'Shop Usability Award',
+    category: 'eCommerce',
+    gradient: 'linear-gradient(135deg, #0a0f1e 0%, #16213e 50%, #1a1f35 100%)',
+    image: '/images/erlebnisse/brands-of-soul-ecommerce-shop-usability-award.webp',
+    alt: 'Brands of Soul eCommerce Referenz – Shop Usability Award',
+    size: 'large',
+    href: '/erlebnisse/brands-of-soul-webshop',
+  },
+  {
+    client: 'Ahoj-Brause',
+    project: 'Der Brause-Klassiker in der Dose',
+    category: 'Marketing & Werbe-Design',
+    gradient: 'linear-gradient(135deg, #3d0a2e 0%, #6b1a1a 50%, #7a2500 100%)',
+    image: '/images/erlebnisse/ahoj-brause-marketing-werbedesign-dose.webp',
+    alt: 'Ahoj-Brause Marketing und Werbedesign – Der Brause-Klassiker in der Dose',
+    size: 'medium',
+    href: '/erlebnisse/ahoj-brause-brause',
+  },
+  {
+    client: 'encarta Coffee Cups',
+    project: 'Weltberühmt',
+    category: 'Verpackungsdesign',
+    gradient: 'linear-gradient(135deg, #1a0a04 0%, #2d1206 50%, #3d1f0a 100%)',
+    image: '/images/erlebnisse/encarta-coffee-cups-verpackungsdesign.webp',
+    alt: 'encarta Coffee Cups Verpackungsdesign Referenz',
+    size: 'medium',
+    href: '/erlebnisse/encarta-coffee-cup-to-go',
+  },
+  {
+    client: 'AriZona Eistee',
+    project: 'Ein Kultgetränk mit Stil',
+    category: 'Design & Marketing',
+    gradient: 'linear-gradient(135deg, #2d1500 0%, #1a2d1a 50%, #003d2d 100%)',
+    image: '/images/erlebnisse/arizona-eistee-design-marketing.webp',
+    alt: 'AriZona Eistee Design und Marketing – Ein Kultgetränk mit Stil',
+    size: 'medium',
+    href: '/erlebnisse/arizona-eistee-2',
+  },
+  {
+    client: 'FIJI artesian water',
+    project: 'Pure Exotik für Deutschland',
+    category: 'Design & Marketing',
+    gradient: 'linear-gradient(135deg, #020d1f 0%, #041f2d 50%, #0a2d3d 100%)',
+    image: '/images/erlebnisse/fiji-artesian-water-design-marketing.webp',
+    alt: 'FIJI artesian water Design und Marketing – Pure Exotik für Deutschland',
+    size: 'medium',
+  },
+  {
+    client: 'KaffeeShop 24',
+    project: 'ERP & CRM-Anbindung',
+    category: 'eCommerce B2B & B2C',
+    gradient: 'linear-gradient(135deg, #1a0a00 0%, #2d1400 50%, #3d1e00 100%)',
+    image: '/images/erlebnisse/kaffeeshop-24-ecommerce-b2b-b2c-erp-crm.webp',
+    alt: 'KaffeeShop 24 eCommerce B2B und B2C – ERP und CRM-Anbindung',
+    size: 'large',
+    href: '/erlebnisse/kaffeeshop-24-online-shop',
+  },
+  {
+    client: 'Dr Pepper Energy',
+    project: 'Markteinführung in Deutschland',
+    category: 'Marketing & Design',
+    gradient: 'linear-gradient(135deg, #2d0008 0%, #4a0010 50%, #1a0020 100%)',
+    image: '/images/erlebnisse/dr-pepper-energy-marketing-markteinfuehrung-deutschland.webp',
+    alt: 'Dr Pepper Energy Marketing und Design – Markteinführung in Deutschland',
+    size: 'medium',
+    href: '/erlebnisse/dr-pepper-energy',
+  },
+  {
+    client: 'Peru Sol',
+    project: 'Nachhaltigkeit trifft auf Design',
+    category: 'Verpackungsdesign',
+    gradient: 'linear-gradient(135deg, #0a1f08 0%, #162d10 50%, #0f2008 100%)',
+    image: '/images/erlebnisse/peru-sol-verpackungsdesign-nachhaltigkeit-design.webp',
+    alt: 'Peru Sol Verpackungsdesign – Nachhaltigkeit trifft auf Design',
+    size: 'medium',
+    href: '/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen',
+  },
+  {
+    client: 'Soul of Coffee',
+    project: 'Kreativ gestaltet, funktional durchdacht, innovativ umgesetzt',
+    category: 'Verpackungsdesign',
+    gradient: 'linear-gradient(135deg, #1a0800 0%, #2d1200 50%, #3d1e08 100%)',
+    image: '/images/erlebnisse/soul-of-coffee-kaffee-verpackungsdesign.webp',
+    alt: 'Soul of Coffee Verpackungsdesign – Kreativ gestaltet, funktional durchdacht, innovativ umgesetzt',
+    size: 'medium',
+    href: '/erlebnisse/soul-of-coffee-verpackungen',
+  },
+  {
+    client: 'KaffeeShop 24',
+    project: 'Crossmedialer Kommunikation',
+    category: 'Klassische Werbung',
+    gradient: 'linear-gradient(135deg, #120800 0%, #1f1000 50%, #2d1800 100%)',
+    image: '/images/erlebnisse/kaffeeshop-24-klassische-werbung-crossmediale-kommunikation.webp',
+    alt: 'KaffeeShop 24 Klassische Werbung – Crossmedialer Kommunikation',
+    size: 'medium',
+    href: '/erlebnisse/kaffeeshop-24-klassische-werbung',
+  },
+  {
+    client: 'FocusWater',
+    project: 'Das Vitaminwasser aus der Schweiz',
+    category: 'eCommerce & Marketing',
+    gradient: 'linear-gradient(135deg, #001a2d 0%, #003040 50%, #004d3d 100%)',
+    image: '/images/erlebnisse/focuswater-vitaminwasser-ecommerce-marketing-schweiz.webp',
+    alt: 'FocusWater eCommerce und Marketing – Das Vitaminwasser aus der Schweiz',
+    size: 'medium',
+    href: '/erlebnisse/focuswater-vitaminwasser',
+  },
+  {
+    client: 'Soul of Cocoa',
+    project: 'Die Magie der Kakaobohne neu entdeckt',
+    category: 'Verpackungsdesign',
+    gradient: 'linear-gradient(135deg, #0f0800 0%, #1f1000 50%, #2d1a00 100%)',
+    image: '/images/erlebnisse/soul-of-cocoa-verpackungsdesign-kakaobohne.webp',
+    alt: 'Soul of Cocoa Verpackungsdesign – Die Magie der Kakaobohne neu entdeckt',
+    size: 'large',
+    href: '/erlebnisse/soul-of-cocoa-verpackungen',
+  },
+];
+
+// Kleinere Referenzen → Slider
+const smallRefs: Ref[] = [
+  {
+    client: 'Snapple',
+    project: 'Limonade mit Kultstatus',
+    category: 'Klassische Werbung',
+    gradient: 'linear-gradient(135deg, #0d1a00 0%, #1a2d00 50%, #2d3d00 100%)',
+    image: '/images/erlebnisse/snapple-limonade-klassische-werbung.webp',
+    alt: 'Snapple Klassische Werbung – Limonade mit Kultstatus',
+    size: 'medium',
+    href: '/erlebnisse/snapple-limonade',
+  },
+  {
+    client: 'SyrienHilfe',
+    project: 'Jahresberichte, Flyer, Plakate',
+    category: 'Klassische Werbung',
+    gradient: 'linear-gradient(135deg, #1a0a04 0%, #2d1206 50%, #1a0000 100%)',
+    image: '/images/erlebnisse/syrienhilfe-klassische-werbung-jahresberichte-flyer-plakate.webp',
+    alt: 'SyrienHilfe – Klassische Werbung: Jahresberichte, Flyer und Plakate',
+    size: 'medium',
+    href: '/erlebnisse/syrienhilfe-flyer',
+  },
+  {
+    client: 'VOSS artesian water',
+    project: 'Markteinführung Deutschland',
+    category: 'Marketing & Design',
+    gradient: 'linear-gradient(135deg, #020d1f 0%, #041f2d 50%, #062d3d 100%)',
+    image: '/images/erlebnisse/voss-artesian-water-markteinfuehrung-deutschland.webp',
+    alt: 'VOSS artesian water Marketing und Design – Markteinführung Deutschland',
+    size: 'medium',
+  },
+  {
+    client: 'Soul of Frappé',
+    project: 'Aufmerksamkeit? Garantiert!',
+    category: 'Verpackungsdesign',
+    gradient: 'linear-gradient(135deg, #1a0800 0%, #2d1400 50%, #3d2000 100%)',
+    image: '/images/erlebnisse/soul-of-frappe-verpackungsdesign.webp',
+    alt: 'Soul of Frappé Verpackungsdesign – Aufmerksamkeit garantiert',
+    size: 'medium',
+    href: '/erlebnisse/soul-of-frappe-verpackungen',
+  },
+  {
+    client: "Rose's Juice",
+    project: 'Marketing & Design',
+    category: 'WebDesign',
+    gradient: 'linear-gradient(135deg, #2d0010 0%, #4a0020 50%, #3d0015 100%)',
+    image: '/images/erlebnisse/roses-juice-webdesign-marketing-design.webp',
+    alt: "Rose's Juice WebDesign – Marketing und Design",
+    size: 'medium',
+  },
+  {
+    client: 'TEAHOUSE EXCLUSIVES',
+    project: 'Stilvoll, Funktional & Mehrsprachig',
+    category: 'WebDesign',
+    gradient: 'linear-gradient(135deg, #0f1a0f 0%, #1a2d1a 50%, #0a1f0a 100%)',
+    image: '/images/erlebnisse/teahouse-exclusives-webdesign.webp',
+    alt: 'TEAHOUSE EXCLUSIVES WebDesign – Stilvoll, Funktional und Mehrsprachig',
+    size: 'medium',
+    href: '/erlebnisse/tee-von-teahouse-exclusives',
+  },
+  {
+    client: 'Vertriebsagentur WunderHand',
+    project: 'Nachhaltige Lebensmittel',
+    category: 'WebDesign',
+    gradient: 'linear-gradient(135deg, #041a04 0%, #0a2d0a 50%, #102010 100%)',
+    image: '/images/erlebnisse/wunderhand-vertriebsagentur-webdesign.webp',
+    alt: 'Vertriebsagentur WunderHand WebDesign – Nachhaltige Lebensmittel',
+    size: 'medium',
+  },
+  {
+    client: 'Drinks and More',
+    project: 'Marketing & Design',
+    category: 'eCommerce',
+    gradient: 'linear-gradient(135deg, #001020 0%, #001a30 50%, #00253d 100%)',
+    image: '/images/erlebnisse/drinks-and-more-ecommerce-marketing-design.webp',
+    alt: 'Drinks and More eCommerce – Marketing und Design',
+    size: 'medium',
+    href: '/erlebnisse/drinks-and-more-webshop',
+  },
+  {
+    client: 'Cups To-Go',
+    project: 'Private Label Design',
+    category: 'Verpackungsdesign',
+    gradient: 'linear-gradient(135deg, #1a0d00 0%, #2d1a00 50%, #3d2500 100%)',
+    image: '/images/erlebnisse/cups-to-go-verpackungsdesign-private-label.webp',
+    alt: 'Cups To-Go Verpackungsdesign – Private Label Design',
+    size: 'medium',
+    href: '/erlebnisse/coffee-to-go-becher',
+  },
+  {
+    client: 'Simon Scheibe',
+    project: 'Konzert-Plakate & Flyer',
+    category: 'Klassische Werbung',
+    gradient: 'linear-gradient(135deg, #08080f 0%, #10101f 50%, #181830 100%)',
+    image: '/images/erlebnisse/simon-scheibe-konzertplakate-flyer-klassische-werbung.webp',
+    alt: 'Simon Scheibe Klassische Werbung – Konzert-Plakate und Flyer',
+    size: 'medium',
+    href: '/erlebnisse/simon-scheibe-konzert-plakate',
+  },
+  {
+    client: 'SyrienHilfe',
+    project: 'Marketing & Design',
+    category: 'WebDesign',
+    gradient: 'linear-gradient(135deg, #0f0800 0%, #1f1000 50%, #2d1800 100%)',
+    image: '/images/erlebnisse/syrienhilfe-webdesign-marketing-design.webp',
+    alt: 'SyrienHilfe WebDesign – Marketing und Design',
+    size: 'medium',
+  },
+  {
+    client: 'Market Grounds',
+    project: 'Anbindung an das SAGE ERP-System',
+    category: 'eCommerce B2B',
+    gradient: 'linear-gradient(135deg, #001a0d 0%, #002d1a 50%, #003d25 100%)',
+    image: '/images/erlebnisse/market-grounds-ecommerce-b2b-sage-erp-system.webp',
+    alt: 'Market Grounds eCommerce B2B – Anbindung an das SAGE ERP-System',
+    size: 'medium',
+    href: '/erlebnisse/market-grounds-webshop',
+  },
+  {
+    client: 'T&M LimousinenService Hamburg',
+    project: 'Marketing & Design aus Freiburg',
+    category: 'WebDesign',
+    gradient: 'linear-gradient(135deg, #080808 0%, #121218 50%, #0f0f1a 100%)',
+    image: '/images/erlebnisse/tm-limousinenservice-webdesign-marketing-freiburg.webp',
+    alt: 'T&M LimousinenService Hamburg WebDesign – Marketing und Design aus Freiburg',
+    size: 'medium',
+    href: '/erlebnisse/tm-limousinenservice-hamburg',
+  },
+];
+const allRefs = [...featuredRefs, ...smallRefs];
+const itemListSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  'name': 'Referenzen – Kreativagentur Freiburg | PlasticSurf',
+  'description': pageDescription,
+  'numberOfItems': allRefs.length,
+  'itemListElement': allRefs.map((ref, i) => ({
+    '@type': 'ListItem',
+    'position': i + 1,
+    'name': `${ref.client} – ${ref.project}`,
+    ...(ref.href ? { 'url': `https://www.plasticsurf.de${ref.href}` } : {}),
+  })),
+});
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/erlebnisse-hero-desktop.webp"
+>
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
+  <script type="application/ld+json" set:html={itemListSchema} />
+
+  <!-- Wrapper: Hintergrundbild läuft nach unten über den Hero hinaus -->
+  <div class="relative" style="overflow: clip;">
+
+    <!-- Hintergrundbild auf Page-Ebene (höher als der Hero-Container) -->
+    <picture class="absolute inset-x-0 top-0 w-full pointer-events-none select-none" style="height: 140vh; z-index: 0;" aria-hidden="true">
+      <source media="(min-width: 1024px)" srcset="/images/erlebnisse-hero-desktop.webp" type="image/webp" />
+      <source media="(min-width: 768px)"  srcset="/images/erlebnisse-hero-tablet.webp"  type="image/webp" />
+      <img
+        src="/images/erlebnisse-hero-mobile.webp"
+        alt=""
+        class="w-full h-full object-none object-top"
+        loading="eager"
+      />
+    </picture>
+
+    <!-- Fade-Overlay: Bild läuft sanft in den Seitenhintergrund aus -->
+    <div class="absolute inset-x-0 pointer-events-none select-none" style="top: 60vh; height: 80vh; background: linear-gradient(to bottom, transparent, #080D19); z-index: 1;" aria-hidden="true" />
+
+    <!-- HeroZone ohne internes Bild (Klasse hero-zone--image unterdrückt Dot-Textur) -->
+    <div style="position: relative; z-index: 2;">
+      <HeroZone class="hero-zone--image">
+        <Hero
+          headline='<span class="text-primary">Resonanz</span> statt Rauschen.'
+          subline="Wo Momente Form annehmen."
+          layout="left"
+          eyebrow="Referenzen – Kreativagentur Freiburg"
+        >
+          <p class="reveal reveal-delay-300 mt-8 font-body text-base md:text-lg text-text/80 leading-relaxed max-w-3xl">
+            In einer Zeit der unendlichen Signale ist echte Aufmerksamkeit das kostbarste Gut. Wir gestalten Erlebnisse als Antwort auf die Frage nach dem Bleibenden. Bei Plastic Surf werden Gedanken zu Formen und Interaktionen zu Erfahrungen, die Orientierung bieten. Wir bauen keine Fassaden, sondern Identität, die man erleben kann. Durch die Verbindung von klarer Struktur und ästhetischer Intelligenz entstehen Momente des Innehaltens – leise, wirkungsvoll und mit der nötigen Ruhe, um im algorithmischen Lärm der Gegenwart wirklich gehört zu werden.
+          </p>
+        </Hero>
+      </HeroZone>
+    </div>
+
+  <!-- Bento-Grid (transparent, damit Bild durchscheinen kann) -->
+  <section style="background: transparent; position: relative; z-index: 2;">
+    <div class="container-custom">
+    <div class="bento-grid">
+      {featuredRefs.map((ref) => {
+        const Tag = ref.href ? 'a' : 'article';
+        return (
+          <Tag
+            class={`bento-card bento-card-${ref.size}${ref.href ? ' bento-card--link' : ''}`}
+            {...(ref.href ? { href: ref.href, title: `${ref.category}: ${ref.client} – ${ref.project}` } : {})}
+          >
+            <div
+              class="bento-card__bg"
+              style={`background: ${ref.gradient};`}
+            />
+            {ref.image && (
+              <img
+                src={ref.image}
+                alt={ref.alt ?? ref.client}
+                class="bento-card__bg"
+                loading="lazy"
+              />
+            )}
+            <div class="bento-card__overlay" />
+            <div class="bento-card__content">
+              <span class="bento-card__category">{ref.category}</span>
+              <h3 class="bento-card__client">{ref.client}</h3>
+              <p class="bento-card__project">{ref.project}</p>
+            </div>
+          </Tag>
+        );
+      })}
+    </div>
+    </div>
+  </section>
+
+  </div><!-- /Wrapper Hintergrundbild -->
+
+  <!-- Slider: Kleinere Projekte -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="text-center mb-8">
+        <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Weitere Projekte</h2>
+        <p class="reveal reveal-delay-200 font-secondary text-2xl text-[#927350] mb-8">
+          Noch mehr Erlebnisse aus unserem Portfolio
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-300">
+        <div class="ref-slider-track" id="refSliderTrack">
+          {smallRefs.map((ref) => {
+            const SliderTag = ref.href ? 'a' : 'article';
+            return (
+              <SliderTag
+                class={`ref-slider-card${ref.href ? ' bento-card--link' : ''}`}
+                {...(ref.href ? { href: ref.href, title: `${ref.category}: ${ref.client} – ${ref.project}`, style: 'cursor: pointer;' } : {})}
+              >
+                <div
+                  class="bento-card__bg"
+                  style={`background: ${ref.gradient};`}
+                />
+                {ref.image && (
+                  <img
+                    src={ref.image}
+                    alt={ref.alt ?? ref.client}
+                    class="bento-card__bg"
+                    loading="lazy"
+                  />
+                )}
+                <div class="bento-card__overlay" />
+                <div class="bento-card__content">
+                  <span class="bento-card__category">{ref.category}</span>
+                  <h3 class="bento-card__client" style="font-size: 1.1rem;">{ref.client}</h3>
+                  <p class="bento-card__project">{ref.project}</p>
+                </div>
+              </SliderTag>
+            );
+          })}
+        </div>
+
+        <!-- Dot-Navigation -->
+        <div class="slider-dots" id="refSliderDots" role="tablist" aria-label="Slider Navigation">
+          {smallRefs.map((_, i) => (
+            <button
+              class={`slider-dot${i === 0 ? ' active' : ''}`}
+              data-index={i}
+              aria-label={`Projekt ${i + 1}`}
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section-padding bg-primary/5">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Kundenstimmen</h2>
+        <p class="reveal reveal-delay-200 font-secondary text-2xl text-[#927350] max-w-2xl mx-auto mb-8">
+          Was unsere Kunden über die Zusammenarbeit sagen
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <blockquote class="reveal reveal-delay-100 p-6 bg-white/5 rounded-lg border border-white/10">
+          <p class="font-body text-base text-text/80 italic leading-relaxed mb-4">
+            "Die Zusammenarbeit war außergewöhnlich professionell. Das Ergebnis
+            übertrifft unsere Erwartungen bei Weitem."
+          </p>
+          <footer class="font-primary text-primary">
+            — Max Mustermann, CEO Musterkunde GmbH
+          </footer>
+        </blockquote>
+
+        <blockquote class="reveal reveal-delay-300 p-6 bg-white/5 rounded-lg border border-white/10">
+          <p class="font-body text-base text-text/80 italic leading-relaxed mb-4">
+            "Endlich ein Partner, der digitale Strategien ganzheitlich denkt
+            und umsetzt. Absolut empfehlenswert!"
+          </p>
+          <footer class="font-primary text-primary">
+            — Maria Beispiel, Marketing Leiterin Beispiel AG
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding-lg bg-background">
+    <div class="container-custom text-center">
+      <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">
+        Werden Sie Teil unserer Erfolgsgeschichte
+      </h2>
+      <p class="reveal reveal-delay-200 font-secondary text-2xl text-[#927350] max-w-xl mx-auto mb-8">
+        Lassen Sie uns gemeinsam Ihr nächstes Projekt realisieren.
+      </p>
+      <a href="/kontakt" class="reveal reveal-delay-400 btn-primary">
+        Jetzt anfragen
+      </a>
+    </div>
+  </section>
+
+  <script>
+    const track = document.getElementById('refSliderTrack');
+    const dotsContainer = document.getElementById('refSliderDots');
+
+    if (track && dotsContainer) {
+      const dots = Array.from(dotsContainer.querySelectorAll<HTMLButtonElement>('.slider-dot'));
+      const cards = Array.from(track.querySelectorAll<HTMLElement>('.ref-slider-card'));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          const card = cards[i];
+          if (card) {
+            track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+          }
+        });
+      });
+
+      let scrollTimer: ReturnType<typeof setTimeout> | null = null;
+      track.addEventListener('scroll', () => {
+        if (scrollTimer) clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const trackLeft = track.scrollLeft;
+          let closest = 0;
+          let minDist = Infinity;
+          cards.forEach((card, i) => {
+            const dist = Math.abs(card.offsetLeft - track.offsetLeft - trackLeft);
+            if (dist < minDist) { minDist = dist; closest = i; }
+          });
+          dots.forEach((d, i) => {
+            d.classList.toggle('active', i === closest);
+            d.setAttribute('aria-selected', i === closest ? 'true' : 'false');
+          });
+        }, 50);
+      });
+    }
+  </script>
+</BaseLayout>

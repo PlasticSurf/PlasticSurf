@@ -1,0 +1,68 @@
+---
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-white/10 p-4 md:p-6 transform translate-y-full transition-transform duration-300"
+  role="alert"
+  aria-live="polite"
+>
+  <div class="container-custom">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Text Content -->
+      <div class="flex-1 text-center md:text-left">
+        <p class="font-body text-text text-xs leading-relaxed">
+          Wir verwenden Cookies und Google Analytics, um Ihnen die bestmögliche Erfahrung zu bieten.
+          Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.
+          Weitere Informationen finden Sie in unserer{' '}
+          <a href="/datenschutz" class="text-primary underline hover:no-underline">Datenschutzerklärung</a>.
+        </p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <button
+          id="cookie-decline"
+          class="px-4 py-2 border border-text/30 text-text rounded-md font-body text-sm hover:bg-white/5 transition-colors duration-200"
+        >
+          Ablehnen
+        </button>
+        <button
+          id="cookie-accept"
+          class="btn-primary px-6 py-2"
+        >
+          Akzeptieren
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAccept = document.getElementById('cookie-accept');
+  const cookieDecline = document.getElementById('cookie-decline');
+
+  // Check if user already made a choice
+  const cookieChoice = localStorage.getItem('cookie-consent');
+
+  if (!cookieChoice) {
+    // Show banner after a short delay
+    setTimeout(() => {
+      cookieBanner?.classList.remove('translate-y-full');
+    }, 1000);
+  }
+
+  cookieAccept?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    cookieBanner?.classList.add('translate-y-full');
+    // Enable Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'cookie-consent': 'accepted' });
+  });
+
+  cookieDecline?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'declined');
+    cookieBanner?.classList.add('translate-y-full');
+  });
+</script>

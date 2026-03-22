@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Gedanken', url: 'https://www.plasticsurf.de/gedanken' },
+]);
+
+// Get all blog posts
+const allPosts = await getCollection('blog', ({ data }) => {
+  return !data.draft;
+});
+
+// Sort by date
+const sortedPosts = allPosts.sort((a, b) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// Format date for display
+function formatDate(dateString: string): string {
+  return new Date(dateString).toLocaleDateString('de-DE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<BaseLayout title="Gedanken - Blog - PlasticSurf">
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
+
+  <!-- Hero Section -->
+  <section class="section-padding pt-32 bg-gradient-to-b from-background to-background/80">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Gedanken</h1>
+        <p class="font-body text-text/60 max-w-2xl mx-auto">
+          Insights, Tipps und Perspektiven aus der digitalen Welt
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      {sortedPosts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPosts.map((post) => (
+            <article class="group">
+              <a href={`/gedanken/${post.slug}`} class="block">
+                <div class="aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 mb-4">
+                  <img
+                    src={post.data.featuredImage}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <span class="inline-block text-xs font-medium text-primary mb-2">
+                  {post.data.category}
+                </span>
+                <h2 class="font-heading text-xl mb-2 group-hover:text-primary transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="font-body text-text/60 text-sm line-clamp-2 mb-3">
+                  {post.data.excerpt}
+                </p>
+                <div class="flex items-center justify-between text-xs text-text/40">
+                  <span>{formatDate(post.data.date)}</span>
+                  <span>{post.data.readingTime} Min. Lesezeit</span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="font-body text-text/60">
+            Bald erscheinen die ersten Blog-Beiträge.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

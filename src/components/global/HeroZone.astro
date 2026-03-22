@@ -1,0 +1,40 @@
+---
+interface BgImage {
+  desktop: string;
+  tablet?: string;
+  mobile?: string;
+  alt?: string;
+}
+
+interface Props {
+  backgroundImage?: BgImage | string;
+  class?: string;
+}
+
+const { backgroundImage, class: className } = Astro.props;
+
+// Normalize to object
+const bg: BgImage | null = backgroundImage
+  ? typeof backgroundImage === 'string'
+    ? { desktop: backgroundImage }
+    : backgroundImage
+  : null;
+---
+
+<div class:list={['hero-zone relative', bg && 'hero-zone--image', className]}>
+  {bg && (
+    <picture class="absolute inset-0 w-full h-full" aria-hidden="true">
+      <source media="(min-width: 1024px)" srcset={bg.desktop} type="image/webp" />
+      <source media="(min-width: 768px)"  srcset={bg.tablet  ?? bg.desktop} type="image/webp" />
+      <img
+        src={bg.mobile ?? bg.tablet ?? bg.desktop}
+        alt={bg.alt ?? ''}
+        class="w-full h-full object-none object-top"
+        loading="eager"
+      />
+    </picture>
+  )}
+  <div class="relative z-10">
+    <slot />
+  </div>
+</div>

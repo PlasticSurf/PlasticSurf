@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Simon Scheibe Konzert Plakate', url: 'https://www.plasticsurf.de/erlebnisse/simon-scheibe-konzert-plakate' },
+]);
+---
+
+<BaseLayout
+  title="Simon Scheibe – Konzert-Plakate & Flyer – Klassische Werbung – PlasticSurf"
+  description="Konzert-Plakate und Flyer für den Cellisten Simon Scheibe und Kammermusik-Konzerte in Freiburg."
+  image="/images/erlebnisse/simon-scheibe-konzert-plakate/simon-scheibe-konzert-plakate-klassische-werbung-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/simon-scheibe-konzert-plakate/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/simon-scheibe-konzert-plakate/simon-scheibe-konzert-plakate-klassische-werbung-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/simon-scheibe-konzert-plakate/simon-scheibe-konzert-plakate-klassische-werbung-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/simon-scheibe-konzert-plakate/simon-scheibe-konzert-plakate-klassische-werbung-hero-mobile.webp"
+      alt="Simon Scheibe Konzert Plakat – Klassische Werbung für Kammermusik in Freiburg"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Simon Scheibe Konzert Plakate</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Konzert-Plakat -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/simon-scheibe-konzert-plakate/simon-scheibe-kammermusik-freiburg-2019-konzert-plakat.webp"
+            alt="Simon Scheibe Kammermusik Freiburg 2019 – Konzert-Plakat"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Klassische Werbung
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Plakate für Konzerte der Klassischen Musik
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            Konzert-Plakate Kammermusik und Simon Scheibe.
+          </p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Aus Freiburg stammend, studiert der 20jährige Cellist Simon Scheibe derzeit an der Hochschule für Musik und Darstellende Kunst Stuttgart in der Klasse Prof. Tristan Cornut. Nach mehrfachen Preisen beim Bundeswettbewerb "Jugend musiziert", studierte Simon Scheibe ab 2016 zunächst als Jungstudent an der Musikhochschule Freiburg (Prof. Elena Cheah) und legte 2018 sein Abitur ab. Internationale Meisterkurse bei Prof. Brinton Smith und Prof. Darrett Adkins (Aspen Music Festival 2019, USA), sowie wertvolle Anregungen des Dirigenten Herbert Blomstedt ergänzen seine Studien.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Aufgaben
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Konzert-Plakate und Flyer für die Kammermusik-Konzerte von Simon Scheibe.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

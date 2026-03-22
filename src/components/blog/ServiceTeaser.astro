@@ -1,0 +1,198 @@
+---
+interface Props {
+  headline?: string;
+  subline?: string;
+  highlight?: string; // href der Lösung die hervorgehoben werden soll, z.B. "/loesungen/das-brand-experience-system"
+}
+
+const {
+  headline = 'Unsere Lösungen',
+  subline,
+  highlight,
+} = Astro.props;
+
+const solutions = [
+  {
+    title: 'Der Performance Audit',
+    tagline: 'Die präzise Standortbestimmung.',
+    kern: 'Wir verdichten Daten, Kanäle und Performance zu einem klaren Bild und machen Wirkung sichtbar.',
+    ergebnis: 'Prioritäten, nächste Schritte und eine Richtung, die sich im Alltag trägt.',
+    linkText: 'Den ersten Stein setzen',
+    href: '/loesungen/der-performance-audit',
+  },
+  {
+    title: 'Der Wachstums-Motor',
+    tagline: 'Souveränität durch Kanal-Diversität.',
+    kern: 'Wir stärken Ihre bestehenden Kanäle und ergänzen sie um eine autonome, KI-gestützte Pipeline zur Neukundengewinnung.',
+    ergebnis: 'Ein krisenfestes Akquise-System, das Sie unabhängig von einzelnen Plattformen macht und planbares Wachstum sichert.',
+    linkText: 'Wachstum skalieren',
+    href: '/loesungen/der-wachstums-motor',
+  },
+  {
+    title: 'Das Digitale Vermächtnis',
+    tagline: 'Wissen wird unsterblich.',
+    kern: 'Wir sichern die jahrzehntelange Erfahrung Ihrer besten Köpfe. Wir bauen ein "Firmen-Gehirn", das bleibt, wenn Menschen gehen.',
+    ergebnis: 'Schutz Ihres Lebenswerks gegen die Nachfolgewelle. Neue Experten werden in Rekordzeit wirksam, weil die Intuition des Hauses digital abrufbar ist.',
+    linkText: 'Vermächtnis sichern',
+    href: '/loesungen/das-digitale-vermaechtnis',
+  },
+  {
+    title: 'Das Brand Experience System',
+    tagline: 'Ich gebe Ihrer Welt einen Namen und ein Gesicht.',
+    kern: 'Wir übersetzen Ihre strategische Überlegenheit in ein Design-System, das Vertrauen erzwingt und Ihren Premium-Status visuell beweist.',
+    ergebnis: 'Eine unverwechselbare Identität, die Kunden zu Fans macht und Preisdiskussionen durch eine Architektur der Wahrnehmung beendet.',
+    linkText: 'Identität prägen',
+    href: '/loesungen/das-brand-experience-system',
+  },
+];
+---
+
+<div class="service-teaser">
+  <div class="service-teaser-header">
+    <h3 class="service-teaser-headline">{headline}</h3>
+    {subline && <p class="service-teaser-subline">{subline}</p>}
+  </div>
+
+  <div class="service-teaser-grid">
+    {solutions.map((s) => (
+      <a
+        href={s.href}
+        class={`service-card ${highlight === s.href ? 'service-card--highlight' : ''}`}
+      >
+        <div class="service-card-inner">
+          <h4 class="service-card-title">{s.title}</h4>
+          <p class="service-card-tagline">{s.tagline}</p>
+          <p class="service-card-text">
+            <strong>Der Kern:</strong> {s.kern}
+          </p>
+          <p class="service-card-text">
+            <strong>Das Ergebnis:</strong> {s.ergebnis}
+          </p>
+          <span class="service-card-link">
+            {s.linkText}
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .service-teaser {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+  }
+
+  .service-teaser-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .service-teaser-headline {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827 !important;
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  .service-teaser-subline {
+    font-size: 0.9375rem;
+    color: #6b7280 !important;
+    margin: 0 !important;
+  }
+
+  .service-teaser-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .service-teaser-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    display: block;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    text-decoration: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+    text-decoration: none !important;
+  }
+
+  .service-card--highlight {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+  }
+
+  .service-card-inner {
+    padding: 1.25rem;
+  }
+
+  .service-card-title {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827 !important;
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  .service-card:hover .service-card-title {
+    color: #2563eb !important;
+  }
+
+  .service-card--highlight .service-card-title {
+    color: #2563eb !important;
+  }
+
+  .service-card-tagline {
+    font-size: 0.8125rem;
+    color: #6b7280 !important;
+    font-style: italic;
+    margin: 0 0 0.75rem 0 !important;
+  }
+
+  .service-card-text {
+    font-size: 0.8125rem !important;
+    color: #374151 !important;
+    line-height: 1.5 !important;
+    margin: 0 0 0.5rem 0 !important;
+  }
+
+  .service-card-text strong {
+    color: #111827 !important;
+    font-weight: 600;
+  }
+
+  .service-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #2563eb !important;
+    margin-top: 0.75rem;
+  }
+
+  .service-card-link svg {
+    transition: transform 0.2s;
+  }
+
+  .service-card:hover .service-card-link svg {
+    transform: translateX(3px);
+  }
+</style>

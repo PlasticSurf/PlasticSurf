@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Coffee To-Go Becher', url: 'https://www.plasticsurf.de/erlebnisse/coffee-to-go-becher' },
+]);
+---
+
+<BaseLayout
+  title="Coffee To-Go Becher – Verpackungsdesign – PlasticSurf"
+  description="Designs und Marketing für Heißgetränkebecher in der Gastronomie, Doppelwandbecher aus Papier. Deine Marke präsentiert auf dem Hartpapier."
+  image="/images/erlebnisse/coffee-to-go-becher/coffee-to-go-becher-verpackungsdesign-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/coffee-to-go-becher/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/coffee-to-go-becher/coffee-to-go-becher-verpackungsdesign-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/coffee-to-go-becher/coffee-to-go-becher-verpackungsdesign-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/coffee-to-go-becher/coffee-to-go-becher-verpackungsdesign-hero-mobile.webp"
+      alt="Coffee To-Go Becher – Heißgetränkebecher aus Papier mit Private Label Verpackungsdesign"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Coffee To-Go Becher</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Zweispalten-Inhalt -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/coffee-to-go-becher/coffee-to-go-becher-verpackungsdesign-rainbow.webp"
+            alt="Coffee To-Go Becher Rainbow Design – bunte Heißgetränkebecher aus Papier mit Private Label"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: H1 + Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Verpackungsdesign
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Cups To-Go
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            <strong>Heißgetränkebecher aus Papier</strong> eignen sich hervorragend für das <strong>ToGo Geschäft</strong>. Verpackung ist weit mehr als eine Produkthülle, es ist die Kunst, das Produkt und die Marke bestmöglich in Szene zu setzten. Realisieren Sie Ihre ganz eigenen Design-Ideen mit <strong>Private Label</strong> und sprechen Sie mich an.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Kunde
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            <strong>Market Grounds</strong> ist der führende Anbieter von innovativen Strategien und Produktkonzeptionen im europäischen Coffee Bar Segment.
+          </p>
+          <h2 class="reveal reveal-delay-500 font-primary text-3xl font-black leading-tight mb-4">
+            Service
+          </h2>
+          <p class="reveal reveal-delay-600 font-body text-base text-text/80 leading-relaxed">
+            Design / Umsetzung / Druckaufbereitung
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">
+        Galerie
+      </h2>
+      <p class="reveal reveal-delay-200 font-secondary text-2xl text-[#927350] mb-10">
+        Heißgetränkebecher aus Papier im Detail
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <img
+          src="/images/erlebnisse/coffee-to-go-becher/coffee-to-go-becher-verpackungsdesign-becher-3.webp"
+          alt="Coffee To-Go Becher Verpackungsdesign – Papierbecher mit Branding für die Gastronomie"
+          class="w-full aspect-[3/2] object-cover reveal reveal-delay-100"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/coffee-to-go-becher/coffee-to-go-becher-verpackungsdesign-becher-9.webp"
+          alt="Coffee To-Go Becher Doppelwandbecher – Hartpapier mit individuellem Markendesign"
+          class="w-full aspect-[3/2] object-cover reveal reveal-delay-200"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <ErlebnisCTA />
+
+</BaseLayout>

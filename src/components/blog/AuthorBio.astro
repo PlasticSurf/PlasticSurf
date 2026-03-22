@@ -1,0 +1,74 @@
+---
+interface Props {
+  name?: string;
+  bio?: string;
+  avatar?: string;
+  social?: {
+    twitter?: string;
+    linkedin?: string;
+    email?: string;
+  };
+}
+
+const { name, bio, avatar, social } = Astro.props;
+---
+
+<div class="my-8 p-6 bg-gray-100 rounded-lg border-l-4 border-primary">
+  <div class="flex flex-col sm:flex-row gap-4 items-start">
+    {avatar ? (
+      <div class="flex-shrink-0">
+        <img
+          src={avatar}
+          alt={name || 'Autor'}
+          class="w-16 h-16 rounded-full object-cover"
+        />
+      </div>
+    ) : name ? (
+      <div class="flex-shrink-0">
+        <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+          <span class="text-primary font-semibold text-xl">
+            {name.charAt(0).toUpperCase()}
+          </span>
+        </div>
+      </div>
+    ) : null}
+    <div class="flex-1">
+      {name && (
+        <h4 class="font-heading text-lg text-gray-900 mb-2">{name}</h4>
+      )}
+      {bio && (
+        <p class="font-body text-gray-700 text-sm leading-relaxed">{bio}</p>
+      )}
+      {!bio && <slot />}
+      {social && (
+        <div class="flex gap-3 mt-3">
+          {social.twitter && (
+            <a
+              href={social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary hover:text-primary/80 text-sm"
+            >
+              Twitter
+            </a>
+          )}
+          {social.linkedin && (
+            <a
+              href={social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary hover:text-primary/80 text-sm"
+            >
+              LinkedIn
+            </a>
+          )}
+          {social.email && (
+            <a href={`mailto:${social.email}`} class="text-primary hover:text-primary/80 text-sm">
+              E-Mail
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+</div>

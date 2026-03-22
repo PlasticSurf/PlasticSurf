@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Ahoj-Brause Brause', url: 'https://www.plasticsurf.de/erlebnisse/ahoj-brause-brause' },
+]);
+---
+
+<BaseLayout
+  title="Ahoj-Brause Marketing Design – PlasticSurf"
+  description="Ich habe die Markteinführung von Ahoj-Brause in Deutschland begleitet. Entdecke mein Ahoj-Brause Marketing & Design."
+  image="/images/erlebnisse/ahoj-brause/ahoj-brause-marketing-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/ahoj-brause-brause/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/ahoj-brause/ahoj-brause-marketing-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/ahoj-brause/ahoj-brause-marketing-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/ahoj-brause/ahoj-brause-marketing-hero-mobile.webp"
+      alt="Ahoj-Brause Erfrischungsgetränk – Marketingmaterial zur Markteinführung in Deutschland"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Ahoj-Brause</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Zweispalten-Inhalt -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/ahoj-brause/ahoj-brause-dose-display.webp"
+            alt="Ahoj-Brause Dose Display – Verkaufs-Display für die Markteinführung in Deutschland"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: H1 + Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Marketing & Design
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Ahoj-Brause Erfrischungsgetränk
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Ahoj-Brause ist eine der bekanntesten und ältesten Marken Deutschlands und steht seit 1925 für bunten Brause-Spaß für Jung und Alt. Was mit einem spritzigen Geistesblitz begann, hat sich zu einem Erfolgsprodukt entwickelt. Nun gibt es den prickelnden Klassiker ganz bequem in der Dose – erfrischend und spritzig in vier typischen Geschmacksrichtungen: Waldmeister, Himbeere, Zitrone und Orange.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Ahoj-Brause Marketing Design – Mein Ansatz
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Bei der Umsetzung des Ahoj-Brause Marketing Designs war es mir wichtig, Tradition und Moderne in Einklang zu bringen. Die lange Geschichte der Marke sollte betont und zugleich durch ein zeitgemäßes Erscheinungsbild aufgefrischt werden. So entsteht eine stimmige Markenwelt, in der der Kultfaktor von Ahoj-Brause bewahrt und zugleich neue Akzente gesetzt werden – perfekt für ein prickelndes Wiedererkennen.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie: Produktfotos -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Der Brause-Klassiker in der Dose
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl">
+        Ich habe die Markteinführung von <strong>Ahoj-Brause als Erfrischungsgetränk</strong> in der Dose aktiv begleitet. Dabei konnte ich meine Expertise in Marketing & Design voll einbringen: Von ansprechender Printwerbung über überzeugende Mockups und eine moderne Messeausstattung bis hin zur Gestaltung aufmerksamkeitsstarker Displays.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <img
+          src="/images/erlebnisse/ahoj-brause/ahoj-brause-himbeer-dose.webp"
+          alt="Ahoj-Brause Himbeer Dose – Erfrischungsgetränk in der Dose, Geschmack Himbeere"
+          class="w-full reveal"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/ahoj-brause/ahoj-brause-waldmeister-dose.webp"
+          alt="Ahoj-Brause Waldmeister Dose – Erfrischungsgetränk in der Dose, Geschmack Waldmeister"
+          class="w-full reveal reveal-delay-100"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/ahoj-brause/ahoj-brause-orange-dose.webp"
+          alt="Ahoj-Brause Orange Dose – Erfrischungsgetränk in der Dose, Geschmack Orange"
+          class="w-full reveal reveal-delay-200"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <ErlebnisCTA />
+
+</BaseLayout>

@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Soul of Coffee Verpackungen', url: 'https://www.plasticsurf.de/erlebnisse/soul-of-coffee-verpackungen' },
+]);
+---
+
+<BaseLayout
+  title="Soul of Coffee Verpackungen – Verpackungsdesign & Branding – PlasticSurf"
+  description="Soul of Coffee Kaffee-Verpackungsdesign: Kraftpapiertüten ohne Aluminiumschicht, nachhaltig produziert in Deutschland – mit Konzept, Layout, Fotografie und Marketing aus einer Hand."
+  image="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/soul-of-coffee-verpackungen/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-hero-mobile.webp"
+      alt="Soul of Coffee Verpackungsdesign – Samsara Kaffee Indien Kraftpapiertüte"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Soul of Coffee</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bild -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-gentleman-espresso.webp"
+            alt="Soul of Coffee Gentleman Espresso – Verpackungsdesign für die Espresso-Sorte"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: H1 + Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Verpackungsdesign
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Soul of Coffee Verpackungs-Design
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Bei jeder Kaffee-Verpackung sind die beiden obersten Gebote, die Marke klar zu transportieren und das volle Aroma des Kaffees möglichst lange zu erhalten. Dazu kommt noch der nachhaltige Aspekt. Umweltbewusstsein ist heute keine Randerscheinung mehr. Die Mehrzahl der Verbraucher legt großen Wert auf nachhaltige Herstellung sowohl der Lebensmittel selbst, als auch der Verpackung. Daher habe ich mich für eine Kraftpapiertüte ohne Aluminiumschicht entschieden, die in Deutschland hergestellt wird.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Von der Idee bis zur fertigen Verpackung
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Für Soul of Coffee habe ich den gesamten Prozess übernommen – von der ersten Idee bis zur fertigen Verpackung im Regal. Jede Sorte hat eine eigenständige visuelle Sprache, die Herkunft und Charakter des Kaffees widerspiegelt.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            ✔ <strong>Konzept & Layout / Design</strong><br />
+            ✔ <strong>Namen & Texte</strong> – alle Informationen und Produktbeschreibungen<br />
+            ✔ <strong>Umsetzung & Druck Koordination</strong><br />
+            ✔ <strong>Einkauf & Qualitätssicherung</strong><br />
+            ✔ <strong>Alle Photos wurden von mir erstellt</strong><br />
+            ✔ <strong>Marketing</strong>
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Nachhaltigkeit als Designprinzip
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Die Kraftpapiertüte ohne Aluminiumschicht ist nicht nur umweltfreundlicher – sie transportiert auch die Werte der Marke Soul of Coffee: ehrlich, handwerklich, mit Blick auf das Wesentliche.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Die Kaffeesorten im Detail
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl">
+        Jede Sorte der Soul of Coffee Linie wurde mit einer eigenständigen Bildsprache inszeniert – von der stimmungsvollen Produktfotografie bis zur finalen Verpackung.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img
+          src="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-moonshine-kaffee-brasilien.webp"
+          alt="Soul of Coffee Moonshine Kaffee Brasilien – Verpackungsdesign"
+          class="w-full reveal"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-tiger-roast-wildkaffee.webp"
+          alt="Soul of Coffee Tiger Roast Wildkaffee – Verpackungsdesign"
+          class="w-full reveal reveal-delay-100"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-wild-forest-wildkaffee.webp"
+          alt="Soul of Coffee Wild Forest Wildkaffee – Verpackungsdesign"
+          class="w-full reveal reveal-delay-200"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/soul-of-coffee-verpackungen/soul-of-coffee-verpackungsdesign-samsara-kaffee-indien.webp"
+          alt="Soul of Coffee Samsara Kaffee Indien – Verpackungsdesign"
+          class="w-full reveal reveal-delay-300"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

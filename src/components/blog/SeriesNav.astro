@@ -1,0 +1,40 @@
+---
+interface SeriesPost {
+  title: string;
+  href: string;
+  part: number;
+  isCurrent: boolean;
+}
+
+interface Props {
+  posts: SeriesPost[];
+  title?: string;
+}
+
+const { posts, title = 'Diese Serie' } = Astro.props;
+---
+
+<div class="mt-6 p-6 bg-gray-100 rounded-lg border border-gray-200">
+  <h3 class="font-heading text-base font-semibold text-gray-900 mb-4">{title}</h3>
+  <ol class="space-y-3">
+    {posts.map((post) => (
+      <li class="flex items-start gap-3 text-xs">
+        <!-- Teilnummer -->
+        <span class={`flex-shrink-0 w-5 h-5 rounded-full text-xs flex items-center justify-center mt-0.5 font-semibold ${post.isCurrent ? 'bg-primary text-white' : 'bg-gray-200 text-gray-600'}`}>
+          {post.part}
+        </span>
+        <!-- Titel: aktueller Teil nicht verlinkt -->
+        {post.isCurrent ? (
+          <span class="font-semibold text-gray-900 leading-snug">{post.title}</span>
+        ) : (
+          <a
+            href={post.href}
+            class="text-gray-600 hover:text-primary transition-colors duration-200 leading-snug"
+          >
+            {post.title}
+          </a>
+        )}
+      </li>
+    ))}
+  </ol>
+</div>

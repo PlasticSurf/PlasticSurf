@@ -1,0 +1,52 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+const { src, alt, caption } = Astro.props;
+---
+
+<figure class="full-width-image">
+  <div class="image-wrapper">
+    <img src={src} alt={alt} loading="lazy" />
+  </div>
+  {caption && (
+    <figcaption>{caption}</figcaption>
+  )}
+</figure>
+
+<style>
+  .full-width-image {
+    /* Bricht aus dem max-w-3xl prose-Container heraus */
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .image-wrapper {
+    aspect-ratio: 21 / 9;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0 !important;
+  }
+
+  figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-style: italic;
+    margin-top: 0.75rem;
+    padding: 0 2rem;
+  }
+</style>

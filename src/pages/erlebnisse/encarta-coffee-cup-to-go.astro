@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'encarta Coffee Cup To-Go', url: 'https://www.plasticsurf.de/erlebnisse/encarta-coffee-cup-to-go' },
+]);
+---
+
+<BaseLayout
+  title="encarta Coffee Cup To-Go – Verpackungsdesign – PlasticSurf"
+  description="Private Label Verpackungsdesign für den encarta Coffee Cup To-Go – Design, Umsetzung und Druckaufbereitung für Market Grounds im europäischen Coffee Bar Segment."
+  image="/images/erlebnisse/encarta-coffee-cup-to-go/encarta-coffee-cup-to-go-design-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/encarta-coffee-cup-to-go/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/encarta-coffee-cup-to-go/encarta-coffee-cup-to-go-design-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/encarta-coffee-cup-to-go/encarta-coffee-cup-to-go-design-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/encarta-coffee-cup-to-go/encarta-coffee-cup-to-go-design-hero-mobile.webp"
+      alt="encarta Coffee Cup To-Go – Verpackungsdesign für den weltberühmten Coffee-to-go-Becher"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">encarta Coffee Cup To-Go</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Zweispalten-Inhalt -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/encarta-coffee-cup-to-go/encarta-coffee-cup-to-go-flyer.webp"
+            alt="encarta Coffee Cup To-Go Flyer – Verpackungsdesign und Druckaufbereitung für Private Label"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: H1 + Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Verpackungsdesign
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            encarta Coffee Cups To-Go
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-4">
+            Ein weltberühmter Becher. Zu sehen in vielen Filmen, bei Promis und Werbeplakaten.
+          </p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Verpackung ist weit mehr als eine Produkthülle, es ist die Kunst, das Produkt und die Marke bestmöglich in Szene zu setzten. Realisieren Sie Ihre ganz eigenen Design-Ideen mit Private Label und sprechen Sie mich an.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Kunde
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            <strong>Market Grounds</strong> ist der führende Anbieter von innovativen Strategien und Produktkonzeptionen im europäischen Coffee Bar Segment.
+          </p>
+          <h2 class="reveal reveal-delay-500 font-primary text-3xl font-black leading-tight mb-4">
+            Service
+          </h2>
+          <p class="reveal reveal-delay-600 font-body text-base text-text/80 leading-relaxed">
+            Design / Umsetzung / Druckaufbereitung
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <ErlebnisCTA />
+
+</BaseLayout>

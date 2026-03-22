@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Soul of Frappé Verpackungen', url: 'https://www.plasticsurf.de/erlebnisse/soul-of-frappe-verpackungen' },
+]);
+---
+
+<BaseLayout
+  title="Soul of Frappé Verpackungen – Verpackungsdesign & Branding – PlasticSurf"
+  description="Soul of Frappé – Branding, Verpackungsdesign und Marketing für die Frappé-Marke: Kraftpapiertüten, Produktfotografie, Corporate Design und Online-Marketing aus einer Hand."
+  image="/images/erlebnisse/soul-of-frappe-verpackungen/soul-of-frappe-verpackungsdesign-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/soul-of-frappe-verpackungen/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/soul-of-frappe-verpackungen/soul-of-frappe-verpackungsdesign-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/soul-of-frappe-verpackungen/soul-of-frappe-verpackungsdesign-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/soul-of-frappe-verpackungen/soul-of-frappe-verpackungsdesign-hero-mobile.webp"
+      alt="Soul of Frappé Smooth Milky – Verpackungsdesign & Branding für die Frappé-Marke"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Soul of Frappé</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/soul-of-frappe-verpackungen/soul-of-frappe-verpackungsdesign-smooth-milky-choco.webp"
+            alt="Soul of Frappé Smooth Milky Choco – Verpackungsdesign für die Choco-Sorte"
+            class="w-full reveal"
+            loading="eager"
+          />
+          <img
+            src="/images/erlebnisse/soul-of-frappe-verpackungen/soul-of-frappe-verpackungsdesign-smooth-milky-vanille.webp"
+            alt="Soul of Frappé Smooth Milky Vanille – Verpackungsdesign für die Vanille-Sorte"
+            class="w-full reveal reveal-delay-100"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Rechte Spalte: H1 + Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Verpackungsdesign & Branding
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Soul of Frappé – Die Kunst des perfekten Sommergetränks
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Ein <strong>Frappé</strong> ist mehr als nur ein Getränk – er ist ein Lebensgefühl. Erfrischend, cremig und voller Genuss. Doch wie bringt man dieses Gefühl in eine Marke, die im Kopf bleibt? Genau das war die Herausforderung bei der Entwicklung von <strong>Soul of Frappé</strong>.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Branding & Produktentwicklung: Eine Marke mit Persönlichkeit
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Ein starkes Produkt braucht einen starken Auftritt. <strong>Soul of Frappé</strong> sollte nicht nur geschmacklich überzeugen, sondern auch als Marke klar erkennbar sein.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Dafür habe ich das gesamte <strong>Branding-Konzept</strong> entwickelt:
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            ✔ <strong>Produktname & Storytelling</strong> – ein Name, der Emotionen weckt<br />
+            ✔ <strong>Corporate Design</strong> – Farbwelt, Logo, Typografie<br />
+            ✔ <strong>Texte & Produktbeschreibungen</strong> – verständlich, einladend, verkaufsstark<br />
+            ✔ <strong>Preisstrategie & Positionierung</strong> – eine clevere Marktstrategie für maximalen Erfolg
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Verpackungsdesign: Nachhaltig, stilvoll, funktional
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Gutes Design endet nicht bei der Logo-Entwicklung – es zieht sich durch jedes Detail. Besonders beim Verpackungsdesign habe ich auf eine <strong>nachhaltige, aber ästhetische Lösung</strong> gesetzt.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            💡 <strong>Hochwertige Kraftpapiertüten ohne Aluminiumschicht</strong> – umweltfreundlich und modern<br />
+            💡 <strong>Ansprechendes Layout mit klarem Fokus auf Genuss & Qualität</strong><br />
+            💡 <strong>Hochwertige Produktfotografie</strong> – jede Aufnahme wurde speziell für Soul of Frappé erstellt
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Marketing & Werbung: Online & Offline erfolgreich
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Damit <strong>Soul of Frappé</strong> nicht nur gut aussieht, sondern auch die richtige Zielgruppe erreicht, habe ich eine <strong>umfassende Marketingstrategie</strong> entwickelt – sowohl für <strong>klassische Werbung als auch digitale Kampagnen</strong>.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            <strong>Printanzeigen & Flyer</strong> – stilvolle Werbemittel für den POS<br />
+            <strong>Online-Marketing</strong> – Social-Media-Kampagnen, SEO, Google Ads, Affiliate Marketing & Website-Texte<br />
+            <strong>Hochwertige Produktbilder & Werbemotive</strong> – für maximale visuelle Anziehungskraft
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

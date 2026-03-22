@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'KaffeeShop 24 Eco Kaffee Verpackungen', url: 'https://www.plasticsurf.de/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen' },
+]);
+---
+
+<BaseLayout
+  title="KaffeeShop 24 Eco Kaffee Verpackungen – Verpackungsdesign & Nachhaltigkeit – PlasticSurf"
+  description="Verpackungsdesign für den nachhaltigen Bio-Kaffee von KaffeeShop 24 – 100 % kompostierbar, mit Gemüsefarben bedruckt & sozial engagiert."
+  image="/images/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen/kaffeeshop-24-eco-verpackungsdesign-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen/kaffeeshop-24-eco-verpackungsdesign-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen/kaffeeshop-24-eco-verpackungsdesign-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen/kaffeeshop-24-eco-verpackungsdesign-hero-mobile.webp"
+      alt="KaffeeShop 24 Eco Kaffee Verpackungen – nachhaltiges Verpackungsdesign für Peru Sol & La Sombra Bio Kaffee"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">KaffeeShop 24 Eco</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter: Links Produktbild | Rechts vollständiger Text -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Peru Sol + La Sombra -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen/kaffeeshop-24-peru-sol-bio-kaffee-verpackungsdesign.webp"
+            alt="KaffeeShop 24 Peru Sol Bio Kaffee – nachhaltiges Verpackungsdesign aus kompostierbarem Material"
+            class="w-full reveal"
+            loading="eager"
+          />
+          <img
+            src="/images/erlebnisse/kaffeeshop-24-eco-kaffee-verpackungen/kaffeeshop-24-la-sombra-bio-espresso-verpackungsdesign.webp"
+            alt="KaffeeShop 24 La Sombra Bio Espresso Verpackung – nachhaltiges Design mit Gemüsefarben bedruckt"
+            class="w-full reveal"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Rechte Spalte: vollständiger Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Verpackungsdesign & Nachhaltigkeit
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Mein Beitrag zum nachhaltigen Verpackungsdesign
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Für <strong>KaffeeShop 24</strong> habe ich das <strong>Verpackungsdesign</strong> für den hochwertigen Peru Sol & La Sombra Bio Kaffee entwickelt. Dabei stand nicht nur ein ästhetisches und markengerechtes Design im Fokus, sondern auch eine konsequente Umsetzung nachhaltiger Prinzipien. Die Verpackung sollte die Exklusivität und Qualität des mehrfach ausgezeichneten Biokaffees unterstreichen und gleichzeitig die umweltfreundliche Philosophie der Marke transportieren.
+          </p>
+
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Nachhaltigkeit trifft auf Design – Die perfekte Verpackungslösung
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            Das Besondere an dieser Verpackung ist ihr 100 % kompostierbares Material, das aus Maisstärke und Rohrzucker besteht. Die Verpackung kann nach ca. drei Monaten vollständig abgebaut werden – ein echter Beitrag zur Reduzierung von Verpackungsmüll. Zudem wird sie mit natürlichen Gemüsefarben bedruckt, wodurch das Design nicht nur visuell ansprechend, sondern auch umweltfreundlich ist. Ich habe dafür gesorgt, dass das <strong>Verpackungsdesign</strong> die Werte von KaffeeShop 24 widerspiegelt: Nachhaltigkeit, Qualität und soziales Engagement.
+          </p>
+
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Verpackungsdesign mit Verantwortung – Mehr als nur Optik
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Neben der umweltfreundlichen Verpackung setzt der Peru Sol Bio Kaffee auch auf soziale Verantwortung: 1 Euro pro verkauftem Kilo wird an das Hilfsprojekt Dunkelziffer e.V. gespendet, das sich für Kinder einsetzt, die Opfer sexueller Gewalt geworden sind. Dieses Engagement wurde auch in das Verpackungsdesign integriert, um die Käufer transparent über den sozialen Mehrwert ihres Einkaufs zu informieren. Durch die Verbindung von ansprechendem Design, ökologischer Nachhaltigkeit und sozialem Engagement entstand eine Verpackung, die nicht nur Kaffee schützt, sondern auch einen positiven Beitrag für Umwelt und Gesellschaft leistet.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

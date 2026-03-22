@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Market Grounds WebShop', url: 'https://www.plasticsurf.de/erlebnisse/market-grounds-webshop' },
+]);
+---
+
+<BaseLayout
+  title="Market Grounds WebShop – eCommerce B2B & ERP-Anbindung – PlasticSurf"
+  description="Market Grounds WebShop: Entwicklung eines Web-Konzepts mit CMS & Shop-Integration, B2B eCommerce und SAGE ERP-Anbindung – Design und UX für den führenden Coffee Bar Anbieter Europas."
+  image="/images/erlebnisse/market-grounds-webshop/market-grounds-webshop-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/market-grounds-webshop/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/market-grounds-webshop/market-grounds-webshop-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/market-grounds-webshop/market-grounds-webshop-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/market-grounds-webshop/market-grounds-webshop-hero-mobile.webp"
+      alt="Market Grounds WebShop eCommerce – B2B & B2C Shop mit ERP-Anbindung und CMS-Integration"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Market Grounds</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/market-grounds-webshop/market-grounds-webshop-cms-shop-frontend.webp"
+            alt="Market Grounds WebShop CMS & Shop Frontend – omeco Shop System mit integrierter Shopfunktion"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            eCommerce & WebShop
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Market Grounds
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            WebSite basiert auf dem omeco CMS &amp; Shop System (heute Shopware). Die Aufgabe war die Entwicklung eines Web-Konzeptes, unter Berücksichtigung des MG CI&amp;CD, sowie die Umsetzung des Designs im CMS und im Shop. Das Besondere an diesem Projekt war die Integration der Shopfunktionen in das CMS und die Anbindung über eine spezielle Schnittstelle an die Warenwirtschaft (im Jahr 2004 war es lange nicht selbstverständlich).
+          </p>
+          <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed mb-10">
+            Market Grounds ist der führende Anbieter von innovativen Strategien und Produktkonzeptionen im europäischen Coffee Bar Segment.
+          </p>
+          <h2 class="reveal reveal-delay-400 font-primary text-3xl font-black leading-tight mb-4">
+            Aufgaben
+          </h2>
+          <ul class="reveal reveal-delay-500 font-body text-base text-text/80 leading-relaxed space-y-2 list-disc list-inside">
+            <li>Content Management</li>
+            <li>B2B eCommerce</li>
+            <li>Anbindung an ERP-System / SAGE</li>
+            <li>CSS Framework</li>
+            <li>Mehrsprachigkeit</li>
+            <li>Design / Layout</li>
+            <li>Suchmaschinen Optimierung</li>
+            <li>Newsletter Marketing</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="pt-8 md:pt-12 pb-16 md:pb-24 bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Einblicke in Design & Shop-Umsetzung
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl">
+        Die Kombination aus CMS und integriertem Shop ermöglichte Market Grounds einen nahtlosen Auftritt – von der Markenpräsentation bis zum B2B-Bestellprozess mit direkter SAGE ERP-Anbindung.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="aspect-[4/3] overflow-hidden reveal">
+          <img
+            src="/images/erlebnisse/market-grounds-webshop/market-grounds-webshop-website-design.webp"
+            alt="Market Grounds WebShop Website Design – CMS-Umsetzung mit Corporate Identity und mehrsprachigem Layout"
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-[4/3] overflow-hidden reveal reveal-delay-100">
+          <img
+            src="/images/erlebnisse/market-grounds-webshop/market-grounds-webshop-produktseite-layout.webp"
+            alt="Market Grounds WebShop Produktseite – SEO-optimiertes Layout mit integrierter Shop-Navigation"
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

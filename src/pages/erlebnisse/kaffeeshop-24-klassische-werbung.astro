@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'KaffeeShop 24 Klassische Werbung', url: 'https://www.plasticsurf.de/erlebnisse/kaffeeshop-24-klassische-werbung' },
+]);
+---
+
+<BaseLayout
+  title="KaffeeShop 24 Klassische Werbung – Printkampagnen & Crossmedia – PlasticSurf"
+  description="KaffeeShop 24 Klassische Werbung: Über 15 Jahre crossmediale Markenkommunikation – Printkampagnen, Magazine und Flyer für den Gourmetkaffee-Onlineshop."
+  image="/images/erlebnisse/kaffeeshop-24-klassische-werbung/kaffeeshop-24-klassische-werbung-kaffee-magazin-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/kaffeeshop-24-klassische-werbung/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/kaffeeshop-24-klassische-werbung/kaffeeshop-24-klassische-werbung-kaffee-magazin-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/kaffeeshop-24-klassische-werbung/kaffeeshop-24-klassische-werbung-kaffee-magazin-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/kaffeeshop-24-klassische-werbung/kaffeeshop-24-klassische-werbung-kaffee-magazin-hero-mobile.webp"
+      alt="KaffeeShop 24 Klassische Werbung – Kaffee-Magazin Printkampagne und Markenkommunikation"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">KaffeeShop 24 Klassische Werbung</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Flyer-Bild -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/kaffeeshop-24-klassische-werbung/kaffeeshop-24-kaffee-flyer-01-printkampagne.webp"
+            alt="KaffeeShop 24 Kaffee-Flyer – Printdesign für flyerbasierte Promotion"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: H1 + Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Klassische Werbung
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Klassische Werbung für KaffeeShop 24
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            Kaffee ist mehr als ein Getränk – er ist Genuss, Tradition und ein Stück Lebensqualität. <strong>KaffeeShop 24</strong> hat es sich zur Aufgabe gemacht, genau dieses Gefühl in jedem Schluck spürbar zu machen. Als Online-Shop für Feinschmecker bietet das Unternehmen eine beeindruckende Vielfalt: <strong>über 100 handgeröstete Gourmetkaffees</strong> sowie eine breite Auswahl an <strong>Tee, Trinkschokolade, Gebäck und weiteren Spezialitäten aus aller Welt</strong>.
+          </p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Doch wie macht man ein so genussvolles Sortiment auch außerhalb der digitalen Welt erlebbar? Genau hier kam ich ins Spiel.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Printwerbung mit Charakter: Genuss, der ins Auge fällt
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Printwerbung mag im digitalen Zeitalter oft unterschätzt werden – doch richtig gemacht, bleibt sie ein wirkungsvolles Instrument. Für <strong>KaffeeShop 24</strong> habe ich <strong>Printkampagnen</strong> entwickelt, die nicht nur ins Auge springen, sondern auch Lust auf Genuss machen.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Von hochwertigen <strong>Imageanzeigen in Magazinen</strong> über gezielte <strong>Plakatwerbung</strong> bis hin zu <strong>stimmungsvollen Printanzeigen</strong> – jede Kampagne war darauf ausgerichtet, das sinnliche Erlebnis von Kaffee haptisch erlebbar zu machen. <strong>Edles Design, starke Headlines und eine klare Markenbotschaft</strong> sorgten für hohe Aufmerksamkeit und nachhaltige Kundenbindung.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Flyer &amp; Magazine: Storytelling, das begeistert
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-4 max-w-2xl">
+        Kaffee ist Emotion – und genau das sollte sich auch in den Werbemitteln widerspiegeln. Für KaffeeShop 24 habe ich <strong>flyerbasierte Promotions, Angebotsbroschüren und Kundenmagazine</strong> gestaltet, die nicht nur Produkte präsentierten, sondern Geschichten erzählten:
+      </p>
+      <ul class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl list-none space-y-2">
+        <li>✔ <strong>Hintergrundgeschichten zu Kaffeesorten</strong> – von der Bohne bis zur Tasse</li>
+        <li>✔ <strong>Zubereitungstipps und Barista-Wissen</strong> für echte Genießer</li>
+        <li>✔ <strong>Saisonale Angebote und exklusive Spezialitäten</strong> im ansprechenden Editorial-Stil</li>
+      </ul>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+        <div class="aspect-[1929/2560] overflow-hidden reveal">
+          <img
+            src="/images/erlebnisse/kaffeeshop-24-klassische-werbung/kaffeeshop-24-kaffee-magazin-gross-werbung.webp"
+            alt="KaffeeShop 24 Kaffee-Magazin – Storytelling im Editorial-Stil"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-[1929/2560] overflow-hidden reveal reveal-delay-100">
+          <img
+            src="/images/erlebnisse/kaffeeshop-24-klassische-werbung/kaffeeshop-24-kaffee-flyer-02-printkampagne.webp"
+            alt="KaffeeShop 24 Kaffee-Flyer – Angebotsbroschüre im Editorial-Stil"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-4">
+        Fazit: Klassische Werbung mit nachhaltiger Wirkung
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-4 max-w-2xl">
+        In über 15 Jahren Zusammenarbeit mit KaffeeShop 24 haben wir bewiesen, dass <strong>klassische Werbung</strong> und moderne <strong>E-Commerce-Strategien</strong> sich perfekt ergänzen können. Durch gezielte <strong>Printkampagnen</strong>, inspirierende Magazine und geschmackvolle <strong>Flyer</strong> wurde nicht nur die Markenbekanntheit gesteigert, sondern auch eine tiefe emotionale Verbindung zur Zielgruppe geschaffen.
+      </p>
+      <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed max-w-2xl">
+        Denn am Ende geht es nicht nur um den Verkauf von Kaffee – sondern um das Erlebnis, das er vermittelt.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

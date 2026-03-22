@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Snapple Limonade', url: 'https://www.plasticsurf.de/erlebnisse/snapple-limonade' },
+]);
+---
+
+<BaseLayout
+  title="Snapple Limonade – Klassische Werbung & POS-Materialien – PlasticSurf"
+  description="Klassische Werbung für Snapple Limonade: Poster, Banner, Messeausstattung & Flyer für die Kult-Marke aus New York. Made from the Best Stuff on Earth."
+  image="/images/erlebnisse/snapple-limonade/snapple-limonade-marketing-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/snapple-limonade/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/snapple-limonade/snapple-limonade-marketing-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/snapple-limonade/snapple-limonade-marketing-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/snapple-limonade/snapple-limonade-marketing-hero-mobile.webp"
+      alt="Snapple Limonade Marketing – Flyer-Kampagne für die Kult-Marke aus New York"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Snapple Limonade</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Poster -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/snapple-limonade/snapple-limonade-marketing-poster.webp"
+            alt="Snapple Limonade Marketing Poster – Made from the Best Stuff on Earth"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Klassische Werbung
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Snapple – Limonade mit Kultstatus
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            Kennst du das Gefühl, wenn du den perfekten Schluck Limonade nimmst und sofort merkst: <strong>Das ist mehr als nur ein Drink</strong>? Genau das hatten <strong>Leonard Marsh, Hyman Golden und Arnold Greenberg</strong> im Kopf, als sie 1972 in <strong>Greenwich Village, New York</strong> ihre ersten Fruchtsaftgetränke entwickelten.
+          </p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Damals starteten sie klein – mit echten Zutaten, echten Aromen und dem Ziel, <strong>Fruchtsäfte und Tees zu kreieren, die anders sind als alles, was es bisher gab.</strong> Der Name <em>Snapple</em>? Der stammt von einem <strong>spritzigen Apfelsoda</strong> aus der ersten Produktlinie, das für seinen „snappy apple taste" bekannt war. Der Rest ist Geschichte – und bis heute steht Snapple für <strong>unvergleichlichen Geschmack, hergestellt aus den besten Zutaten der Erde.</strong>
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Mehr als nur eine Limonade – ein Lebensgefühl
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Heute gibt es über <strong>50 verschiedene Sorten</strong> – von <strong>Eistees und Fruchtsaftgetränken</strong> bis hin zu <strong>aromatisiertem Wasser</strong>. Und egal, welche Sorte du dir gönnst: <strong>Snapple schmeckt nach echter Frucht, echtem Tee und purer Erfrischung.</strong>
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            <strong>Beste Zutaten</strong> – keine Kompromisse, nur Geschmack<br />
+            <strong>Legendäre Sortenvielfalt</strong> – von snappy Apple bis zum kultigen Lemon Tea<br />
+            <strong>New Yorker Original seit 1972</strong> – authentisch, einzigartig, unverwechselbar
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Ein Schluck, und du weißt: <strong>Das hier ist kein gewöhnliches Getränk – das ist Snapple.</strong>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Klassische Werbung: Die Marke sichtbar machen
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-6 max-w-2xl">
+        Ein Getränk mit so viel Geschichte verdient es, <strong>richtig in Szene gesetzt zu werden</strong>. Genau hier kamen meine kreativen Konzepte ins Spiel:
+      </p>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-6 max-w-2xl">
+        <strong>Poster &amp; Banner</strong> – auffällig, frisch und mit Snapple-Attitude<br />
+        <strong>Messeausstattung, Roll-up Displays &amp; Tischaufsteller</strong> – direkt am POS, genau da, wo die Entscheidung fällt<br />
+        <strong>Flyer &amp; Printwerbung</strong> – gezielt und mit cleverem Storytelling
+      </p>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl">
+        Snapple ist <strong>laut, bunt und voller Energie</strong> – genau das spiegeln auch die Werbemittel wider. <strong>Jedes Detail wurde so gestaltet, dass es den unverwechselbaren Snapple-Vibe einfängt.</strong>
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+        <div class="aspect-[3/2] overflow-hidden reveal">
+          <img
+            src="/images/erlebnisse/snapple-limonade/snapple-limonade-marketing-rollup.webp"
+            alt="Snapple Limonade Marketing Roll-up Display – POS-Ausstattung für Messe und Handel"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-[3/2] overflow-hidden reveal reveal-delay-100">
+          <img
+            src="/images/erlebnisse/snapple-limonade/snapple-limonade-marketing-flyer-2.webp"
+            alt="Snapple Limonade Marketing Flyer – Printwerbung mit cleverem Storytelling"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-4">
+        Kultgetränk mit unverwechselbarem Auftritt
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-4 max-w-2xl">
+        Snapple ist mehr als eine Limonade. <strong>Es ist ein Statement.</strong> Ein Getränk für alle, die <strong>echten Geschmack, echte Zutaten und echte Geschichten lieben.</strong>
+      </p>
+      <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-4 max-w-2xl">
+        Mit einem durchdachten Mix aus <strong>klassischer Werbung, kreativen POS-Materialien und aufmerksamkeitsstarken Designs</strong> wurde Snapple als <strong>unverwechselbare Marke positioniert – genau so, wie es sein sollte.</strong>
+      </p>
+      <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed max-w-2xl">
+        Denn wenn du einmal Snapple probiert hast, weißt du: <strong>That's the best stuff on Earth.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

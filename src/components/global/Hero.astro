@@ -1,0 +1,67 @@
+---
+interface Props {
+  headline: string;
+  subline?: string;
+  text?: string;
+  layout?: 'centered' | 'left';
+  class?: string;
+  eyebrow?: string;
+}
+
+const { headline, subline, text, layout = 'centered', class: className, eyebrow } = Astro.props;
+const isCentered = layout === 'centered';
+---
+
+<section class:list={['relative min-h-screen flex items-center pt-32', className]}>
+  <div class="container-custom w-full">
+    <div class:list={[isCentered ? 'max-w-5xl mx-auto text-center' : 'max-w-5xl']}>
+      {eyebrow && (
+        <h1 class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+          {eyebrow}
+        </h1>
+      )}
+      {eyebrow ? (
+        <h2
+          class="reveal text-5xl md:text-7xl lg:text-[6.25rem] font-heading font-black leading-[1.1]"
+          set:html={headline}
+        />
+      ) : (
+        <h1
+          class="reveal text-5xl md:text-7xl lg:text-[6.25rem] font-heading font-black leading-[1.1]"
+          set:html={headline}
+        />
+      )}
+      {subline && (
+        <p class:list={[
+          'reveal reveal-delay-100 mt-4 font-secondary text-2xl md:text-3xl text-[#927350] italic leading-snug',
+          isCentered && 'max-w-2xl mx-auto'
+        ]}>
+          {subline}
+        </p>
+      )}
+      {text && (
+        <p class:list={[
+          'reveal reveal-delay-200 mt-12 text-lg md:text-2xl lg:text-[2.125rem] leading-snug text-[#927350] font-secondary',
+          isCentered && 'max-w-2xl mx-auto'
+        ]}>
+          {text}
+        </p>
+      )}
+      <slot />
+    </div>
+  </div>
+
+  <!-- Scroll-Indikator: nur Desktop/Tablet -->
+  <div class="hidden md:flex flex-col items-center absolute bottom-8 left-1/2 -translate-x-1/2" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="scroll-chevron w-8 h-8 text-text/40"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1.5"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</section>

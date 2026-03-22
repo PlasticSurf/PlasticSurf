@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'AriZona Eistee', url: 'https://www.plasticsurf.de/erlebnisse/arizona-eistee-2' },
+]);
+---
+
+<BaseLayout
+  title="AriZona Eistee Design Marketing – PlasticSurf"
+  description="AriZona Eistee - Ich habe die Kult Marke bei der Deutschland Markteinführung mit Design und Marketing begleitet, über mehrere Jahre betreut."
+  image="/images/erlebnisse/arizona-eistee-2/arizona-eistee-marketing-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/arizona-eistee-2/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/arizona-eistee-2/arizona-eistee-marketing-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/arizona-eistee-2/arizona-eistee-marketing-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/arizona-eistee-2/arizona-eistee-marketing-hero-mobile.webp"
+      alt="AriZona Eistee Messe-Banner – Design und Marketing zur Markteinführung in Deutschland"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">AriZona Eistee</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/arizona-eistee-2/arizona-eistee-poster-print.webp"
+            alt="AriZona Eistee Poster – Printwerbung zur Markteinführung in Deutschland"
+            class="w-full reveal"
+            loading="eager"
+          />
+          <img
+            src="/images/erlebnisse/arizona-eistee-2/arizona-eistee-anzeige-werbung.webp"
+            alt="AriZona Eistee Anzeige – Print-Werbeanzeige für die Deutschland-Kampagne"
+            class="w-full reveal reveal-delay-100"
+            loading="eager"
+          />
+          <img
+            src="/images/erlebnisse/arizona-eistee-2/arizona-eistee-flyer-werbung.webp"
+            alt="AriZona Eistee Flyer – Werbematerial zur Markteinführung in Deutschland"
+            class="w-full reveal reveal-delay-200"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Marketing & Design
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            AriZona Eistee – Design & Marketing für die Markteinführung in Deutschland
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            Ich habe die <strong>Deutschland-Markteinführung von AriZona Eistee</strong> mit umfangreichen Design- und Marketingmaßnahmen begleitet. Ziel war es, die bereits international bekannte Marke mit einer starken, visuell ansprechenden und strategisch ausgerichteten Kampagne in den deutschen Markt einzuführen. Der unverwechselbare Look von AriZona Eistee, kombiniert mit innovativen Werbemaßnahmen, sollte die Zielgruppe begeistern und die Marke langfristig im Handel, in der Gastronomie und im Online-Bereich etablieren.
+          </p>
+          <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed mb-10">
+            Die farbenfrohen, detailreich gestalteten Flaschen von <strong>AriZona Eistee</strong> sind längst Kult. Sie sind nicht nur ein Getränk, sondern ein Lifestyle-Statement – ein Must-have für Trendsetter und Sammler. Doch nicht nur das Design begeistert: Die außergewöhnlichen Geschmacksrichtungen aus grünem Tee, Früchten und natürlichen Aromen haben AriZona Eistee in Coffee-Shops und Bars auf der ganzen Welt zu einem Erfolg gemacht. Dieses besondere Markenerlebnis sollte auch in Deutschland perfekt inszeniert werden.
+          </p>
+          <h2 class="reveal reveal-delay-400 font-primary text-3xl font-black leading-tight mb-4">
+            Design & Marketing für eine starke Markenpräsenz
+          </h2>
+          <ul class="reveal reveal-delay-500 font-body text-base text-text/80 leading-relaxed mb-6 flex flex-col gap-2 list-none">
+            <li class="flex gap-2"><span class="text-primary mt-1">–</span><span><strong>Printwerbung, Flyer & Plakate</strong>, um die Marke offline in Szene zu setzen</span></li>
+            <li class="flex gap-2"><span class="text-primary mt-1">–</span><span><strong>Online-Werbung</strong>, um die digitale Präsenz von AriZona Eistee gezielt aufzubauen</span></li>
+            <li class="flex gap-2"><span class="text-primary mt-1">–</span><span><strong>Messe- und Gastronomieausstattung</strong>, um die Marke direkt erlebbar zu machen</span></li>
+            <li class="flex gap-2"><span class="text-primary mt-1">–</span><span><strong>Displays für den Handel</strong>, um eine aufmerksamkeitsstarke Platzierung im Einzelhandel zu gewährleisten</span></li>
+            <li class="flex gap-2"><span class="text-primary mt-1">–</span><span><strong>LKW-Bedruckung & Planen</strong>, um AriZona Eistee auch im Straßenbild präsent zu machen</span></li>
+          </ul>
+          <p class="reveal reveal-delay-600 font-body text-base text-text/80 leading-relaxed">
+            Diese Maßnahmen wurden gezielt auf die Markenwerte von AriZona abgestimmt: Trendbewusstsein, Lebensfreude und Individualität. Das Design spielte dabei eine zentrale Rolle – von den Werbematerialien bis hin zur Markeninszenierung am Point of Sale.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        AriZona Eistee: Ein Erfolgsrezept für die Markteinführung
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed max-w-2xl">
+        Dank einer ganzheitlichen Marketing- und Designstrategie konnte AriZona Eistee in Deutschland erfolgreich positioniert werden. Die Kampagne transportierte den einzigartigen Lifestyle der Marke und setzte sowohl auf visuelle Anziehungskraft als auch auf strategische Platzierung im Handel und in der Gastronomie. So wurde sichergestellt, dass AriZona Eistee nicht nur als Getränk, sondern als echtes Trendprodukt wahrgenommen wird.
+      </p>
+    </div>
+  </section>
+
+  <!-- LKW auf Seitenbreite -->
+  <div class="container-custom">
+    <img
+      src="/images/erlebnisse/arizona-eistee-2/arizona-eistee-lkw-truck-branding.webp"
+      alt="AriZona Eistee LKW-Bedruckung – Truck Branding für die Markenpräsenz im Straßenbild"
+      class="w-full h-auto block reveal"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

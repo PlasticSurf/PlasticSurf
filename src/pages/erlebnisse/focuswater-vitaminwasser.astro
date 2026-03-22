@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'FocusWater VitaminWasser', url: 'https://www.plasticsurf.de/erlebnisse/focuswater-vitaminwasser' },
+]);
+---
+
+<BaseLayout
+  title="FocusWater VitaminWasser – eCommerce & Marketing – PlasticSurf"
+  description="Die Markteinführung von FocusWater in Deutschland: WebShop, Design, Produktfotos & Influencer Marketing für DAS Schweizer Vitaminwasser."
+  image="/images/erlebnisse/focuswater-vitaminwasser/focuswater-vitaminwasser-ecommerce-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/focuswater-vitaminwasser/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/focuswater-vitaminwasser/focuswater-vitaminwasser-ecommerce-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/focuswater-vitaminwasser/focuswater-vitaminwasser-ecommerce-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/focuswater-vitaminwasser/focuswater-vitaminwasser-ecommerce-hero-mobile.webp"
+      alt="FocusWater VitaminWasser eCommerce – WebShop-Konzept und Marketing für die Deutschland-Einführung"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">FocusWater</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/focuswater-vitaminwasser/focuswater-vitaminwasser-produkt-foto-02.webp"
+            alt="FocusWater VitaminWasser Produktfoto – Überzeugende Produkt-Photos für den deutschen Markt"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            eCommerce & Marketing
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            FocusWater
+            Vitaminwasser
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            FocusWater ist DAS Vitaminwasser aus der Schweiz und steht für ein modernes, erfrischendes Trinkerlebnis. Mit einer perfekt abgestimmten Mischung aus Vitaminen und Mineralstoffen unterstützt FocusWater den täglichen Bedarf deines Körpers. Ganz im Sinne von „Join the Movement" möchte ich Menschen inspirieren, gemeinsam Neues zu schaffen und das Leben mit voller Energie anzugehen. Inspiration ist für mich der Grundstoff für ein glückliches Leben – erst recht, wenn man es teilt und andere motiviert.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Meine Rolle bei der Deutschland-Einführung
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Ich habe die Markteinführung von FocusWater Vitaminwasser in Deutschland begleitet und dabei ein umfassendes Konzept für den Online-Auftritt entwickelt. Zu meinen Aufgaben zählten das WebShop-Konzept, das Layout/Design sowie die Umsetzung für B2B und B2C. Darüber hinaus habe ich einen Storefinder integriert und überzeugende Produkt-Photos erstellt, um DAS Schweizer Vitaminwasser optimal in Szene zu setzen.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Mein Ansatz: Influencer Marketing & authentische Markenbotschaft
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl">
+        Um das Potential von FocusWater voll auszuschöpfen, habe ich ein zielgerichtetes Influencer Marketing konzipiert. Dabei war es mir besonders wichtig, mit Persönlichkeiten zusammenzuarbeiten, die den aktiven und positiven Lifestyle der Marke glaubhaft transportieren. So konnte ich sicherstellen, dass die Message von FocusWater – frisch, vital und inspirierend – auf natürliche Weise in die jeweilige Community getragen wird. Gemeinsam erreichen wir Großes, wenn wir uns gegenseitig motivieren und unterstützen.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img
+          src="/images/erlebnisse/focuswater-vitaminwasser/focuswater-vitaminwasser-ecommerce-shop-04.webp"
+          alt="FocusWater VitaminWasser eCommerce – Produktpräsentation für die Markteinführung in Deutschland"
+          class="w-full reveal"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/focuswater-vitaminwasser/focuswater-vitaminwasser-produkt-foto-01.webp"
+          alt="FocusWater VitaminWasser Produktfoto – Produktpräsentation für die Markteinführung in Deutschland"
+          class="w-full reveal reveal-delay-100"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <ErlebnisCTA />
+
+</BaseLayout>

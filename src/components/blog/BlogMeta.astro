@@ -1,0 +1,81 @@
+---
+interface Props {
+  author: string;
+  date: string;
+  updated?: string;
+  readingTime: number | string;
+  avatar?: string;
+  category?: string;
+}
+
+function formatDate(dateString: string): string {
+  return new Date(dateString).toLocaleDateString('de-DE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const { author, date, updated, readingTime, avatar, category } = Astro.props;
+---
+
+<div class="blog-meta my-8 p-6 bg-white/5 rounded-lg border border-white/10">
+  <div class="flex flex-wrap items-center gap-6">
+    <!-- Category -->
+    {category && (
+      <div class="flex items-center gap-2 text-xs text-gray-500">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+        </svg>
+        <span>{category}</span>
+      </div>
+    )}
+    
+    <!-- Author -->
+    <div class="flex items-center gap-3">
+      {avatar ? (
+        <img
+          src={avatar}
+          alt={author}
+          class="w-10 h-10 rounded-full object-cover"
+        />
+      ) : (
+        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+          <span class="text-primary font-semibold text-sm">
+            {author.charAt(0).toUpperCase()}
+          </span>
+        </div>
+      )}
+      <div>
+        <p class="font-heading text-sm font-medium text-gray-900">{author}</p>
+        <p class="font-body text-xs text-gray-500">Autor</p>
+      </div>
+    </div>
+
+    <!-- Date -->
+    <div class="flex items-center gap-2 text-sm text-gray-500">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+      <span>{formatDate(date)}</span>
+    </div>
+
+    <!-- Updated -->
+    {updated && (
+      <div class="flex items-center gap-2 text-sm text-gray-500">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        <span>Aktualisiert: {formatDate(updated)}</span>
+      </div>
+    )}
+
+    <!-- Reading Time -->
+    <div class="flex items-center gap-2 text-sm text-gray-500">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>{typeof readingTime === 'number' ? `${readingTime} Min.` : readingTime} Lesezeit</span>
+    </div>
+  </div>
+</div>

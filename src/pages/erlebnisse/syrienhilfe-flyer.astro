@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'SyrienHilfe Flyer', url: 'https://www.plasticsurf.de/erlebnisse/syrienhilfe-flyer' },
+]);
+---
+
+<BaseLayout
+  title="SyrienHilfe – Flyer, Plakate & Jahresberichte – Klassische Werbung – PlasticSurf"
+  description="Klassische Informationsmittel für SyrienHilfe e.V.: Jahresberichte, Flyer und Plakate für humanitäre Hilfe in Syrien."
+  image="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/syrienhilfe-flyer/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-hero-mobile.webp"
+      alt="SyrienHilfe Klassische Werbung – Flyer für humanitäre Hilfe in Syrien"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">SyrienHilfe Flyer</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Jahresbericht -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-flyer-2019.webp"
+            alt="SyrienHilfe Klassische Werbung Flyer 2019 – Informationsflyer für humanitäre Hilfe in Syrien"
+            class="w-full reveal"
+            loading="eager"
+          />
+          <img
+            src="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-jahresbericht-s1.webp"
+            alt="SyrienHilfe Klassische Werbung Jahresbericht – Seite 1"
+            class="w-full reveal reveal-delay-100"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Klassische Werbung
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            SyrienHilfe
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            SyrienHilfe e.V. ist ein Verein zur Förderung humanitärer Hilfe in Syrien.
+          </p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            Um den Opfern des Konfliktes in Syrien persönlich und unmittelbar helfen zu können, hat sich eine Gruppe von Ärzten, Ingenieuren, Archäologen, Lehrern und Künstlern entschieden, den gemeinnützigen Verein SyrienHilfe e.V. zu gründen.
+          </p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            SyrienHilfe e.V. leistet vorrangig innerhalb Syriens, aber auch in den Nachbarländern Libanon und Türkei, humanitäre Hilfe und Nothilfe für die syrischen Flüchtlinge, unterstützt oder realisiert verschiedene Selbsthilfe-Projekte und (Aus-) Bildungsprojekte und kümmert sich im Rahmen der Möglichkeiten um die medizinische Versorgung von Kranken und Behinderten.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Klassische Informationsmittel
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            Jahresberichte, Flyer, Plakate.
+          </p>
+          <h2 class="reveal reveal-delay-400 font-primary text-3xl font-black leading-tight mb-4">
+            Aufgaben
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Klassische Informationsmittel für eine gemeinnützige Organisation – <strong>Jahresberichte, Flyer und Plakate</strong>, die Spender, Partner und Interessierte über die humanitäre Arbeit von SyrienHilfe e.V. informieren.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div class="aspect-[3/2] overflow-hidden reveal">
+          <img
+            src="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-jahresbericht-s2.webp"
+            alt="SyrienHilfe Klassische Werbung Jahresbericht – Seite 2"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-[3/2] overflow-hidden reveal reveal-delay-100">
+          <img
+            src="/images/erlebnisse/syrienhilfe-flyer/syrienhilfe-klassische-werbung-jahresbericht-s3.webp"
+            alt="SyrienHilfe Klassische Werbung Jahresbericht – Seite 3"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

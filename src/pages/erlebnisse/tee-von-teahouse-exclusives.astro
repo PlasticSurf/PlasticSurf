@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Tee von Teahouse Exclusives', url: 'https://www.plasticsurf.de/erlebnisse/tee-von-teahouse-exclusives' },
+]);
+---
+
+<BaseLayout
+  title="Tee von Teahouse Exclusives – Webdesign & Animierte Website – PlasticSurf"
+  description="Für Teahouse Exclusives habe ich eine animierte, mehrsprachige Website entwickelt. Stilvolles Webdesign für exklusiven Tee!"
+  image="/images/erlebnisse/tee-von-teahouse-exclusives/tee-von-teahouse-exclusives-webdesign-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/tee-von-teahouse-exclusives/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/tee-von-teahouse-exclusives/tee-von-teahouse-exclusives-webdesign-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/tee-von-teahouse-exclusives/tee-von-teahouse-exclusives-webdesign-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/tee-von-teahouse-exclusives/tee-von-teahouse-exclusives-webdesign-hero-mobile.webp"
+      alt="Tee von Teahouse Exclusives – Animierte, mehrsprachige Website für exklusiven Tee"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Teahouse Exclusives</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bild -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/tee-von-teahouse-exclusives/tee-von-teahouse-exclusives-webdesign-website-1.webp"
+            alt="Teahouse Exclusives Webdesign – Mehrsprachige animierte Website für exklusiven Tee"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Webdesign & Website
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Tee von Teahouse Exclusives
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-6">
+            Für Teahouse Exclusives habe ich eine mehrsprachige, animierte Website entwickelt, die das luxuriöse und trendbewusste Image der Marke digital erlebbar macht. Das Ziel war es, ein einzigartiges Online-Erlebnis zu schaffen, das die hochwertigen Teesorten, das stilvolle Packaging und die Markenphilosophie perfekt in Szene setzt.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Teahouse Exclusives – Exklusiver Tee, Exklusives Webdesign
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            TE – Teahouse Exclusives steht für herausragende Qualität und außergewöhnliche Geschmackskreationen. Die Marke vereint Tradition mit modernen Trends und richtet sich an eine neue Generation von Teeliebhabern, die Wert auf Qualität und Design legen. Um dieses Premium-Gefühl auch online zu vermitteln, wurde die Website mit hochwertigen Animationen und einer klaren, eleganten Ästhetik gestaltet – passend zum einzigartigen Charakter der Marke.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Webdesign mit Mehrwert – Stilvoll, Funktional &amp; Mehrsprachig
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Mein Fokus beim Webdesign lag auf einem ansprechenden, intuitiven und funktionalen Aufbau, der den User durch die Markenwelt von Teahouse Exclusives führt. Die mehrsprachige Umsetzung sorgte für eine internationale Reichweite und ermöglichte es, die exklusiven Tee-Kreationen einer globalen Zielgruppe zu präsentieren. Durch gezielt eingesetzte Animationen und ein elegantes Design wurde eine digitale Plattform geschaffen, die den hohen Ansprüchen von Teeliebhabern gerecht wird und das Markenerlebnis perfekt ergänzt.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Die digitale Markenwelt von Teahouse Exclusives
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl">
+        Eine Premium-Marke braucht einen Premium-Auftritt – die animierte, mehrsprachige Website bringt das exklusive Tee-Sortiment und die Markenphilosophie von Teahouse Exclusives genau dorthin, wo sie hingehören: ins Rampenlicht.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="aspect-[3/2] overflow-hidden reveal">
+          <img
+            src="/images/erlebnisse/tee-von-teahouse-exclusives/tee-von-teahouse-exclusives-webdesign-website-2.webp"
+            alt="Teahouse Exclusives Website – Elegante Ästhetik und hochwertige Animationen"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-[3/2] overflow-hidden reveal reveal-delay-100">
+          <img
+            src="/images/erlebnisse/tee-von-teahouse-exclusives/tee-von-teahouse-exclusives-webdesign-website-3.webp"
+            alt="Teahouse Exclusives Webdesign – Mehrsprachige Präsentation für internationale Teeliebhaber"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

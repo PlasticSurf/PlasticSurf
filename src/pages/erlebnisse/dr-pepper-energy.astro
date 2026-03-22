@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Dr Pepper Energy', url: 'https://www.plasticsurf.de/erlebnisse/dr-pepper-energy' },
+]);
+---
+
+<BaseLayout
+  title="Dr Pepper Energy Marketing & Design – PlasticSurf"
+  description="Ich habe die Markteinführung von Dr Pepper Energy mit Marketing & Design begleitet. Erfahre mehr über meine kreativen Lösungen."
+  image="/images/erlebnisse/dr-pepper-energy/dr-pepper-energy-marketing-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/dr-pepper-energy/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/dr-pepper-energy/dr-pepper-energy-marketing-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/dr-pepper-energy/dr-pepper-energy-marketing-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/dr-pepper-energy/dr-pepper-energy-marketing-hero-mobile.webp"
+      alt="Dr Pepper Energy Marketing & Design – Banner zur Markteinführung in Deutschland"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Dr Pepper Energy</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Zweispalten-Inhalt -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bild -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/dr-pepper-energy/dr-pepper-energy-marketing-plakat.webp"
+            alt="Dr Pepper Energy Marketing Plakat – Werbemittel zur Markteinführung in Deutschland"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text vollständig -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Marketing & Design
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Dr Pepper Energy Marketing & Design
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Ich habe die Markteinführung von Dr Pepper Energy in Deutschland begleitet und dabei ein ganzheitliches Marketing- und Design-Konzept entwickelt. Von der Erstellung auffälliger Printwerbung, Flyer und Messeausstattungen bis hin zu aufmerksamkeitsstarken Displays im LEH – mein Ziel war stets, den einzigartigen Geschmack aus 23 Aromen und die volle Ladung Energie unverwechselbar zu präsentieren.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Das einzigartige Dr Pepper Energy-Erlebnis
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            GET THE ENERGY lautet das Motto: Dr Pepper Energy steht für pure Action, echte Individualität und den Mut, Grenzen zu sprengen. Ob du tagsüber in der Schule Vollgas gibst, im Job alles gibst oder nachts mit Freunden durchstartest – dieses Getränk ist dein Partner in Crime. Ich liebe es, keine halben Sachen zu machen, sondern kompromisslos abzuliefern. Genau deshalb habe ich meine gesamte Leidenschaft in das Branding und die Inszenierung von Dr Pepper Energy gesteckt.
+          </p>
+          <h2 class="reveal reveal-delay-500 font-primary text-3xl font-black leading-tight mb-4">
+            Mein Marketing Design-Ansatz
+          </h2>
+          <p class="reveal reveal-delay-600 font-body text-base text-text/80 leading-relaxed">
+            In meinen Projekten lege ich besonderen Wert auf einen zielgruppengerechten Auftritt, bei dem Branding, Kommunikation und Design perfekt harmonieren. Dr Pepper Energy ist ein Lifestyle-Produkt, das Freiheit und Selbstbestimmung feiert – und genau dieser Spirit sollte sich in jeder Werbebotschaft widerspiegeln. Wenn du auch für deine Marke ein markantes Konzept suchst, mit dem du aus der Masse herausstichst, melde dich bei mir. Gemeinsam erschaffen wir eine Kampagne, die nachhaltig im Gedächtnis bleibt.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <ErlebnisCTA />
+
+</BaseLayout>

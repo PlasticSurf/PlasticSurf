@@ -1,0 +1,26 @@
+---
+interface Props {
+  headline?: string;
+  subline?: string;
+}
+
+const {
+  headline = 'Dein nächstes Erlebnis?',
+  subline = 'Lass uns gemeinsam deine Marke in Bewegung bringen.',
+} = Astro.props;
+---
+
+<section class="section-padding-lg bg-primary/5">
+  <div class="container-custom text-center">
+    <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-4">
+      {headline}
+    </h2>
+    <p class="reveal reveal-delay-200 font-secondary text-2xl text-[#927350] max-w-xl mx-auto mb-8">
+      {subline}
+    </p>
+    <div class="reveal reveal-delay-400 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/kontakt" class="btn-primary">Jetzt anfragen</a>
+      <a href="/erlebnisse" class="btn-secondary">Alle Erlebnisse</a>
+    </div>
+  </div>
+</section>

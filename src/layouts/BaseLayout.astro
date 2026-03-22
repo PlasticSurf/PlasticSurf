@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import ScrollReveal from '../components/utils/ScrollReveal.astro';
+import Header from '../components/global/Header.astro';
+import Footer from '../components/global/Footer.astro';
+import CookieBanner from '../components/global/CookieBanner.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  ogType?: 'website' | 'article';
+}
+
+const {
+  title,
+  description = 'PlasticSurf - Digitale Lösungen für Ihr Unternehmen',
+  image = '/og-image.jpg',
+  canonicalURL = Astro.url,
+  ogType = 'website',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <!-- Fonts werden DSGVO-konform lokal via @fontsource in global.css geladen -->
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content={ogType} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    
+    <title>{title}</title>
+  </head>
+  <body>
+    <ScrollReveal />
+    <Header />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <Footer />
+    <CookieBanner />
+  </body>
+</html>

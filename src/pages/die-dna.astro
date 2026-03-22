@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../lib/seo';
+import Hero from '../components/global/Hero.astro';
+import HeroZone from '../components/global/HeroZone.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Die DNA', url: 'https://www.plasticsurf.de/die-dna' },
+]);
+---
+
+<BaseLayout
+  title="Die DNA – PlasticSurf Werbeagentur Freiburg"
+  description="Seit den 90ern in der digitalen Welt zuhause. Martin Kalinowski erzählt die Geschichte hinter PlasticSurf – Werbeagentur Freiburg für Digitalstrategie und KI."
+>
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
+
+  <HeroZone backgroundImage={{
+    desktop: '/images/plasticsurf-werbeagentur-freiburg-dna-hero-desktop.webp',
+    tablet:  '/images/plasticsurf-werbeagentur-freiburg-dna-hero-tablet.webp',
+    mobile:  '/images/plasticsurf-werbeagentur-freiburg-dna-hero-mobile.webp',
+  }}>
+    <Hero
+      eyebrow="Seit den 90ern"
+      headline="Vom Rauschen der Modems zur Stille des Wesentlichen."
+      subline="Manchmal muss man den Stecker ziehen, um zu prüfen, ob die Maschine auch ohne Strom noch einen Sinn ergibt."
+      layout="left"
+    />
+
+  </HeroZone>
+
+  <!-- Sektion 1: Der Rausch -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+
+        <!-- Linke Spalte: Text -->
+        <div>
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-8">Der Rausch</h2>
+          <div class="space-y-6 font-body text-base text-text/80 leading-relaxed">
+            <p class="reveal reveal-delay-100">
+              Meine Reise begann nicht in einem sterilen Büro, sondern in der wilden, unkartografierten Prärie des frühen Internets. Es war Mitte / Ende der 90er. Eine Zeit, in der das Einwählen ins Netz noch klang, als würden zwei Roboter in einer Blechdose streiten, und wir naiv genug waren zu glauben, dass ein bisschen HTML die Welt retten würde.
+            </p>
+            <p class="reveal reveal-delay-200">
+              Wir waren jung. Wir waren hungrig. Und wir waren überzeugt, dass ein paar Pixel die Physik beleidigen können.
+            </p>
+            <p class="reveal reveal-delay-300">
+              Es begann mit einer digitalen Kriegserklärung.<br />
+              Kiel. Nacht. Briefkasten.
+            </p>
+            <p class="reveal reveal-delay-400">
+              Mitten in der Nacht schiebe ich eine CD-ROM in den Schlitz einer Agentur. Keine Mappe. Kein Lebenslauf. Kein „Sehr geehrte Damen und Herren". Nur Arbeit.<br />
+              Und dieser unausgesprochene Satz:<br />
+              Schaut hin.<br />
+              Entscheidet euch.
+            </p>
+            <p class="reveal reveal-delay-500">
+              Am nächsten Tag sitze ich in einem Raum in ihrem Büro.<br />
+              30 Quadratmeter. Neonlicht, das surrt wie ein schlecht gelauntes Insekt.<br />
+              Vier weiße Tische.<br />
+              Null Seele.
+            </p>
+            <p class="reveal reveal-delay-600">
+              „Wir wollen dich."<br />
+              Ich merke: Hier wird man gut. Aber nicht frei.<br />
+              Ich gehe.<br />
+              Nicht dramatisch. Nur konsequent.
+            </p>
+          </div>
+        </div>
+
+        <!-- Rechte Spalte: Bild Martin Kalinowski -->
+        <div class="reveal reveal-delay-100">
+          <img
+            src="/images/martin-kalinowski-plasticsurf-werbeagentur-freiburg.webp"
+            alt="Martin Kalinowski – Gründer der Werbeagentur PlasticSurf aus Freiburg"
+            class="w-full rounded-lg"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sektion 2: Dotcom & Crash -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-stretch">
+
+        <!-- Linke Spalte: Text -->
+        <div class="space-y-6 font-body text-base text-text/80 leading-relaxed">
+          <p class="reveal">
+            Ich lande bei einem Art Director aus Argentinien.<br />
+            Urgestein. Kante. Humor wie Schleifpapier.<br />
+            Und dann kommt Macromedia Flash.<br />
+            <strong class="font-black">FETT &gt; BOOM.</strong>
+          </p>
+          <p class="reveal reveal-delay-100">
+            Plötzlich bewegt sich das Internet. Und wir bewegen uns mit.<br />
+            Erste Buttons. Erste Websites.<br />
+            Erste Nächte, die nicht mehr „Nacht" heißen, sondern nur noch „weiter".<br />
+            Manchmal Couch. Manchmal Kaffee. Oft beides.
+          </p>
+          <p class="reveal reveal-delay-200">
+            Dann Hamburg.<br />
+            <strong class="font-black">FETT&gt; Dotcom.</strong><br />
+            Vollgas.
+          </p>
+          <p class="reveal reveal-delay-300">
+            Investoren-Geld, das schneller reinfliegt, als der Verstand hinterherkommt.<br />
+            Große Räume. Große Versprechen. Kurze Deadlines.<br />
+            Wir bauen Datenbanken für Model-Agenturen, als andere noch Faxe verschicken.<br />
+            Systeme, die „morgen" doppelt so viele Nutzer aushalten müssen – weil irgendwer heute Abend wieder eine Serviette unterschreibt.
+          </p>
+          <p class="reveal reveal-delay-400">
+            14-Stunden-Tage.<br />
+            Nachts Feiern.<br />
+            Morgens wieder Licht.<br />
+            Du schläfst wenig, aber du adaptierst schneller als der Markt.<br />
+            Und du merkst: Geschwindigkeit ist geil. Bis sie teuer wird.
+          </p>
+        </div>
+
+        <!-- Rechte Spalte: Crash – Text unten -->
+        <div class="flex flex-col justify-end">
+          <div class="space-y-6 font-body text-base text-text/80 leading-relaxed">
+            <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight">Crash.</h2>
+            <p class="reveal reveal-delay-100">
+              Die Blase platzt.<br />
+              Nicht episch. Nur gnadenlos.
+            </p>
+            <p class="reveal reveal-delay-200">
+              Monate kein Geld.<br />
+              Stimmung kippt.<br />
+              Versprechen verdampfen.<br />
+              Ich lasse mich in Hardware auszahlen. Ein Mac unterm Arm wie ein ironischer Pokal.<br />
+              Karoviertel. Wenig Plan. Viel Instinkt.
+            </p>
+            <p class="reveal reveal-delay-300">
+              Dann der nächste Sprung.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sektion 3: Ibiza -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+
+        <!-- Linke Spalte: Bild -->
+        <div class="reveal">
+          <img
+            src="/images/plasticsurf-ibiza-design-werbeagentur-freiburg.webp"
+            alt="Ibiza – Martin Kalinowski entwickelt Brand & Design für Absinth-Kampagne"
+            class="w-full rounded-lg"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div class="space-y-6 font-body text-base text-text/80 leading-relaxed">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-8">Ibiza. Salz. Bass. Bildschirmlicht.</h2>
+          <p class="reveal reveal-delay-100">
+            Ich fliege übernächtigt auf die Insel.<br />
+            Eigentlich „nur kurz".<br />
+            Ich komme an, die Luft schmeckt nach Salz und Sonnenmilch, irgendwo wummert ein Bass, der den Herzschlag neu kalibriert — und ich denke:<br />
+            Boah.<br />
+            Hier bleibe ich.
+          </p>
+          <p class="reveal reveal-delay-200">
+            Ich sitze auf der Veranda einer Hütte am Strand und baue Brand & Design für Mari Mayans' ersten Absinth-Alkopop.<br />
+            Vielleicht war es die Hitze, vielleicht die grüne Fee im Glas, aber Design fühlte sich dort nicht an wie Arbeit.<br />
+            Es war ein Rausch.
+          </p>
+          <p class="reveal reveal-delay-300">
+            Ich baute Websites, Flyer, ganze Identitäten, Verpackungen — während im Space die Realität dekonstruiert wurde.<br />
+            Tagsüber Hitze und Ideen, die so scharf waren, dass man sich an ihnen schneiden konnte.<br />
+            Nachts Sound und Deadline.<br />
+            Sonnenaufgang ist auf Ibiza keine Romantik. Er ist eine blutrote Warnung am Horizont, dass die Nacht vorbei ist und der Code geliefert werden muss.<br />
+            Wir donnern mit dem Schnellboot Richtung Formentera, der Wind peitscht ins Gesicht, der Laptop im Rucksack fühlt sich an wie ein Ziegelstein aus Gold.
+          </p>
+          <p class="reveal reveal-delay-400">
+            Ich lerne in diesen Wellen:<br />
+            Ich kann überall Wert schöpfen.<br />
+            Auch ohne Netz.<br />
+            Auch ohne Sicherheitsleine.<br />
+            Auch wenn der Boden unter den Füßen schwankt.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sektion 4: Hamburg & 2007 -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-start">
+
+        <!-- Linke Spalte -->
+        <div class="space-y-6 font-body text-base text-text/80 leading-relaxed">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-8">Zurück in die Zentrale.</h2>
+          <p class="reveal reveal-delay-100">
+            Hamburg, Eppendorf.<br />
+            Kein Strand mehr.<br />
+            Beton.
+          </p>
+          <p class="reveal reveal-delay-200">
+            Flash stirbt einen langsamen, qualvollen Tod. CSS übernimmt.<br />
+            Google Ads fängt an zu laufen wie ein Kleinkind auf Speed.<br />
+            Wir tun Dinge, die damals noch nicht „Best Practice" heißen, sondern eher „Digitales Voodoo": Wir verheiraten CMS mit Shopsystemen, die sich eigentlich hassen wie ein altes Ehepaar kurz vor der Scheidung.
+          </p>
+          <p class="reveal reveal-delay-300">
+            Wir schließen tonnenschwere ERP-Monolithen an fragile Web-Frontends an und beten, dass die Naht hält. Es war Operation am offenen Herzen – mit Kunden im Nacken, Verantwortung in der Hand und dem Gefühl, dass wir das Internet gerade neu verkabeln.
+          </p>
+          <p class="reveal reveal-delay-400">
+            Und ja: Nachts St. Pauli. Neonlicht, das sich in Pfützen spiegelt. Menschenmassen. Reibung.<br />
+            Du brauchst das Chaos, um die Ordnung zu ertragen. Nicht als Trophäe.<br />
+            Sondern als Erinnerung: Du baust diesen ganzen digitalen Zirkus nicht für Logos oder Server.<br />
+            Du baust ihn für diese verrückten Köpfe hier draußen.
+          </p>
+        </div>
+
+        <!-- Rechte Spalte -->
+        <div class="md:pt-[35%] space-y-6 font-body text-base text-text/80 leading-relaxed">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-8">2007.</h2>
+          <p class="reveal reveal-delay-100">
+            Steve Jobs hält das erste iPhone hoch.<br />
+            Und plötzlich kippt die Welt.<br />
+            Das Internet war nicht mehr in der Kiste auf dem Schreibtisch gefangen.<br />
+            Es kroch in unsere Hosentaschen. Es war plötzlich immer da.<br />
+            Beim Essen, im Bett, auf dem Klo.
+          </p>
+          <p class="reveal reveal-delay-200">
+            Alles beschleunigt.<br />
+            Alles wird „jetzt".<br />
+            Alles wird „noch schneller".<br />
+            Und irgendwann, in diesem Stroboskop aus Push-Nachrichten, Deadlines und vielen Euros aus den Ads, kommt diese Frage nachts, wenn der Lärm kurz Luft holt:<br />
+            Renne ich noch – oder werde ich gerannt?
+          </p>
+          <p class="reveal reveal-delay-300">
+            Geschwindigkeit ist eine Droge.<br />
+            Am Anfang nimmst du sie für den Kick.<br />
+            Irgendwann nimmst du sie nur noch, damit „normal" wieder funktioniert.
+          </p>
+          <p class="reveal reveal-delay-400">
+            Im Business nennt man das dann „Drive".<br />
+            Ich nenne es Wahnsinn.
+          </p>
+          <p class="reveal reveal-delay-500">
+            Ich ziehe die Notbremse.<br />
+            Freiburg.<br />
+            Schwarzwald.<br />
+            Luft.<br />
+            Das Leben wird leiser.<br />
+            Der Kopf noch nicht.
+          </p>
+          <p class="reveal reveal-delay-600">
+            Bis sie kommt.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sektion 5: Der Bruch. Sia. -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+
+        <!-- Linke Spalte: Bild -->
+        <div class="reveal">
+          <img
+            src="/images/martin-kalinowski-tochter-sia-plasticsurf-freiburg.webp"
+            alt="Martin Kalinowski mit Tochter Sia – der Wendepunkt bei PlasticSurf Freiburg"
+            class="w-full rounded-lg"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div class="space-y-6 font-body text-base text-text/80 leading-relaxed">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-8">Der Bruch.<br />Sia.</h2>
+          <p class="reveal reveal-delay-100">
+            Wenn du zwanzig Jahre Systeme optimierst, glaubst du irgendwann, du könntest alles steuern: Input, Output, KPI, Plan.<br />
+            Und dann hältst du dieses kleine Wesen im Arm und merkst:<br />
+            Hier zählen keine Abkürzungen.<br />
+            Keine Tricks.<br />
+            Keine Kontrolle.
+          </p>
+          <p class="reveal reveal-delay-200">
+            Ein Kind interessiert sich nicht für Effizienz. Es zwingt dich zu etwas, das keine Programmiersprache der Welt kann:<br />
+            Radikale Geduld, unbedingte Präsenz und bedingungslose Liebe.
+          </p>
+          <p class="reveal reveal-delay-300">
+            In diesem Jahr der totalen Entschleunigung, zwischen Windeln und Waldspaziergängen, lernte ich, die Spreu vom Weizen zu trennen.<br />
+            Ich fragte mich nicht mehr: „Was skaliert?"<br />
+            Ich fragte mich: „Was bleibt?"<br />
+            Ich verstand plötzlich den Unterschied zwischen Umsatz (Lärm) und Wert (Substanz). Dass Wurzeln wichtiger sind als Flügel, wenn der Sturm kommt.
+          </p>
+          <p class="reveal reveal-delay-400">
+            Sia lehrte mich den Blick des Adlers: Weg vom hektischen Picken am Boden, hin zum weiten Blick über das Ganze.
+          </p>
+          <p class="reveal reveal-delay-500">
+            Nicht mehr.<br />
+            Besser.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sektion 6: Die Klarheit -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+
+        <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight">Die Klarheit</h2>
+
+        <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed">
+          Dann die nächste Welle.<br />
+          KI. ChatGPT.<br />
+          Der nächste Knall.
+        </p>
+
+        <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">
+          Früher, in meinem alten Leben, wäre ich sofort losgerannt. Voll rein. Adrenalin.<br />
+          Heute bleibe ich kurz stehen – und schaue genauer hin.
+        </p>
+
+        <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed">
+          Ich habe schon einmal erlebt, wie eine Epoche kippt: Euphorie, Panik, Opportunismus. Sehr viel Lärm. Der Fehler ist fast immer derselbe: Viele spielen das alte Spiel einfach nur schneller und noch lauter. Dieses Mal suche ich nicht den Kick. Ich suche den Hebel, der Bestand baut. Die Karten werden neu gemischt. Aber dieses Mal habe ich einen Vorteil: Ich kenne den Rausch der Technik. Und ich kenne den unersetzlichen Wert der Menschlichkeit.
+        </p>
+
+        <p class="reveal reveal-delay-400 font-secondary text-2xl text-text leading-relaxed">
+          PlasticSurf heißt für mich heute: Tempo, wenn es Sinn macht. Und Ruhe, wenn Präzision zählt.<br />
+          Ich baue keine Sandburgen. Ich baue Systeme, die Stürme überdauern.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section: Mensch im Mittelpunkt -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="mb-12">
+        <p class="font-secondary text-primary text-sm uppercase tracking-widest mb-2">Gedanken</p>
+        <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight">Mensch im Mittelpunkt</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Beitrag 1 -->
+        <a href="/gedanken/was-passiert-mit-unserer-kreativitaet-wenn-die-ideenflut-nie-versiegt" class="group block">
+          <div class="overflow-hidden rounded-lg mb-4">
+            <img
+              src="/images/blog/2025/04/KI-Kreativitaet.webp"
+              alt="KI und Kreativität"
+              class="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <p class="font-secondary text-primary text-sm uppercase tracking-widest mb-2">Mensch im Mittelpunkt</p>
+          <h3 class="font-primary text-xl font-black leading-tight mb-3 group-hover:text-primary transition-colors duration-200">Was passiert mit unserer Kreativität, wenn die Ideenflut nie versiegt?</h3>
+          <p class="font-body text-sm text-text/60">KI produziert Kreativität auf Knopfdruck. Doch was geschieht mit unseren Ideen, unserer Intuition, wenn plötzlich alles austauschbar wirkt?</p>
+        </a>
+
+        <!-- Beitrag 2 -->
+        <a href="/gedanken/mehr-menschlichkeit-durch-maschinen-wenn-ki-uns-hilft-endlich-menschlicher-zu-werden" class="group block">
+          <div class="overflow-hidden rounded-lg mb-4">
+            <img
+              src="/images/blog/2025/04/menschlichkeit.webp"
+              alt="Menschlichkeit unter Menschen"
+              class="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <p class="font-secondary text-primary text-sm uppercase tracking-widest mb-2">Mensch im Mittelpunkt</p>
+          <h3 class="font-primary text-xl font-black leading-tight mb-3 group-hover:text-primary transition-colors duration-200">Mehr Menschlichkeit durch Maschinen? Wenn KI uns hilft, endlich menschlicher zu werden</h3>
+          <p class="font-body text-sm text-text/60">Kann uns KI helfen, menschlicher zu werden? Warum der Mensch gerade jetzt auf ein neues Miteinander angewiesen sein könnte.</p>
+        </a>
+
+        <!-- Beitrag 3 -->
+        <a href="/gedanken/mensch-gegen-maschine-oder-warum-unsere-unvollkommenheit-ein-wettbewerbsvorteil-ist" class="group block">
+          <div class="overflow-hidden rounded-lg mb-4">
+            <img
+              src="/images/blog/2025/04/Mensch-und-KI.webp"
+              alt="Mensch und KI"
+              class="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <p class="font-secondary text-primary text-sm uppercase tracking-widest mb-2">Mensch im Mittelpunkt</p>
+          <h3 class="font-primary text-xl font-black leading-tight mb-3 group-hover:text-primary transition-colors duration-200">Mensch gegen Maschine? Oder: Warum unsere Unvollkommenheit ein Wettbewerbsvorteil ist</h3>
+          <p class="font-body text-sm text-text/60">Unsere Schwächen sind unsere Stärke: Warum der Mensch im Zeitalter von KI nicht ersetzbar ist – und was das fürs Marketing bedeutet.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

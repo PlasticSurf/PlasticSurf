@@ -1,0 +1,61 @@
+---
+interface Post {
+  title: string;
+  excerpt: string;
+  href: string;
+  date?: string;
+  category?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+interface Props {
+  posts?: Post[];
+  title?: string;
+  category?: string;
+  limit?: number;
+}
+
+const { posts, title = 'Das könnte Sie auch interessieren', category, limit = 3 } = Astro.props;
+---
+
+<div class="my-12">
+  <h3 class="font-display text-2xl text-gray-900 mb-6">{title}</h3>
+  {posts && posts.length > 0 ? (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.slice(0, limit).map((post) => (
+        <a
+          href={post.href}
+          class="group block bg-gray-100 rounded-lg border border-gray-200 hover:border-primary/50 hover:shadow-md transition-all duration-200 overflow-hidden"
+        >
+          {post.image && (
+            <div class="aspect-video overflow-hidden">
+              <img
+                src={post.image}
+                alt={post.imageAlt || post.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <div class="p-6">
+            {post.category && (
+              <span class="inline-block text-xs font-medium text-primary mb-2">
+                {post.category}
+              </span>
+            )}
+            <h4 class="font-heading text-lg text-gray-900 mb-2 group-hover:text-primary transition-colors duration-200">
+              {post.title}
+            </h4>
+            <p class="font-body text-gray-600 text-sm line-clamp-2">{post.excerpt}</p>
+            {post.date && (
+              <span class="block mt-3 text-xs text-gray-400">{post.date}</span>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <slot />
+  )}
+</div>

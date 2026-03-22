@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import Hero from '../../components/global/Hero.astro';
+import HeroZone from '../../components/global/HeroZone.astro';
+import KontaktSection from '../../components/global/KontaktSection.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Lösungen', url: 'https://www.plasticsurf.de/loesungen' },
+]);
+---
+
+<BaseLayout title="Lösungen - PlasticSurf">
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
+
+  <HeroZone backgroundImage={{
+    desktop: '/images/loesungen-hero-desktop.webp',
+    tablet:  '/images/loesungen-hero-tablet.webp',
+    mobile:  '/images/loesungen-hero-mobile.webp',
+  }}>
+    <Hero
+      headline='Von der Komplexität zur <span class="text-primary">Architektur</span>.'
+      text="Werkzeuge sind nur Hebel. Erst eine klare Struktur verwandelt Ihr Potenzial in dauerhafte digitale Souveränität. PlasticSurf baut keine isolierten Tools, sondern das strategische Betriebssystem für Ihr Lebenswerk."
+      layout="left"
+    />
+
+    <!-- Solutions List -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="mb-40">
+        <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Die vier Säulen Ihrer Souveränität.</h2>
+        <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Modularer Aufbau. Systemische Wirkung.</p>
+        <p class="reveal reveal-delay-200 font-body text-base text-text/80 max-w-3xl leading-relaxed">
+          Wir übersetzen Ihre Substanz in eine skalierbare Struktur. Jedes Modul eliminiert spezifische Reibungsverluste und verzahnt Ihre Erfahrung mit technologischer Präzision – für ein Ergebnis, das unabhängig von Einzelpersonen Bestand hat.
+        </p>
+      </div>
+      <!-- Mobile: einspaltig -->
+      <div class="grid grid-cols-1 gap-8 max-w-6xl mx-auto md:hidden">
+        <a href="/loesungen/der-performance-audit" class="reveal reveal-delay-100 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Der Performance Audit</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Die präzise Standortbestimmung.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir verdichten Daten, Kanäle und Performance zu einem klaren Bild und machen Wirkung sichtbar.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Prioritäten, nächste Schritte und eine Richtung, die sich im Alltag trägt.</p>
+          <span class="inline-flex items-center text-primary font-medium">Den ersten Stein setzen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+        <a href="/loesungen/der-wachstums-motor" class="reveal reveal-delay-300 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Der Wachstums-Motor</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Souveränität durch Kanal-Diversität.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir stärken Ihre bestehenden Kanäle und ergänzen sie um eine autonome, KI-gestützte Pipeline zur Neukundengewinnung.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Ein krisenfestes Akquise-System, das Sie unabhängig von einzelnen Plattformen macht und planbares Wachstum sichert.</p>
+          <span class="inline-flex items-center text-primary font-medium">Wachstum skalieren<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+        <a href="/loesungen/das-digitale-vermaechtnis" class="reveal reveal-delay-500 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Das Digitale Vermächtnis</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Wissen wird unsterblich.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir sichern die jahrzehntelange Erfahrung Ihrer besten Köpfe (und Ihr eigenes). Wir bauen ein „Firmen-Gehirn", das bleibt, wenn Menschen gehen.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Schutz Ihres Lebenswerks gegen die Nachfolgewelle. Neue Experten werden in Rekordzeit wirksam, weil die Intuition des Hauses digital abrufbar ist.</p>
+          <span class="inline-flex items-center text-primary font-medium">Vermächtnis sichern<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+        <a href="/loesungen/das-brand-experience-system" class="reveal reveal-delay-700 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Das Brand Experience System</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Ich gebe Ihrer Welt einen Namen und ein Gesicht.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir übersetzen Ihre strategische Überlegenheit in ein Design-System, das Vertrauen erzwingt und Ihren Premium-Status visuell beweist.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Eine unverwechselbare Identität, die Kunden zu Fans macht und Preisdiskussionen durch eine „Architektur der Wahrnehmung" beendet.</p>
+          <span class="inline-flex items-center text-primary font-medium">Identität prägen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+      </div>
+
+      <!-- Tablet / Desktop: versetztes Zwei-Spalten-Layout -->
+      <div class="hidden md:flex gap-8 max-w-6xl mx-auto items-start">
+
+        <!-- Linke Spalte: Kachel 1 + 3 -->
+        <div class="flex-1 flex flex-col gap-[200px]">
+          <a href="/loesungen/der-performance-audit" class="reveal reveal-delay-100 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Der Performance Audit</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Die präzise Standortbestimmung.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir verdichten Daten, Kanäle und Performance zu einem klaren Bild und machen Wirkung sichtbar.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Prioritäten, nächste Schritte und eine Richtung, die sich im Alltag trägt.</p>
+            <span class="inline-flex items-center text-primary font-medium">Den ersten Stein setzen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+          <a href="/loesungen/das-digitale-vermaechtnis" class="reveal reveal-delay-500 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Das Digitale Vermächtnis</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Wissen wird unsterblich.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir sichern die jahrzehntelange Erfahrung Ihrer besten Köpfe (und Ihr eigenes). Wir bauen ein „Firmen-Gehirn", das bleibt, wenn Menschen gehen.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Schutz Ihres Lebenswerks gegen die Nachfolgewelle. Neue Experten werden in Rekordzeit wirksam, weil die Intuition des Hauses digital abrufbar ist.</p>
+            <span class="inline-flex items-center text-primary font-medium">Vermächtnis sichern<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+        </div>
+
+        <!-- Rechte Spalte: Kachel 2 + 4 – um 300px nach unten versetzt -->
+        <div class="flex-1 flex flex-col gap-[200px] mt-[300px]">
+          <a href="/loesungen/der-wachstums-motor" class="reveal reveal-delay-300 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Der Wachstums-Motor</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Souveränität durch Kanal-Diversität.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir stärken Ihre bestehenden Kanäle und ergänzen sie um eine autonome, KI-gestützte Pipeline zur Neukundengewinnung.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Ein krisenfestes Akquise-System, das Sie unabhängig von einzelnen Plattformen macht und planbares Wachstum sichert.</p>
+            <span class="inline-flex items-center text-primary font-medium">Wachstum skalieren<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+          <a href="/loesungen/das-brand-experience-system" class="reveal reveal-delay-700 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Das Brand Experience System</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Ich gebe Ihrer Welt einen Namen und ein Gesicht.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir übersetzen Ihre strategische Überlegenheit in ein Design-System, das Vertrauen erzwingt und Ihren Premium-Status visuell beweist.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Eine unverwechselbare Identität, die Kunden zu Fans macht und Preisdiskussionen durch eine „Architektur der Wahrnehmung" beendet.</p>
+            <span class="inline-flex items-center text-primary font-medium">Identität prägen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Synthese Section -->
+  <section class="section-padding-lg bg-background">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Die Synthese aus Erfahrung & Intelligenz.</h2>
+      <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Mehr Profit, weniger Komplexität.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2">
+        <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">Wahre Meisterschaft entsteht an der Schnittstelle. Während andere nur Tools implementieren, integriere ich Welten: Ich verbinde Ihre unersetzliche Business-Intuition mit der Präzision moderner KI-Systeme.</p>
+        <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed">Ich bin der Architekt an Ihrer Seite, der das Gesamtsystem im Blick behält. Ich sorge dafür, dass Marketing, Prozesse, Wissen und Design nahtlos ineinandergreifen, damit Ihr Unternehmen nicht nur effizienter, sondern intelligenter wird.</p>
+      </div>
+    </div>
+  </section>
+  </HeroZone>
+
+  <KontaktSection
+    formName="kontakt-loesungen"
+    headline="Strategischer Dialog."
+    subline="Was blockiert aktuell? Was ist das Ziel? Wie viel Zeit haben wir?"
+    text={"Skizzieren Sie die Ausgangslage in wenigen Sätzen. Ich melde mich werktags mit einem konkreten nächsten Schritt – Termin oder klare Absage.\n\nIm Dialog prüfen wir, ob Ihr Vorhaben die strategische Tiefe und Hebelwirkung für eine Zusammenarbeit hat."}
+  />
+</BaseLayout>

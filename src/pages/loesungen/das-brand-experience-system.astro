@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import Hero from '../../components/global/Hero.astro';
+import HeroZone from '../../components/global/HeroZone.astro';
+import KontaktSection from '../../components/global/KontaktSection.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Lösungen', url: 'https://www.plasticsurf.de/loesungen' },
+  { name: 'Das Brand Experience System', url: 'https://www.plasticsurf.de/loesungen/das-brand-experience-system' },
+]);
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Das Brand Experience System",
+  "provider": { "@type": "Organization", "name": "PlasticSurf" },
+  "areaServed": "Freiburg im Breisgau",
+  "description": "Das Brand Experience System von PlasticSurf verdichtet Positionierung, Corporate Design und alle Touchpoints zu einer Markensprache – digital und physisch."
+});
+---
+
+<BaseLayout
+  title="Brand Experience System – Corporate Design & Markenstrategie | PlasticSurf"
+  description="Das Brand Experience System von PlasticSurf verdichtet Positionierung, Corporate Design und alle Touchpoints zu einer Markensprache – digital und physisch."
+  image="/images/brand-experience-system-og.webp"
+>
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
+  <script type="application/ld+json" set:html={serviceSchema} />
+
+  <HeroZone backgroundImage={{
+    desktop: '/images/brand-experience-hero-desktop.webp',
+    tablet:  '/images/brand-experience-hero-tablet.webp',
+    mobile:  '/images/brand-experience-hero-mobile.webp',
+    alt:     'Brand Experience System – Corporate Design und Markenstrategie von PlasticSurf',
+  }}>
+    <Hero
+      eyebrow="Brand Design & Markenstrategie"
+      headline="Das Brand Experience System"
+      subline="Markenwirkung als Signatur – digital und physisch."
+      layout="left"
+    >
+      <p class="reveal reveal-delay-200 mt-8 font-body text-base text-text/80 leading-relaxed max-w-3xl">
+        Wenn Leistung stimmt, entscheidet Wahrnehmung. Dieses System verdichtet Positionierung, visuelle Sprache und alle Touchpoints zu einer Markensprache, die wiedererkennbar bleibt – auf dem Screen, im Vertrieb und am Produkt.
+      </p>
+      <p class="reveal reveal-delay-300 mt-4 font-body text-base text-text/80 leading-relaxed max-w-3xl">
+        So entsteht eine Marke, die Preiswürdigkeit selbstverständlich macht, Vertrauen aufbaut und Loyalität stabilisiert – und neue Formate aus derselben Linie entstehen lässt.
+      </p>
+      <a
+        href="#kontakt"
+        title="Termin vereinbaren – PlasticSurf"
+        class="reveal reveal-delay-400 btn-primary mt-10 inline-flex items-center gap-2"
+      >
+        Termin vereinbaren
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </a>
+    </Hero>
+    <!-- Sektion 1: Wirkung wird gestaltbar -->
+    <section class="section-padding bg-background">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Wirkung wird gestaltbar.</h2>
+          <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Eine Sprache. Überall.</p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">
+            Starke Marken entstehen nicht aus einzelnen Entwürfen, sondern aus klaren Leitplanken: Charakter, Ton, visuelle Regeln, Prioritäten. Wenn diese Linie steht, wirkt jeder Kontaktpunkt stimmig – unabhängig vom Kanal.
+          </p>
+          <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed mt-4">
+            Skalierung wird dann leicht: Neue Assets entstehen aus derselben Logik, und die Gestaltungslogik bleibt klar. KI bleibt dabei im Hintergrund – als Beschleuniger, nicht als Richtung.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sektion 2: Die Architektur der Marke -->
+    <section class="section-padding bg-background border-t border-white/5">
+      <div class="container-custom">
+
+        <!-- Intro -->
+        <div class="max-w-3xl mb-12">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Die Architektur der Marke.</h2>
+          <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Drei Ebenen, die zusammenhalten.</p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">
+            Wenn die Leitplanken stehen, verankern wir sie an drei Stellen: im Kern der Marke, in der digitalen Begegnung und in der physischen Welt. So entsteht ein Auftritt, der nicht nur gut aussieht, sondern verlässlich wirkt – überall, wo Kunden entscheiden.
+          </p>
+        </div>
+
+        <!-- 3 Spalten -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+
+          <div class="reveal reveal-delay-100">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Das Fundament</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Identität & Strategie</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">
+              <strong>Marken-DNA & Positionierung:</strong> Wir destillieren Ihre „Unfair Advantage". Wofür stehen Sie, wenn Sie den Raum verlassen
+            </p>
+            <p class="font-body text-base text-text/80 leading-relaxed mt-3">
+              <strong>Naming & Claiming:</strong> Wir entwickeln Namen und Botschaften, die im Gedächtnis haften und rechtlich Bestand haben.
+            </p>
+            <p class="font-body text-base text-text/80 leading-relaxed mt-3">
+              <strong>Visuelle Strategie:</strong> Wir definieren kein „buntes Bild", sondern ein psychologisch fundiertes System aus Farben, Typografie und Bildwelten, das Ihre Werte ohne Worte kommuniziert.
+            </p>
+          </div>
+
+          <div class="reveal reveal-delay-200">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Die Bühne</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Digitale Räume & Interaktion</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">
+              <strong>High-End Webdesign:</strong> Pixelgenaue Gestaltung, die Ästhetik und Performance vereint. Keine Baukästen, sondern Maßarbeit.
+            </p>
+            <p class="font-body text-base text-text/80 leading-relaxed mt-3">
+              <strong>Conversion Design:</strong> Wir nutzen Verkaufspsychologie im Layout (UX/UI), um Besucher intuitiv zur Handlung zu führen – ohne marktschreierisch zu wirken.
+            </p>
+            <p class="font-body text-base text-text/80 leading-relaxed mt-3">
+              <strong>Mobile Experience:</strong> Da der erste Kontakt oft auf dem Smartphone passiert, gestalten wir „Mobile First" für den perfekten Eindruck in der Handfläche.
+            </p>
+          </div>
+
+          <div class="reveal reveal-delay-300">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Der Körper</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Physische Welt & Assets</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">
+              <strong>Packaging Design:</strong> Das Produkt muss im Regal oder beim „Unboxing" gewinnen. Wir gestalten Verpackungen, die schützen, verführen und die Wertigkeit des Inhalts spiegeln.
+            </p>
+            <p class="font-body text-base text-text/80 leading-relaxed mt-3">
+              <strong>Corporate Design Assets:</strong> Von der Visitenkarte mit Prägung bis zum Messestand – wir sorgen für Konsistenz in der analogen Welt.
+            </p>
+            <p class="font-body text-base text-text/80 leading-relaxed mt-3">
+              <strong>Print & Haptik:</strong> Wir wissen, wie Farben auf Papier wirken und was Veredelung ausmacht. Das ist Handwerk, das keine KI simulieren kann.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sektion 3: Von Linie zu System / Das Ergebnis -->
+    <section class="section-padding bg-background border-t border-white/5">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+
+          <div class="reveal reveal-delay-100">
+            <h2 class="font-primary text-[3.125rem] font-black leading-tight mb-1">Von Linie zu System.</h2>
+            <p class="font-secondary text-2xl text-[#927350] mb-8">Wenige Entscheidungen. Klare Linie.</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">
+              Am Anfang steht ein kurzer, präziser Abgleich: Anspruch, Ton und Zielbild werden so eindeutig, dass Entscheidungen leicht werden. Daraus entsteht eine Linie, die jede Umsetzung selbstverständlich richtig wirken lässt – digital wie physisch. Am Ende steht ein Brand-System, das intern trägt und extern wiedererkennbar bleibt – und bei Wachstum präzise.
+            </p>
+          </div>
+
+          <div class="reveal reveal-delay-200">
+            <h2 class="font-primary text-[3.125rem] font-black leading-tight mb-1">Das Ergebnis.</h2>
+            <p class="font-secondary text-2xl text-[#927350] mb-8">Wertigkeit, die man sofort erkennt.</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">
+              Ihre Marke wird eindeutig: im Ton, im Look, im Gefühl – über Website, Sales und Produkt hinweg. Dadurch wird Preiswürdigkeit selbstverständlich, Vertrauen entsteht schneller, und Wiedererkennung baut sich mit jedem Kontaktpunkt weiter auf. Und weil alles auf einem klaren Brand Code ruht, bleibt diese Wirkung stabil – auch wenn neue Produkte, Formate oder Kampagnen dazukommen.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sektion 4: Unternehmen mit Anspruch (mittig) -->
+    <section class="section-padding-lg bg-background border-t border-white/5">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Unternehmen mit Anspruch.</h2>
+          <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Wenn Marke Führungsaufgabe ist.</p>
+          <div class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed space-y-4 text-left">
+            <p>Das Brand Experience System passt für Unternehmen, deren Leistung bereits Substanz hat – und deren Auftritt diese Qualität überall tragen soll: digital, im Vertrieb, am Produkt. Für Entscheider, die eine klare Linie setzen wollen, statt in Einzelmaßnahmen zu denken.</p>
+            <p>Wenn Sie Design als Vermögenswert behandeln und bereit sind, die Marke als durchgängige Linie zu führen, ist das hier der richtige Rahmen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </HeroZone>
+
+  <KontaktSection
+    formName="kontakt-brand-experience"
+    headline="Bereit, eine Ikone zu werden?"
+    subline="Vertraulich. Bewusst begrenzt."
+    text="Wenn Sie die Marke als Linie führen wollen, klären wir in einem kurzen Gespräch, ob Anspruch, Rahmen und Zusammenarbeit passen. Danach ist klar, ob das Brand Experience System der richtige Schritt ist."
+  />
+
+</BaseLayout>

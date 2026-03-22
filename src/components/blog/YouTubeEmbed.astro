@@ -1,0 +1,60 @@
+---
+interface Props {
+  videoId: string;
+  title: string;
+}
+const { videoId, title } = Astro.props;
+const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+---
+
+<div
+  class="yt-consent-wrapper"
+  data-video-id={videoId}
+  data-title={title}
+  style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 1.5rem; background: #111827; border-radius: 0.5rem;"
+>
+  <!-- Thumbnail -->
+  <img
+    src={thumbnailUrl}
+    alt={`Vorschaubild: ${title}`}
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; border-radius: 0.5rem;"
+    loading="lazy"
+  />
+
+  <!-- Consent Overlay -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; gap: 1rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="white" opacity="0.8">
+      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+    </svg>
+    <p style="color: #e5e7eb; font-size: 0.875rem; max-width: 380px; line-height: 1.6; margin: 0;">
+      Dieses Video wird von YouTube (Google LLC) bereitgestellt. Durch Klick auf „Video abspielen" werden Daten an Google übertragen.
+      Mehr Infos in unserer <a href="/datenschutz" style="color: #FF4E56; text-decoration: underline;">Datenschutzerklärung</a>.
+    </p>
+    <button
+      class="yt-consent-btn"
+      style="background: #FF4E56; color: white; border: none; padding: 0.625rem 1.5rem; border-radius: 0.375rem; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background 0.2s;"
+      onmouseover="this.style.background='#e03d45'"
+      onmouseout="this.style.background='#FF4E56'"
+    >
+      ▶ Video abspielen
+    </button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.yt-consent-wrapper').forEach((wrapper) => {
+    const btn = wrapper.querySelector('.yt-consent-btn');
+    btn?.addEventListener('click', () => {
+      const videoId = wrapper.dataset.videoId;
+      const title = wrapper.dataset.title ?? '';
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+      iframe.title = title;
+      iframe.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 0.5rem;';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+    });
+  });
+</script>

@@ -1,0 +1,42 @@
+---
+interface Props {
+  sidebarWidth?: string;
+  showSidebar?: boolean;
+}
+
+const { sidebarWidth = 'w-80', showSidebar = true } = Astro.props;
+---
+
+<div class="two-column-layout my-12">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Main Content Column -->
+    <div class="lg:col-span-8">
+      <slot name="main" default />
+    </div>
+
+    <!-- Sidebar Column (Sticky) -->
+    {showSidebar && (
+      <aside class="lg:col-span-4">
+        <div class="sticky top-24">
+          <slot name="sidebar" />
+        </div>
+      </aside>
+    )}
+  </div>
+</div>
+
+<style>
+  .two-column-layout :global(.prose) {
+    max-width: none;
+  }
+  
+  .two-column-layout h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .two-column-layout h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+</style>

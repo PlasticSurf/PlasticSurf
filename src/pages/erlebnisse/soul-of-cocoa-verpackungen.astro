@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'Soul of Cocoa Verpackungen', url: 'https://www.plasticsurf.de/erlebnisse/soul-of-cocoa-verpackungen' },
+]);
+---
+
+<BaseLayout
+  title="Soul of Cocoa Verpackungen – Verpackungsdesign & Branding – PlasticSurf"
+  description="Soul of Cocoa Trinkschokolade: Verpackungsdesign, Branding und Marketing fur die Kakao-Marke – mit hochwertiger Produktfotografie, Markenstrategie und klassischer Werbung."
+  image="/images/erlebnisse/soul-of-cocoa-verpackungen/soul-of-cocoa-verpackungsdesign-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/soul-of-cocoa-verpackungen/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/soul-of-cocoa-verpackungen/soul-of-cocoa-verpackungsdesign-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/soul-of-cocoa-verpackungen/soul-of-cocoa-verpackungsdesign-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/soul-of-cocoa-verpackungen/soul-of-cocoa-verpackungsdesign-hero-mobile.webp"
+      alt="Soul of Cocoa Winter Trinkschokolade – Verpackungsdesign & Branding für die Kakao-Marke"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">Soul of Cocoa</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/soul-of-cocoa-verpackungen/soul-of-cocoa-verpackungsdesign-trinkschokolade.webp"
+            alt="Soul of Cocoa Verpackungsdesign Trinkschokolade – Kakaoprodukte mit hochwertigem Branding"
+            class="w-full reveal"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: H1 + Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Verpackungsdesign & Branding
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            Soul of Cocoa – Die Magie der Kakaobohne neu entdeckt
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Trinkschokolade ist mehr als nur ein Heißgetränk – sie ist ein Ritual, ein Moment der Geborgenheit. Kinder lieben sie, Erwachsene genießen sie – und seit Jahrhunderten wird ihr eine beinahe magische Wirkung zugeschrieben.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Genuss, der Körper und Seele wärmt
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            Doch heute? Viel zu oft wird Kakao nur nebenbei getrunken. Schnell zubereitet, ohne Genussmoment, ohne die Wertschätzung, die er verdient. Soul of Cocoa setzt genau hier an: Eine Trinkschokolade, die an die alte Tradition anknüpft – und die Magie der Kakaobohne wieder spürbar macht.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Verpackungsdesign & Branding: Die Seele der Bohne im Fokus
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Die Verpackung spielt eine entscheidende Rolle, wenn es darum geht, die Geschichte eines Produkts zu erzählen. Für Soul of Cocoa habe ich ein Konzept entwickelt, das Tradition und Moderne vereint:
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            <strong>Ästhetisches, hochwertiges Verpackungsdesign</strong> – stilvoll & funktional<br />
+            <strong>Sorgfältige Materialwahl</strong> – nachhaltig und hochwertig<br />
+            <strong>Individuelle Produktfotografie</strong> – jedes Bild wurde speziell für die Marke erstellt
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            Das Ergebnis? Eine Marke, die nicht nur im Regal überzeugt, sondern auch eine echte Geschichte erzählt.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Marketing & klassische Werbung: Eine runde Strategie
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Damit Soul of Cocoa die richtige Zielgruppe erreicht, wurde ein durchdachtes Marketingkonzept entwickelt – mit einer Kombination aus klassischer Werbung und modernen Vertriebsstrategien.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-10">
+            ✔ <strong>Branding & Konzeptentwicklung</strong> – von der Idee zur Marke<br />
+            ✔ <strong>Text & Storytelling</strong> – emotionale Produktbeschreibungen & Markentexte<br />
+            ✔ <strong>Preisstrategie & Marktpositionierung</strong> – ein attraktives Angebot mit Mehrwert<br />
+            ✔ <strong>Druckkoordination & Einkauf</strong> – von der Verpackung bis zur finalen Umsetzung<br />
+            ✔ <strong>Offline & Online-Marketing</strong> – gezielte Werbemaßnahmen für maximale Sichtbarkeit
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Ein Genussmoment, der bleibt
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mb-6">
+            Mit Soul of Cocoa wurde eine Trinkschokolade geschaffen, die mehr ist als nur ein schnelles Getränk. Sie bringt das traditionelle Genusserlebnis zurück – mit hochwertigen Zutaten, durchdachtem Branding und einer Liebe zum Detail, die man schmeckt.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Denn wahre Qualität beginnt nicht erst in der Tasse – sondern schon bei der Idee.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Die Trinkschokoladen im Detail
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-10 max-w-2xl">
+        Jede Sorte der Soul of Cocoa Trinkschokolade wurde mit einer eigenständigen Bildsprache inszeniert – von der stimmungsvollen Produktfotografie bis zur finalen Verpackung.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img
+          src="/images/erlebnisse/soul-of-cocoa-verpackungen/soul-of-cocoa-verpackungsdesign-heavenly.webp"
+          alt="Soul of Cocoa Heavenly Trinkschokolade – Verpackungsdesign für die Heavenly-Sorte"
+          class="w-full reveal"
+          loading="lazy"
+        />
+        <img
+          src="/images/erlebnisse/soul-of-cocoa-verpackungen/soul-of-cocoa-verpackungsdesign-muse.webp"
+          alt="Soul of Cocoa Muse Trinkschokolade – Verpackungsdesign für die Muse-Sorte"
+          class="w-full reveal reveal-delay-100"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

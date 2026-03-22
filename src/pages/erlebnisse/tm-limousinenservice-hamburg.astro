@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import ErlebnisCTA from '../../components/global/ErlebnisCTA.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Erlebnisse', url: 'https://www.plasticsurf.de/erlebnisse' },
+  { name: 'TM LimousinenService Hamburg', url: 'https://www.plasticsurf.de/erlebnisse/tm-limousinenservice-hamburg' },
+]);
+---
+
+<BaseLayout
+  title="TM LimousinenService Hamburg – Webdesign & SEO – PlasticSurf"
+  description="PlasticSurf hat vor über einem Jahrzehnt die Website für T&M LimousinenService Hamburg entwickelt – mit präziser SEO-Strategie für starke regionale Präsenz."
+  image="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-hero-desktop.webp"
+  canonicalURL="https://www.plasticsurf.de/erlebnisse/tm-limousinenservice-hamburg/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- 1. Hero: flexibles Vollbild, natürliche Höhe -->
+  <picture>
+    <source media="(min-width: 1024px)" srcset="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-hero-desktop.webp" type="image/webp" />
+    <source media="(min-width: 768px)"  srcset="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-hero-tablet.webp"  type="image/webp" />
+    <img
+      src="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-hero-mobile.webp"
+      alt="TM LimousinenService Hamburg Webdesign – Premium-Transport Website mit über 20 Jahren Erfahrung"
+      class="w-full h-auto block"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- 2. Breadcrumb -->
+  <div class="bg-background">
+    <div class="container-custom py-3">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-body text-xs text-text/50">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors" aria-label="Startseite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v6a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6h1a1 1 0 00.707-1.707l-7-7z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-text/30">/</li>
+          <li><a href="/erlebnisse" class="hover:text-primary transition-colors">Erlebnisse</a></li>
+          <li class="text-text/30">/</li>
+          <li class="text-text/70">TM LimousinenService</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. Zweispalter -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Linke Spalte: Bilder -->
+        <div class="flex flex-col gap-6">
+          <img
+            src="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-limousine.webp"
+            alt="TM LimousinenService Hamburg Limousine – Exklusiver Premium-Transport Service"
+            class="w-full reveal"
+            loading="eager"
+          />
+          <img
+            src="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-service.webp"
+            alt="TM Limousinen Service Hamburg – Hochwertiger Limousinenservice mit Online-Marketing"
+            class="w-full reveal reveal-delay-100"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Rechte Spalte: Text -->
+        <div>
+          <p class="reveal font-secondary text-primary text-sm uppercase tracking-widest mb-3">
+            Marketing & Webdesign
+          </p>
+          <h1 class="reveal reveal-delay-100 font-primary text-[3.125rem] font-black leading-tight mb-6">
+            TM LimousinenService Hamburg
+          </h1>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed mb-10">
+            Als Inhaber eines <strong>Limousinenservices</strong> wissen Sie, wie wichtig Vertrauen, Qualität und Exklusivität sind. Mit inzwischen über 20 Jahren Erfahrung im Premium-Transport hat T&amp;M <strong>Limousinen Service</strong> bewiesen, dass erstklassiger Service und gezieltes <strong>Online-Marketing</strong> Hand in Hand gehen. Unsere <strong>Werbeagentur PlasticSurf</strong> hat vor über einem Jahrzehnt die Website für T&amp;M entwickelt – und dank einer präzise abgestimmten SEO-Strategie rankt diese Seite auch in Freiburg hervorragend.
+          </p>
+          <h2 class="reveal reveal-delay-300 font-primary text-3xl font-black leading-tight mb-4">
+            Unsere Erfolgsstory: Exklusiver Transfer Freiburg
+          </h2>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed">
+            Durch die gezielte Integration von Schlüsselbegriffen wie <strong>„Limousinenservice Freiburg"</strong> und <strong>„exklusiver Transfer Freiburg"</strong> konnten wir T&amp;M LimousinenService zu einer starken regionalen Präsenz verhelfen. Potenzielle Kunden finden die Marke, wenn sie in Freiburg nach hochwertigen Limousinenservices suchen – ein Erfolg, den auch Sie mit unserer Unterstützung erleben können.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Galerie-Sektion: Leistungen + Website 2014 -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+        Unsere Leistungen für Ihren Limousinenservice
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed mb-6 max-w-2xl">
+        Wir bieten maßgeschneiderte Marketingleistungen, die speziell auf die Bedürfnisse von Limousinenservice-Inhabern zugeschnitten sind:
+      </p>
+      <ul class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed space-y-4 mb-10 max-w-2xl list-disc list-inside">
+        <li><strong>SEO-Optimierung:</strong> Erhöhen Sie Ihre Sichtbarkeit in lokalen Suchergebnissen.</li>
+        <li><strong>Modernes Webdesign &amp; Umsetzung:</strong> Erstellen Sie eine ansprechende Website, die Ihre Marke perfekt präsentiert.</li>
+        <li><strong>Content Marketing:</strong> Authentische Inhalte, die Vertrauen schaffen und Ihre Expertise unterstreichen.</li>
+        <li><strong>Ganzheitliche Online-Strategien:</strong> Von Social Media bis PPC – wir entwickeln Konzepte, die Ihren Erfolg nachhaltig fördern.</li>
+      </ul>
+      <h3 class="reveal reveal-delay-300 font-primary text-2xl font-black leading-tight mb-6">
+        T&amp;M Limousinenservice WebSite bis 2014
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="aspect-[3/2] overflow-hidden reveal reveal-delay-400">
+          <img
+            src="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-website-2014-01.webp"
+            alt="T&M LimousinenService Hamburg Website 2014 – Webdesign von PlasticSurf für den Premium-Transport Service"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-[3/2] overflow-hidden reveal reveal-delay-400">
+          <img
+            src="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-website-2014-02.webp"
+            alt="T&M LimousinenService Hamburg Website 2014 Screenshot – SEO-optimierte Präsenz für Limousinenservice Freiburg"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Sektion: Warum mit uns + Jet Charter -->
+  <section class="section-padding bg-background border-t border-text/5">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <h2 class="reveal font-primary text-3xl font-black leading-tight mb-6">
+            Warum mit uns?
+          </h2>
+          <p class="reveal reveal-delay-100 font-body text-base text-text/80 leading-relaxed">
+            Unsere Erfahrung und unser Engagement haben T&amp;M Limousinenservice zu mehr Online-Sichtbarkeit verholfen. Wir arbeiten authentisch, motivierend und bodenständig – immer mit dem Ziel, Ihre Marke optimal zu positionieren. Lassen Sie uns gemeinsam dafür sorgen, dass Ihr Unternehmen auch in Freiburg gefunden wird und neue Kunden gewinnt.
+          </p>
+        </div>
+        <div>
+          <img
+            src="/images/erlebnisse/tm-limousinenservice-hamburg/tm-limousinenservice-hamburg-webdesign-jet-charter.webp"
+            alt="T&M LimousinenService Hamburg Jet Charter Service – Exklusiver Jet Charter für Premium-Transport"
+            class="w-full reveal"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA -->
+  <ErlebnisCTA />
+
+</BaseLayout>

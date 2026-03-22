@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { generateWebSiteSchema, generateOrganizationSchema } from '../lib/seo';
+import { getCollection } from 'astro:content';
+import Hero from '../components/global/Hero.astro';
+import HeroZone from '../components/global/HeroZone.astro';
+import KontaktSection from '../components/global/KontaktSection.astro';
+
+const organizationSchema = generateOrganizationSchema({
+  name: 'PlasticSurf',
+  url: 'https://www.plasticsurf.de',
+  description: 'Digitale Lösungen für Ihr Unternehmen',
+  sameAs: [
+    'https://www.instagram.com/plasticsurf',
+    'https://www.linkedin.com/company/plasticsurf',
+  ],
+});
+
+const webSiteSchema = generateWebSiteSchema({
+  name: 'PlasticSurf',
+  url: 'https://www.plasticsurf.de',
+  description: 'Digitale Lösungen für Ihr Unternehmen',
+  language: 'de',
+});
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 5);
+
+function formatDate(dateString: string): string {
+  return new Date(dateString).toLocaleDateString('de-DE', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+}
+---
+
+<BaseLayout title="PlasticSurf - Digitale Lösungen für Ihr Unternehmen">
+  <script type="application/ld+json" set:html={organizationSchema} />
+  <script type="application/ld+json" set:html={webSiteSchema} />
+
+  <HeroZone backgroundImage={{
+    desktop: '/images/startseite-hero-desktop.webp',
+    tablet:  '/images/startseite-hero-tablet.webp',
+    mobile:  '/images/startseite-hero-mobile.webp',
+  }}>
+    <Hero
+      headline='Technologie ist nur mit <span class="text-primary">Charakter</span> wertvoll'
+      text="PlasticSurf verwandelt Ihr unersetzliches Experten-Wissen in digitale Souveränität. Strategisches Design, Marketing und KI-Systeme für Unternehmer, die ihr Lebenswerk nicht automatisieren, sondern unsterblich machen wollen."
+      layout="left"
+    >
+      <div class="reveal reveal-delay-400 flex flex-col sm:flex-row gap-4 justify-center mt-16">
+        <a href="/loesungen" class="btn-primary">Unsere Lösungen</a>
+        <a href="/kontakt" class="btn-secondary">Kontakt aufnehmen</a>
+      </div>
+    </Hero>
+
+    <!-- Solutions Preview - Sektion 1 -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="mb-40">
+        <h2 class="reveal text-[3.125rem] font-primary font-black leading-tight mb-1">Die Mechanik hinter dem Erfolg.</h2>
+        <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">
+          Vier Module. Jedes löst einen Engpass. Keines ist zufällig.
+        </p>
+        <p class="reveal reveal-delay-200 font-body text-text/80 text-base leading-relaxed max-w-3xl">
+          Oft spüren Sie die Zähigkeit im System, bevor Sie die Ursache benennen können:
+          Es ist das Wissen, das lautlos abfließt, und die Intuition, die im operativen Rauschen untergeht.
+          Wir machen das Unsichtbare steuerbar. Wir lösen den Single Point of Failure auf und geben
+          Ihnen die Herrschaft im eigenen Haus zurück.
+        </p>
+      </div>
+
+      <!-- Mobile: einspaltig -->
+      <div class="grid grid-cols-1 gap-8 max-w-6xl mx-auto md:hidden">
+        <a href="/loesungen/der-performance-audit" class="reveal reveal-delay-100 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Der Performance Audit</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Die präzise Standortbestimmung.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir verdichten Daten, Kanäle und Performance zu einem klaren Bild und machen Wirkung sichtbar.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Prioritäten, nächste Schritte und eine Richtung, die sich im Alltag trägt.</p>
+          <span class="inline-flex items-center text-primary font-medium">Den ersten Stein setzen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+        <a href="/loesungen/der-wachstums-motor" class="reveal reveal-delay-300 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Der Wachstums-Motor</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Souveränität durch Kanal-Diversität.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir stärken Ihre bestehenden Kanäle und ergänzen sie um eine autonome, KI-gestützte Pipeline zur Neukundengewinnung.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Ein krisenfestes Akquise-System, das Sie unabhängig von einzelnen Plattformen macht und planbares Wachstum sichert.</p>
+          <span class="inline-flex items-center text-primary font-medium">Wachstum skalieren<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+        <a href="/loesungen/das-digitale-vermaechtnis" class="reveal reveal-delay-500 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Das Digitale Vermächtnis</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Wissen wird unsterblich.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir sichern die jahrzehntelange Erfahrung Ihrer besten Köpfe (und Ihr eigenes). Wir bauen ein „Firmen-Gehirn", das bleibt, wenn Menschen gehen.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Schutz Ihres Lebenswerks gegen die Nachfolgewelle. Neue Experten werden in Rekordzeit wirksam, weil die Intuition des Hauses digital abrufbar ist.</p>
+          <span class="inline-flex items-center text-primary font-medium">Vermächtnis sichern<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+        <a href="/loesungen/das-brand-experience-system" class="reveal reveal-delay-700 group p-8">
+          <h3 class="font-primary text-3xl font-black text-text">Das Brand Experience System</h3>
+          <p class="font-secondary text-[#927350] text-base mb-6">Ich gebe Ihrer Welt einen Namen und ein Gesicht.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir übersetzen Ihre strategische Überlegenheit in ein Design-System, das Vertrauen erzwingt und Ihren Premium-Status visuell beweist.</p>
+          <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Eine unverwechselbare Identität, die Kunden zu Fans macht und Preisdiskussionen durch eine „Architektur der Wahrnehmung" beendet.</p>
+          <span class="inline-flex items-center text-primary font-medium">Identität prägen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+        </a>
+      </div>
+
+      <!-- Tablet / Desktop: versetztes Zwei-Spalten-Layout -->
+      <div class="hidden md:flex gap-8 max-w-6xl mx-auto items-start">
+
+        <!-- Linke Spalte: Kachel 1 + 3 -->
+        <div class="flex-1 flex flex-col gap-[200px]">
+          <a href="/loesungen/der-performance-audit" class="reveal reveal-delay-100 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Der Performance Audit</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Die präzise Standortbestimmung.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir verdichten Daten, Kanäle und Performance zu einem klaren Bild und machen Wirkung sichtbar.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Prioritäten, nächste Schritte und eine Richtung, die sich im Alltag trägt.</p>
+            <span class="inline-flex items-center text-primary font-medium">Den ersten Stein setzen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+          <a href="/loesungen/das-digitale-vermaechtnis" class="reveal reveal-delay-500 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Das Digitale Vermächtnis</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Wissen wird unsterblich.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir sichern die jahrzehntelange Erfahrung Ihrer besten Köpfe (und Ihr eigenes). Wir bauen ein „Firmen-Gehirn", das bleibt, wenn Menschen gehen.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Schutz Ihres Lebenswerks gegen die Nachfolgewelle. Neue Experten werden in Rekordzeit wirksam, weil die Intuition des Hauses digital abrufbar ist.</p>
+            <span class="inline-flex items-center text-primary font-medium">Vermächtnis sichern<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+        </div>
+
+        <!-- Rechte Spalte: Kachel 2 + 4 – um 200px nach unten versetzt -->
+        <div class="flex-1 flex flex-col gap-[200px] mt-[300px]">
+          <a href="/loesungen/der-wachstums-motor" class="reveal reveal-delay-300 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Der Wachstums-Motor</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Souveränität durch Kanal-Diversität.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir stärken Ihre bestehenden Kanäle und ergänzen sie um eine autonome, KI-gestützte Pipeline zur Neukundengewinnung.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Ein krisenfestes Akquise-System, das Sie unabhängig von einzelnen Plattformen macht und planbares Wachstum sichert.</p>
+            <span class="inline-flex items-center text-primary font-medium">Wachstum skalieren<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+          <a href="/loesungen/das-brand-experience-system" class="reveal reveal-delay-700 group p-8">
+            <h3 class="font-primary text-3xl font-black text-text">Das Brand Experience System</h3>
+            <p class="font-secondary text-[#927350] text-base mb-6">Ich gebe Ihrer Welt einen Namen und ein Gesicht.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-4"><strong>Der Kern:</strong> Wir übersetzen Ihre strategische Überlegenheit in ein Design-System, das Vertrauen erzwingt und Ihren Premium-Status visuell beweist.</p>
+            <p class="font-body text-text/80 text-base leading-relaxed mb-6"><strong>Das Ergebnis:</strong> Eine unverwechselbare Identität, die Kunden zu Fans macht und Preisdiskussionen durch eine „Architektur der Wahrnehmung" beendet.</p>
+            <span class="inline-flex items-center text-primary font-medium">Identität prägen<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Nach den Boxen: Überleitung -->
+      <div class="reveal mt-40 text-center max-w-3xl mx-auto">
+        <p class="font-body text-text/80 text-base leading-relaxed">
+          Jedes der Module löst einen spezifischen Engpass und schaltet die nächste Ebene Ihrer Leistungsfähigkeit frei – von der ersten Klarheit bis zur unverwechselbaren Aura.
+        </p>
+        <p class="font-body text-text/80 text-base leading-relaxed mt-6">
+          Wo beginnt Ihr Aufstieg?
+        </p>
+        <a href="#kontakt" class="reveal reveal-delay-200 btn-primary inline-block mt-6">
+          Potenzial-Check anfragen
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Die DNA Section -->
+  <section class="section-padding bg-background">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+
+        <!-- Bild 1/3 -->
+        <div class="reveal">
+          <img
+            src="/images/Martin-Kalinowski.webp"
+            alt="Martin Kalinowski – Die DNA"
+            class="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+
+        <!-- Text 2/3 -->
+        <div class="md:col-span-2 reveal reveal-delay-200">
+          <p class="font-secondary text-primary text-sm uppercase tracking-widest mb-2">The Proof</p>
+          <h2 class="font-primary text-[3.125rem] font-black leading-tight mb-1">Die DNA</h2>
+          <p class="font-secondary text-2xl text-[#927350] mb-8">25 Jahre Erfahrung kann man nicht prompten.</p>
+          <div class="font-body text-text/80 text-base leading-relaxed space-y-4">
+            <p>In einer Welt, die nach Tools schreit, biete ich den Kompass. Ich bin kein externer Dienstleister, der reaktiv Aufgaben abarbeitet – ich bin der Architekt, der Ihr Fundament sichert.</p>
+            <p>Während andere über Klicks und Effizienz philosophieren, rede ich über die Sicherung Ihres Lebenswerks. Meine 25 Jahre Praxis sind keine Trophäe, sondern eine Bibliothek aus Narben und gelösten Krisen, die heute Ihre Intuition verstärkt, statt sie durch Algorithmen zu ersetzen.</p>
+            <p>Ich bin der „Macher" auf Augenhöhe, der die Verantwortung für das Gesamtsystem trägt, damit Sie wieder „Herr im eigenen Haus" werden.</p>
+          </div>
+          <a href="/die-dna" class="btn-primary inline-block mt-8">
+            The Proof
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  </HeroZone>
+
+  <!-- Blog Scroll Section -->
+  <section class="section-padding bg-background" style="overflow-x: clip;">
+    <div class="container-custom">
+      <h2 class="reveal font-primary text-[3.125rem] font-black mb-6">
+        Zwischen Maschinenraum und Sternenkarte.
+      </h2>
+      <p class="reveal reveal-delay-100 font-body text-text/80 text-base leading-relaxed max-w-3xl mb-12">
+        Hier finden Sie die Logbücher meiner Reise. Im „Maschinenraum" teile ich die praxiserprobten Werkzeuge und harten Strategien, die messbares Wachstum erzeugen. Auf der „Sternenkarte" navigieren wir durch die tieferen, philosophischen Fragen unserer digitalen Zukunft. Denn ich bin überzeugt: Ein brillanter Motor ist nur so gut wie der Kompass, der ihm die Richtung weist.
+      </p>
+    </div>
+
+    <div class="blog-scroll-track" id="blog-scroll-track">
+      {posts.map((post) => (
+        <a href={`/gedanken/${post.slug}`} class="blog-scroll-card group">
+          <div class="aspect-video rounded-lg overflow-hidden mb-4 bg-white/5 border border-white/10">
+            <img
+              src={post.data.featuredImage}
+              alt={post.data.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <span class="text-xs font-medium text-primary uppercase tracking-widest">{post.data.category}</span>
+          <h3 class="font-primary text-base font-bold mt-2 mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+            {post.data.title}
+          </h3>
+          <p class="font-body text-text/60 text-base line-clamp-3 leading-relaxed">{post.data.excerpt}</p>
+          <div class="flex justify-between text-xs text-text/40 mt-4">
+            <span>{formatDate(post.data.date)}</span>
+            <span>{post.data.readingTime} Min.</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Scroll Arrows -->
+    <div class="container-custom mt-6 flex gap-3">
+      <button aria-label="Zurück" onclick="(function(){var t=document.getElementById('blog-scroll-track'),c=t.querySelector('.blog-scroll-card');t.scrollBy({left:-(c?c.offsetWidth+24:404),behavior:'smooth'});})()" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-text/60 hover:border-primary hover:text-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button aria-label="Weiter" onclick="(function(){var t=document.getElementById('blog-scroll-track'),c=t.querySelector('.blog-scroll-card');t.scrollBy({left:(c?c.offsetWidth+24:404),behavior:'smooth'});})()" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-text/60 hover:border-primary hover:text-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <KontaktSection
+    formName="kontakt-startseite"
+    headline="Bereit für die Wahrheit?"
+    subline="Kein Sales-Team. Ein Gespräch unter Strategen."
+    text="Wahre Souveränität entsteht nicht durch Tools, sondern durch Klarheit. Ich helfe Ihnen, die Komplexität zu beherrschen und Ihr Experten-Wissen unsterblich zu machen."
+  />
+  <script>
+    // Blog scroll track: align left edge with container-custom content edge
+    const track = document.getElementById('blog-scroll-track');
+    const alignBlogTrack = () => {
+      const container = document.querySelector('.container-custom');
+      if (!container || !track) return;
+      const left = container.getBoundingClientRect().left
+        + parseFloat(window.getComputedStyle(container).paddingLeft);
+      track.style.paddingLeft = left + 'px';
+      track.style.scrollPaddingLeft = left + 'px';
+    };
+    alignBlogTrack();
+    window.addEventListener('resize', alignBlogTrack);
+
+  </script>
+</BaseLayout>

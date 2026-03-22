@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { generateBreadcrumbSchema } from '../../lib/seo';
+import Hero from '../../components/global/Hero.astro';
+import HeroZone from '../../components/global/HeroZone.astro';
+import KontaktSection from '../../components/global/KontaktSection.astro';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.plasticsurf.de/' },
+  { name: 'Lösungen', url: 'https://www.plasticsurf.de/loesungen' },
+  { name: 'Der Wachstums-Motor', url: 'https://www.plasticsurf.de/loesungen/der-wachstums-motor' },
+]);
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Der Wachstums-Motor",
+  "provider": { "@type": "Organization", "name": "PlasticSurf" },
+  "areaServed": "Freiburg im Breisgau",
+  "description": "Omnichannel Performance Marketing, das Kanäle bündelt und Conversion messbar macht – weniger Streuverlust, mehr Souveränität im Wachstum."
+});
+---
+
+<BaseLayout
+  title="Performance Marketing & Conversion – PlasticSurf Freiburg"
+  description="Kreativagentur Freiburg: Omnichannel Performance Marketing, das Kanäle bündelt und Conversion messbar macht – weniger Streuverlust, mehr Souveränität im Wachstum."
+  image="/images/wachstums-motor-og.webp"
+>
+  <script type="application/ld+json" set:html={breadcrumbSchema} />
+  <script type="application/ld+json" set:html={serviceSchema} />
+
+  <HeroZone backgroundImage={{
+    desktop: '/images/wachstums-motor-hero-desktop.webp',
+    tablet:  '/images/wachstums-motor-hero-tablet.webp',
+    mobile:  '/images/wachstums-motor-hero-mobile.webp',
+  }}>
+    <Hero
+      eyebrow="Omnichannel Performance Marketing"
+      headline="Der Wachstums&#8209;Motor."
+      subline="Kontrolle über Conversion und ROI – ruhig geführt, klar in der Wirkung."
+      layout="left"
+    >
+      <p class="reveal reveal-delay-200 mt-8 font-body text-base text-text/80 leading-relaxed max-w-3xl">
+        Der Conversion‑Motor ist die operative Ausprägung des Wachstums‑Motors: ein integriertes System, das Ihre Kanäle bündelt und Wirkung sichtbar macht – vom ersten Kontakt bis zur Conversion.
+      </p>
+      <p class="reveal reveal-delay-300 mt-4 font-body text-base text-text/80 leading-relaxed max-w-3xl">
+        So entsteht ein neuer Zustand: weniger Streuverlust, mehr Klarheit, mehr Souveränität im Wachstum.
+      </p>
+      <a
+        href="#kontakt"
+        title="Wachstums-Motor anfragen – PlasticSurf Freiburg"
+        class="reveal reveal-delay-400 btn-primary mt-10 inline-flex items-center gap-2"
+      >
+        Jetzt durchstarten
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </a>
+    </Hero>
+
+    <!-- Sektion 1: Operative Intelligenz -->
+    <section class="section-padding bg-background">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Operative Intelligenz.</h2>
+          <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Ein stiller Vorteil, der Fokus schafft.</p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">
+            KI arbeitet leise im Hintergrund: Sie verdichtet Signale, macht Muster sichtbar und schärft Prioritäten.
+          </p>
+          <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed mt-4">
+            Ihre Daten werden zur Orientierung – klar genug, um konsequent zu führen.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mt-4">
+            Das System lernt, schärft nach und hält den Kurs – kontinuierlich, unaufgeregt.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sektion 2: Ihre neue operative Realität -->
+    <section class="section-padding bg-background border-t border-white/5">
+      <div class="container-custom">
+
+        <!-- Intro -->
+        <div class="max-w-3xl mb-12">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Ihre neue operative Realität.</h2>
+          <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Sechs Mechaniken, die Wirkung stabil machen.</p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">
+            Hier geht es nicht um einzelne Maßnahmen, sondern um einen Zustand: klar geführt, laufend nachgeschärft, robust im Alltag.
+          </p>
+        </div>
+
+        <!-- Reihe 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12">
+
+          <div class="reveal reveal-delay-100">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Signal‑Klarheit</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Orientierung in Echtzeit</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">Sie sehen, welche Signale wirklich zählen – kanalübergreifend in einem Bild. Attribution verbindet Ursache und Wirkung so, dass Prioritäten selbstverständlich werden. Das schafft Ruhe und Tempo im Tagesgeschäft.</p>
+          </div>
+
+          <div class="reveal reveal-delay-200">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Abschluss‑Logik</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Ein Weg, der trägt</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">Der Pfad vom Interesse zur Handlung bleibt konsistent – über alle Touchpoints hinweg. Inhalte, Angebote und nächste Schritte greifen sauber ineinander. So wird Abschlusswahrscheinlichkeit zu einer Folge der Struktur.</p>
+          </div>
+
+          <div class="reveal reveal-delay-300">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Kognitive Kunden‑Resonanz</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Relevanz, wenn sie zählt</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">Interaktionen treffen Ton und Timing – präzise, hilfreich, verbindlich. Fragen werden dort geklärt, wo sie entstehen, und der Prozess fühlt sich leicht an. Das stärkt Vertrauen und erhöht die Bereitschaft, den nächsten Schritt zu gehen.</p>
+          </div>
+
+        </div>
+
+        <!-- Reihe 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+
+          <div class="reveal reveal-delay-100">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Vorausschauende Steuerung</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Wertaufbau mit Weitblick</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">Sie erkennen Bewegungen in Nachfrage und Verhalten früher. Segmente werden nach Wert geführt (CLV), nicht nach Momentlaune. So entsteht Stabilität, die sich in Planung und Ergebnis niederschlägt.</p>
+          </div>
+
+          <div class="reveal reveal-delay-200">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Omnichannel‑Kohärenz</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Wie aus einem Guss</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">Ihre Marke wirkt über alle Kanäle konsistent – visuell, sprachlich, in der Logik der Schritte. Touchpoints unterstützen sich gegenseitig, statt nebeneinander zu laufen. Das erzeugt Professionalität, die man spürt.</p>
+          </div>
+
+          <div class="reveal reveal-delay-300">
+            <h3 class="font-primary text-2xl font-black text-text mb-1">Kapital‑Disziplin</h3>
+            <p class="font-secondary text-base text-[#927350] mb-4">Budget, das Wirkung verstärkt</p>
+            <p class="font-body text-base text-text/80 leading-relaxed">Investitionen folgen dem stärksten Hebel – konsequent und ruhig geführt. Budgets werden laufend feinjustiert, wenn sich Wirkung zeigt. So wird ROI zur Steuergröße, nicht zur Hoffnung.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sektion 3: Das Ergebnis: Souveränität -->
+    <section class="section-padding bg-background border-t border-white/5">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Das Ergebnis: Souveränität.</h2>
+          <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Wachstum wird führbar – ruhig, klar, verlässlich.</p>
+          <p class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed">
+            Was am Ende entsteht, ist kein Paket aus Einzelvorteilen, sondern ein neuer Betriebszustand. Wirkung wird sichtbar, Prioritäten werden leicht, und Fortschritt fühlt sich nicht mehr nach Dauerfeuer an.
+          </p>
+          <p class="reveal reveal-delay-300 font-body text-base text-text/80 leading-relaxed mt-4">
+            Sie gewinnen die Freiheit, strategisch zu führen – weil das System Performance stabilisiert und kontinuierlich nachschärft.
+          </p>
+          <p class="reveal reveal-delay-400 font-body text-base text-text/80 leading-relaxed mt-4">
+            Und es bleibt: ein digitaler Vermögenswert, der Ertrag ermöglicht, statt Aufmerksamkeit zu verbrauchen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sektion 4: Für Unternehmen mit Vorwärtsdrang (mittig) -->
+    <section class="section-padding-lg bg-background border-t border-white/5">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="reveal font-primary text-[3.125rem] font-black leading-tight mb-1">Für Unternehmen mit Vorwärtsdrang.</h2>
+          <p class="reveal reveal-delay-100 font-secondary text-2xl text-[#927350] mb-8">Konsequent in der Wirkung.</p>
+          <div class="reveal reveal-delay-200 font-body text-base text-text/80 leading-relaxed space-y-4 text-left">
+            <p>Sie wollen nicht lauter werden – sondern klarer. Nicht mehr rennen, sondern sicher führen.</p>
+            <p>Der Conversion‑Motor passt zu Unternehmen, die Entwicklung wirklich wollen und Veränderung als Chance sehen.</p>
+            <p>KI läuft dabei nicht als Thema, sondern als stiller Verstärker im Hintergrund: Sie ordnet, schärft nach und hält den Fokus – damit Führung leicht bleibt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </HeroZone>
+
+  <KontaktSection
+    formName="kontakt-wachstums-motor"
+    headline="Mandat anfragen."
+    subline="Kurzer Abgleich. Klare Richtung."
+    text="Der Einstieg läuft über das System‑Audit. Wenn es bereits vorliegt, sprechen wir über die Umsetzung im Conversion‑Motor. Wenn nicht, starten wir genau dort – als saubere Grundlage.\n\nVertraulich. Selektiv. Wenige Mandate parallel."
+  />
+
+</BaseLayout>

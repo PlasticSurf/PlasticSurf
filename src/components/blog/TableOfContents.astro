@@ -1,0 +1,70 @@
+---
+interface Props {
+  maxDepth?: number;
+  title?: string;
+}
+
+const { maxDepth = 3, title = 'Inhaltsverzeichnis' } = Astro.props;
+
+// Table of Contents will be populated via JavaScript
+---
+
+<div class="toc-container my-8 p-6 bg-gray-100 rounded-lg border border-gray-200">
+  <p class="font-heading text-base font-semibold text-gray-900 mb-4 uppercase">{title}</p>
+  <nav id="table-of-contents" class="space-y-2">
+    <!-- TOC will be populated by JavaScript -->
+  </nav>
+</div>
+
+<script>
+  // Client-side script to generate TOC from headings
+  document.addEventListener('DOMContentLoaded', () => {
+    const article = document.querySelector('article');
+    if (!article) return;
+
+    // Nur H2-Überschriften für das Inhaltsverzeichnis
+    const headings = article.querySelectorAll('h2');
+    const toc = document.getElementById('table-of-contents');
+    if (!toc || headings.length === 0) return;
+
+    let html = '<ul class="text-xs space-y-2">';
+    
+    headings.forEach((heading) => {
+      // Generate ID if not present
+      if (!heading.id) {
+        heading.id = heading.textContent?.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') || '';
+      }
+      
+      html += `<li>`;
+      html += `<a href="#${heading.id}" class="text-gray-600 hover:text-primary transition-colors duration-200">`;
+      html += heading.textContent;
+      html += `</a></li>`;
+    });
+    
+    html += '</ul>';
+    toc.innerHTML = html;
+
+    // Smooth scroll for TOC links
+    toc.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const target = document.getElementById(targetId || '');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  #table-of-contents a {
+    display: block;
+    padding: 4px 0;
+  }
+  
+  #table-of-contents a:hover {
+    color: #dc2626;
+  }
+</style>
