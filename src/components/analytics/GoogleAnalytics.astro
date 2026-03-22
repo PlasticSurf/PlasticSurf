@@ -1,48 +1,34 @@
 ---
-// Google Analytics ID aus Environment-Variable oder Config
 const gaId = import.meta.env.GOOGLE_ANALYTICS_ID || '';
 ---
 
 {gaId && (
-  <>
-    <!-- Google Analytics Script -->
-    <script is:inline>
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        
-        // Check cookie consent before loading GA
-        const cookieConsent = localStorage.getItem('cookie-consent');
-        if (cookieConsent === 'accepted') {
-          loadGoogleAnalytics();
-        }
-        
-        // Listen for consent change
-        window.addEventListener('storage', (e) => {
-          if (e.key === 'cookie-consent' && e.newValue === 'accepted') {
-            loadGoogleAnalytics();
-          }
+  <script is:inline define:vars={{ gaId }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    function loadGA() {
+      if (document.getElementById('gtag-script')) return;
+      const script = document.createElement('script');
+      script.id = 'gtag-script';
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+      document.head.appendChild(script);
+      script.onload = function () {
+        gtag('js', new Date());
+        gtag('config', gaId, {
+          anonymize_ip: true,
+          cookie_flags: 'SameSite=None;Secure',
         });
-        
-        function loadGoogleAnalytics() {
-          if (!document.getElementById('gtag-script')) {
-            const script = document.createElement('script');
-            script.id = 'gtag-script';
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=${gaId}';
-            document.head.appendChild(script);
-            
-            script.onload = function() {
-              window.gtag = window.gtag || function(){(window.gtag.q=window.gtag.q||[]).push(arguments)};
-              window.gtag('js', new Date());
-              window.gtag('config', '${gaId}', {
-                'anonymize_ip': true,
-                'cookie_flags': 'SameSite=None;Secure'
-              });
-            };
-          }
-        }
-      `}
-    </script>
-  </>
+      };
+    }
+
+    // Sofort laden wenn bereits zugestimmt
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      loadGA();
+    }
+
+    // Laden wenn Zustimmung im selben Tab erteilt wird
+    window.addEventListener('cookie-consent-accepted', loadGA);
+  </script>
 )}

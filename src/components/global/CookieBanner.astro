@@ -13,7 +13,6 @@
       <div class="flex-1 text-center md:text-left">
         <p class="font-body text-text text-xs leading-relaxed">
           Wir verwenden Cookies und Google Analytics, um Ihnen die bestmögliche Erfahrung zu bieten.
-          Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.
           Weitere Informationen finden Sie in unserer{' '}
           <a href="/datenschutz" class="text-primary underline hover:no-underline">Datenschutzerklärung</a>.
         </p>
@@ -38,31 +37,65 @@
   </div>
 </div>
 
+<!-- Widerruf-Link (wird nach Consent-Entscheidung sichtbar) -->
+<div id="cookie-revoke-wrap" class="hidden fixed bottom-4 right-4 z-40">
+  <button
+    id="cookie-revoke"
+    class="font-body text-xs text-text/30 hover:text-text/60 underline transition-colors duration-200"
+  >
+    Cookie-Einstellungen
+  </button>
+</div>
+
 <script>
-  const cookieBanner = document.getElementById('cookie-banner');
-  const cookieAccept = document.getElementById('cookie-accept');
-  const cookieDecline = document.getElementById('cookie-decline');
+  const banner      = document.getElementById('cookie-banner');
+  const btnAccept   = document.getElementById('cookie-accept');
+  const btnDecline  = document.getElementById('cookie-decline');
+  const revokeWrap  = document.getElementById('cookie-revoke-wrap');
+  const btnRevoke   = document.getElementById('cookie-revoke');
 
-  // Check if user already made a choice
-  const cookieChoice = localStorage.getItem('cookie-consent');
+  const STORAGE_KEY = 'cookie-consent';
 
-  if (!cookieChoice) {
-    // Show banner after a short delay
-    setTimeout(() => {
-      cookieBanner?.classList.remove('translate-y-full');
-    }, 1000);
+  function hideBanner() {
+    banner?.classList.add('translate-y-full');
   }
 
-  cookieAccept?.addEventListener('click', () => {
-    localStorage.setItem('cookie-consent', 'accepted');
-    cookieBanner?.classList.add('translate-y-full');
-    // Enable Google Analytics
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ 'cookie-consent': 'accepted' });
+  function showBanner() {
+    banner?.classList.remove('translate-y-full');
+    revokeWrap?.classList.add('hidden');
+  }
+
+  function showRevoke() {
+    revokeWrap?.classList.remove('hidden');
+  }
+
+  // Beim Laden prüfen
+  const choice = localStorage.getItem(STORAGE_KEY);
+  if (!choice) {
+    setTimeout(showBanner, 1000);
+  } else {
+    showRevoke();
+  }
+
+  // Akzeptieren
+  btnAccept?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'accepted');
+    hideBanner();
+    showRevoke();
+    // Custom Event → GoogleAnalytics.astro lädt GA sofort im selben Tab
+    window.dispatchEvent(new CustomEvent('cookie-consent-accepted'));
   });
 
-  cookieDecline?.addEventListener('click', () => {
-    localStorage.setItem('cookie-consent', 'declined');
-    cookieBanner?.classList.add('translate-y-full');
+  // Ablehnen
+  btnDecline?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'declined');
+    hideBanner();
+    showRevoke();
+  });
+
+  // Widerruf
+  btnRevoke?.addEventListener('click', () => {
+    localStorage.removeItem(STORAGE_KEY);
+    showBanner();
   });
 </script>
