@@ -11,7 +11,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 ---
 
-<BaseLayout title="Lösungen - PlasticSurf">
+<BaseLayout
+  title="KI-Lösungen Freiburg – Strategie & Design | PlasticSurf"
+  description="Digitale KI-Lösungen aus Freiburg: 4 strategische Module für Marketing, Wachstum, Markenidentität & Wissenserhalt. PlasticSurf – jetzt beraten lassen."
+  image="/images/loesungen-og.webp"
+>
   <script type="application/ld+json" set:html={breadcrumbSchema} />
 
   <HeroZone backgroundImage={{
@@ -20,6 +24,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     mobile:  '/images/loesungen-hero-mobile.webp',
   }}>
     <Hero
+      eyebrow="Digitale KI-Lösungen – PlasticSurf Freiburg"
       headline='Von der Komplexität zur <span class="text-primary">Architektur</span>.'
       text="Werkzeuge sind nur Hebel. Erst eine klare Struktur verwandelt Ihr Potenzial in dauerhafte digitale Souveränität. PlasticSurf baut keine isolierten Tools, sondern das strategische Betriebssystem für Ihr Lebenswerk."
       layout="left"
