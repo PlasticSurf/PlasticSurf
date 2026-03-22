@@ -66,26 +66,43 @@ Pro Seite maximal **1 Primary + 2–3 Secondary Keywords** — Fokus schlägt St
 
 ---
 
-## 4. Link-Titel (häufig vergessen!)
+## 4. Link-Attribute
 
-Jeder interne `<a>`-Tag mit Navigationsfunktion braucht ein `title`-Attribut.
+### Externe Links (Pflicht)
 
-```astro
-<!-- Bento/Karten-Links -->
-<a href={ref.href} title={`${ref.category}: ${ref.client} – ${ref.project}`}>
+Alle Links mit `target="_blank"` müssen `title` haben:
 
-<!-- Navigation / CTA-Buttons -->
-<a href="/kontakt" title="Kontakt aufnehmen – Kreativagentur PlasticSurf Freiburg">
-
-<!-- Blog-Links im Fließtext -->
-<a href="/gedanken/slug" title="Artikel: Titel des Beitrags – PlasticSurf Blog">
-```
-
-**Externe Links** — Pflicht-Attribute:
 ```html
-<a href="https://..." target="_blank" rel="noopener noreferrer" title="Beschreibender Titel">
+<a href="https://..." target="_blank" rel="noopener noreferrer" title="Seitenname – kurze Beschreibung auf Deutsch">
   Anchor-Text
 </a>
+```
+
+Format: `"[Site/Markenname] – [kurze Beschreibung]"` oder `"[Name] – Offizielle Website"`
+
+### Icon-only Links (Pflicht: aria-label + title)
+
+Links **ohne sichtbaren Text** (z. B. Social-Media-Icons) brauchen beide Attribute:
+
+```html
+<a href="https://linkedin.com/in/..." target="_blank" rel="noopener noreferrer"
+   aria-label="PlasticSurf auf LinkedIn"
+   title="PlasticSurf auf LinkedIn">
+  <svg ...></svg>
+</a>
+```
+
+- `aria-label` → für Screenreader (Pflicht bei Icon-only)
+- `title` → für Hover-Tooltip im Browser
+
+### Interne Navigation
+
+Normale Navigationslinks mit klarem Linktext (`Kontakt`, `Lösungen`) brauchen **kein** `title` — der Linktext reicht für Screenreader. `title` ist optional und nur bei uneindeutigem Linktext sinnvoll.
+
+### Bento/Karten-Links (optional empfohlen)
+
+```astro
+<a href={ref.href} title={`${ref.category}: ${ref.client} – ${ref.project}`}>
 ```
 
 **Interne Links pro Seite:** 3–6 im Fließtext, nie als Block am Ende, nie „hier klicken".

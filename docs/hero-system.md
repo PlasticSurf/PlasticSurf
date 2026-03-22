@@ -103,8 +103,10 @@ Vollbild-Hero-Sektion (min-h-screen) mit H1, optionalem Intro-Text und Scroll-In
 
 ```typescript
 interface Props {
+  eyebrow?: string;                    // Kleines Label über H1 (text-primary, uppercase, tracking-widest)
   headline: string;                    // H1 — unterstützt HTML via set:html
-  text?: string;                       // Einleitungstext
+  subline?: string;                    // Subline unter H1 (font-secondary, gold #927350)
+  text?: string;                       // Einleitungstext (font-secondary, größer)
   layout?: 'centered' | 'left';        // Default: 'centered'
   class?: string;
 }
@@ -171,7 +173,7 @@ CSS-Animation: `.scroll-chevron` in `global.css`.
 | `loesungen/index.astro` | ✅ | `loesungen-hero-desktop.webp` | `loesungen-hero-tablet.webp` | `loesungen-hero-mobile.webp` | left |
 | `die-dna.astro` | ✅ | `die-dna-hero-desktop.webp` | `die-dna-hero-tablet.webp` | `die-dna-hero-mobile.webp` | left |
 | `erlebnisse.astro` | ✅ | `erlebnisse-hero-desktop.webp` | `erlebnisse-hero-tablet.webp` | `erlebnisse-hero-mobile.webp` | centered |
-| `kontakt.astro` | ✅ | `kontakt-hero-desktop.webp` | `kontakt-hero-tablet.webp` | `kontakt-hero-mobile.webp` | centered |
+| `kontakt.astro` | ✅ | `kontakt-hero-desktop.webp` | `kontakt-hero-tablet.webp` | `kontakt-hero-mobile.webp` | left |
 | `loesungen/der-performance-audit.astro` | ✅ | `performance-audit-hero-desktop.webp` | `performance-audit-hero-tablet.webp` | `performance-audit-hero-mobile.webp` | left |
 | `loesungen/der-wachstums-motor.astro` | ✅ | `wachstums-motor-hero-desktop.webp` | `wachstums-motor-hero-tablet.webp` | `wachstums-motor-hero-mobile.webp` | left |
 | `loesungen/das-digitale-vermaechtnis.astro` | ✅ | `digitales-vermaechtnis-hero-desktop.webp` | `digitales-vermaechtnis-hero-tablet.webp` | `digitales-vermaechtnis-hero-mobile.webp` | left |

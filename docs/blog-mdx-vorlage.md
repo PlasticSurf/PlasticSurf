@@ -84,6 +84,61 @@ Die `SeriesNav`-Komponente erscheint **automatisch** unter dem Inhaltsverzeichni
 
 ---
 
+## 🖼️ Blog-Bilder – Optimierung und Einbindung
+
+### Format
+
+Alle Blog-Bilder ausschließlich als **`.webp`** ablegen. Keine PNG oder JPG committen.
+
+**Konvertierung mit `cwebp` (macOS):**
+```bash
+brew install webp  # einmalig installieren
+cwebp -q 82 input.png -o output.webp
+cwebp -q 82 input.jpg -o output.webp
+```
+
+### Ablagestruktur
+
+```
+public/images/blog/
+  2024/03/vitra-design-museum-scaled.webp
+  2025/02/namae-koi-album-me-machine.webp
+  2025/12/frankenstein-monster-plasticsurf.webp
+  2026/01/beitragsname-bild.webp
+```
+
+### Frontmatter-Pflichtfelder für Bilder
+
+```yaml
+featuredImage: "/images/blog/2026/01/beitragsname-bild.webp"
+featuredImageAlt: "Beschreibender Alt-Text für SEO und Screenreader"
+```
+
+- `featuredImage` → Pfad mit führendem `/`, immer `.webp`
+- `featuredImageAlt` → Konkret beschreibend, nicht nur den Titel wiederholen
+
+### Blog-Card-Übersicht (`gedanken/index.astro`)
+
+Blog-Karten nutzen `featuredImageAlt` als `alt`-Text und haben `loading="lazy"`:
+
+```astro
+<img
+  src={post.data.featuredImage}
+  alt={post.data.featuredImageAlt || post.data.title}
+  loading="lazy"
+  class="w-full h-full object-cover ..."
+/>
+```
+
+### Empfohlene Bildgröße
+
+| Zweck | Größe | Dateiname-Muster |
+|-------|-------|-----------------|
+| Blog Cover / OG-Image | 1200 × 630 px | `keyword-beschreibung.webp` |
+| Inline im Artikel | max. 1200px Breite | `keyword-beschreibung-inline.webp` |
+
+---
+
 ## ⚠️ Wichtiger Hinweis zum Styling
 
 **Das Blog-Styling ist auf zwei Dateien verteilt:**

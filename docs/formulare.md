@@ -4,9 +4,27 @@ Verbindliche Regeln für alle Kontaktformulare auf der Website.
 
 ---
 
-## 1. Zwei Formular-Typen
+## 1. Architektur (Stand: März 2026)
 
-### Typ A – KontaktSection (Netlify, 3 Felder)
+**Ein einheitliches System** für alle 7 Formulare:
+
+```
+Browser → POST /api/kontakt → Turnstile-Validierung → Nodemailer → mk@plasticsurf.de
+```
+
+| Baustein | Aufgabe |
+|----------|---------|
+| `src/pages/api/kontakt.ts` | API-Endpoint (serverseitig, Astro SSR) |
+| Cloudflare Turnstile | Spam-Schutz (unsichtbar, DSGVO-konform, kein Cookie) |
+| Nodemailer + Brevo SMTP | E-Mail-Versand an mk@plasticsurf.de |
+
+> ⚠️ **Vorher:** Typ A = Netlify Forms, Typ B = Formspree — beide abgelöst.
+
+---
+
+## 2. Zwei Formular-Komponenten
+
+### Typ A – KontaktSection (3 Felder)
 Wird auf allen **Inhaltsseiten** verwendet: Startseite, Lösungen-Übersicht, jede Lösungs-Unterseite.
 
 **Komponente:** `src/components/global/KontaktSection.astro`
@@ -21,11 +39,11 @@ Wird auf allen **Inhaltsseiten** verwendet: Startseite, Lösungen-Übersicht, je
 />
 ```
 
-**Felder:** Name · E-Mail · Nachricht
+**Felder:** Name · E-Mail · Nachricht · Turnstile-Widget (unsichtbar)
 
 ---
 
-### Typ B – ContactForm (Formspree, 5 Felder)
+### Typ B – ContactForm (5 Felder)
 Wird nur auf der **Kontakt-Seite** (`/kontakt`) verwendet.
 
 **Komponente:** `src/components/forms/ContactForm.astro`
@@ -34,38 +52,85 @@ Wird nur auf der **Kontakt-Seite** (`/kontakt`) verwendet.
 <ContactForm formName="kontakt-kontaktseite" />
 ```
 
-**Felder:** Name · E-Mail · Firma · Telefon · Nachricht · Datenschutz-Checkbox
+**Felder:** Name · E-Mail · Firma · Telefon · Nachricht · Datenschutz-Checkbox · Turnstile-Widget
 
 ---
 
-## 2. Formular-Tracking (Seitenmarkierung)
+## 3. API-Endpoint `/api/kontakt.ts`
 
-Jedes Formular hat zwei Tracking-Mechanismen:
+```typescript
+export const prerender = false;  // SSR innerhalb statischer Site
 
-### Netlify (Typ A)
-Das `name`-Attribut auf `<form>` erzeugt **automatisch einen separaten Posteingang** im Netlify-Dashboard. Kein Plugin, kein Extra-Setup nötig.
+export async function POST({ request }) {
+  const data = await request.formData();
+
+  // 1. Turnstile-Token validieren
+  const token = data.get('cf-turnstile-response');
+  const turnstileOk = await validateTurnstile(token);
+  if (!turnstileOk) return new Response(JSON.stringify({ error: 'Spam' }), { status: 400 });
+
+  // 2. Felder auslesen (seite-Feld für Tracking)
+  const seite = data.get('seite');
+  const name = data.get('name');
+  const email = data.get('email');
+  // ...
+
+  // 3. E-Mail senden via Nodemailer → Brevo SMTP
+  await transporter.sendMail({
+    from: `"PlasticSurf" <mk@plasticsurf.de>`,
+    to: 'mk@plasticsurf.de',
+    subject: `[${seite}] Neue Anfrage – ${name}`,
+    text: `...`,
+  });
+
+  return new Response(JSON.stringify({ ok: true }), { status: 200 });
+}
+```
+
+---
+
+## 4. Cloudflare Turnstile
+
+Spam-Schutz ohne Cookie, DSGVO-konform, für den Nutzer unsichtbar.
 
 ```html
-<form name="kontakt-performance-audit" data-netlify="true">
+<!-- Widget (wird automatisch von beiden Formular-Komponenten eingebunden) -->
+<div class="cf-turnstile" data-sitekey={sitekey} data-theme="dark"></div>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 ```
-→ Im Dashboard unter **Forms → kontakt-performance-audit** sichtbar.
 
-Zusätzlich enthält jedes Formular ein verstecktes Tracking-Feld:
+Das Token wird beim Submit automatisch als `cf-turnstile-response`-Feld an den Server gesendet und dort serverseitig validiert.
+
+---
+
+## 5. SMTP-Konfiguration (Brevo)
+
+| Variable | Wert |
+|----------|------|
+| `SMTP_HOST` | `smtp-relay.brevo.com` |
+| `SMTP_PORT` | `587` |
+| `SMTP_USER` | Brevo-Login (aus `.env`) |
+| `SMTP_PASS` | Brevo SMTP API Key (aus `.env`) |
+| `SMTP_FROM` | `mk@plasticsurf.de` |
+| `SMTP_TO` | `mk@plasticsurf.de` |
+
+Alle SMTP-Variablen liegen in `.env` (nie committen). Brevo: 300 Mails/Tag kostenlos, EU-Server, DSGVO-konform.
+
+---
+
+## 6. Formular-Tracking (Seiten-Markierung)
+
+Jedes Formular enthält ein verstecktes `seite`-Feld. Der Wert landet in der E-Mail-Betreffzeile:
+
 ```html
 <input type="hidden" name="seite" value="kontakt-performance-audit" />
 ```
-→ Steht in jedem Eintrag als eigene Spalte. Nützlich für Exports und Webhooks.
 
-### Formspree (Typ B)
-Der `_subject`-Header enthält den Seitennamen. Zusätzlich `seite`-Hidden-Field:
-```html
-<input type="hidden" name="_subject" value="[kontakt-kontaktseite] Neue Kontaktanfrage" />
-<input type="hidden" name="seite" value="kontakt-kontaktseite" />
-```
+→ Betreff der E-Mail: `[kontakt-performance-audit] Neue Anfrage – Max Mustermann`
 
 ---
 
-## 3. Naming-Konvention für formName
+## 7. Naming-Konvention für formName / seite
 
 | Seite | formName |
 |---|---|
@@ -81,26 +146,44 @@ Der `_subject`-Header enthält den Seitennamen. Zusätzlich `seite`-Hidden-Field
 
 ---
 
-## 4. Alle Seiten mit Formular (aktueller Stand)
+## 8. Alle Seiten mit Formular
 
-| Seite | Typ | formName | KontaktSection | Tracking |
-|---|---|---|---|---|
-| `/` | A – Netlify | `kontakt-startseite` | ✅ | ✅ |
-| `/loesungen` | A – Netlify | `kontakt-loesungen` | ✅ | ✅ |
-| `/loesungen/der-performance-audit` | A – Netlify | `kontakt-performance-audit` | ✅ | ✅ |
-| `/loesungen/der-wachstums-motor` | A – Netlify | `kontakt-wachstums-motor` | ✅ | ✅ (einbauen) |
-| `/loesungen/das-digitale-vermaechtnis` | A – Netlify | `kontakt-digitales-vermaechtnis` | ✅ | ✅ (einbauen) |
-| `/loesungen/das-brand-experience-system` | A – Netlify | `kontakt-brand-experience` | ✅ | ✅ (einbauen) |
-| `/kontakt` | B – Formspree | `kontakt-kontaktseite` | — | ✅ |
+| Seite | Typ | formName |
+|---|---|---|
+| `/` | A – KontaktSection | `kontakt-startseite` |
+| `/loesungen` | A – KontaktSection | `kontakt-loesungen` |
+| `/loesungen/der-performance-audit` | A – KontaktSection | `kontakt-performance-audit` |
+| `/loesungen/der-wachstums-motor` | A – KontaktSection | `kontakt-wachstums-motor` |
+| `/loesungen/das-digitale-vermaechtnis` | A – KontaktSection | `kontakt-digitales-vermaechtnis` |
+| `/loesungen/das-brand-experience-system` | A – KontaktSection | `kontakt-brand-experience` |
+| `/kontakt` | B – ContactForm | `kontakt-kontaktseite` |
 
 ---
 
-## 5. KontaktSection – Props Referenz
+## 9. KontaktSection – Props Referenz
 
 | Prop | Typ | Pflicht | Beschreibung |
 |---|---|---|---|
-| `formName` | `string` | ✅ | Netlify-Formularname + seite-Tracking-Wert |
+| `formName` | `string` | ✅ | Tracking-Wert im `seite`-Hidden-Field |
 | `headline` | `string` | ✅ | H2 links (font-primary, 50px, font-black) |
 | `subline` | `string` | ✅ | Subline links (font-secondary, gold, 24px) |
 | `text` | `string` | ✅ | Fließtext links. Absätze mit `\n\n` trennen |
 | `placeholder` | `string` | ❌ | Textarea-Placeholder. Default: "Wo spüren Sie aktuell den größten Widerstand?" |
+
+---
+
+## 10. Umgebungsvariablen (.env)
+
+```env
+# Cloudflare Turnstile
+PUBLIC_TURNSTILE_SITE_KEY=0x...    # Öffentlich (Browser)
+TURNSTILE_SECRET_KEY=0x...         # Server only
+
+# SMTP via Brevo
+SMTP_HOST=smtp-relay.brevo.com
+SMTP_PORT=587
+SMTP_USER=...                      # Brevo SMTP Login
+SMTP_PASS=...                      # Brevo SMTP API Key
+SMTP_FROM=mk@plasticsurf.de
+SMTP_TO=mk@plasticsurf.de
+```

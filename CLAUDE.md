@@ -6,8 +6,9 @@ Lies zu Beginn jeder Session folgende Dateien vollständig:
 2. `docs/seo-richtlinien.md` — SEO-Pflichtfelder, Keywords, Headings, Link-Titel, Structured Data, OG-Images, Checkliste
 3. `docs/hero-system.md` — Hero-Komponenten
 4. `docs/blog-mdx-vorlage.md` — Blog-Struktur und Komponenten
-5. `docs/formulare.md` — Formular-Typen, Netlify-Tracking, formName-Konventionen, KontaktSection-Props
+5. `docs/formulare.md` — Formular-Architektur (Astro API + Nodemailer + Brevo + Turnstile), formName-Konventionen, KontaktSection-Props
 6. `docs/loesungen-unterseiten-vorlage.md` — Vollständige Vorlage für Lösungs-Unterseiten, Bilder-Checkliste, SEO-Pflichtfelder
+7. `docs/hosting-analytics.md` — Vercel-Deployment, Google Analytics, Cookie Banner, Env-Variablen
 
 ---
 
