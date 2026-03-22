@@ -73,6 +73,21 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
             ></textarea>
           </div>
 
+          <!-- Datenschutz -->
+          <div>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="privacy"
+                required
+                class="mt-1 w-4 h-4 rounded border-white/10 bg-white/5 text-primary focus:ring-primary/50"
+              />
+              <span class="font-body text-text/60 text-sm">
+                Ich habe die <a href="/datenschutz" class="text-primary underline hover:no-underline">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *
+              </span>
+            </label>
+          </div>
+
           <!-- Turnstile -->
           <div class="cf-turnstile" data-sitekey={siteKey} data-theme="dark" data-size="compact"></div>
 

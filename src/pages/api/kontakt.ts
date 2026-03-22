@@ -1,17 +1,6 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import nodemailer from 'nodemailer';
-
-const transporter = nodemailer.createTransport({
-  host: import.meta.env.SMTP_HOST,
-  port: Number(import.meta.env.SMTP_PORT),
-  secure: false,
-  auth: {
-    user: import.meta.env.SMTP_USER,
-    pass: import.meta.env.SMTP_PASS,
-  },
-});
 
 async function validateTurnstile(token: string): Promise<boolean> {
   const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
@@ -61,7 +50,7 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // E-Mail aufbauen
+    // E-Mail-Text aufbauen
     const lines = [
       `Von: ${name}`,
       `E-Mail: ${email}`,
@@ -73,13 +62,30 @@ export const POST: APIRoute = async ({ request }) => {
       nachricht,
     ].filter(Boolean).join('\n');
 
-    await transporter.sendMail({
-      from:    `"PlasticSurf Website" <${import.meta.env.SMTP_FROM}>`,
-      to:      import.meta.env.SMTP_TO,
-      replyTo: email,
-      subject: `[${seite}] Neue Anfrage – ${name}`,
-      text:    lines,
+    // Brevo HTTP API
+    const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': import.meta.env.BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender:      { name: 'PlasticSurf Website', email: import.meta.env.MAIL_FROM },
+        to:          [{ email: import.meta.env.MAIL_TO }],
+        replyTo:     { email },
+        subject:     `[${seite}] Neue Anfrage – ${name}`,
+        textContent: lines,
+      }),
     });
+
+    if (!brevoRes.ok) {
+      const errBody = await brevoRes.text();
+      console.error('Brevo Fehler:', brevoRes.status, errBody);
+      return new Response(JSON.stringify({ error: 'E-Mail konnte nicht gesendet werden.' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
