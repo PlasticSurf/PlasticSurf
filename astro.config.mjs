@@ -6,6 +6,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://www.plasticsurf.de',
   output: 'static',
   adapter: vercel({
     functionPerRoute: false,
