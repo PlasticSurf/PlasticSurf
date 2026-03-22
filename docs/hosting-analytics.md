@@ -79,7 +79,40 @@ npm install @types/nodemailer -D
 
 ---
 
-## 2. Google Analytics
+## 2. Sitemap & robots.txt
+
+### Sitemap (`@astrojs/sitemap`)
+
+Integration ist in `astro.config.mjs` eingetragen und generiert beim Build automatisch:
+- `https://www.plasticsurf.de/sitemap-index.xml` — Index-Datei
+- `https://www.plasticsurf.de/sitemap-0.xml` — alle URLs der Website (aktuell ~103)
+
+**Kein manuelles Pflegen nötig** — jede neue Seite erscheint automatisch beim nächsten Deploy.
+
+In Google Search Console eintragen: `Sitemaps → https://www.plasticsurf.de/sitemap-index.xml`
+
+### robots.txt (`/public/robots.txt`)
+
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://www.plasticsurf.de/sitemap-index.xml
+```
+
+Alle Crawler sind erlaubt. Die Datei liegt unter `public/robots.txt` und wird von Vercel automatisch unter `/robots.txt` ausgeliefert. Google liest sie selbstständig — kein Upload nötig.
+
+### 404-Seite (`src/pages/404.astro`)
+
+Astro und Vercel erkennen `src/pages/404.astro` automatisch als Custom-Error-Page. Die Seite zeigt:
+- Große "404"-Zahl in Primärfarbe
+- Headline + Subline auf Deutsch
+- CTAs zur Startseite und zu Erlebnissen
+- Die 3 neuesten Blog-Posts als Orientierungshilfe
+
+---
+
+## 3. Google Analytics
 
 **ID:** `G-5GD5V55QDF`
 **Komponente:** `src/components/analytics/GoogleAnalytics.astro`

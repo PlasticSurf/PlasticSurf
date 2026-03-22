@@ -272,8 +272,8 @@ const serviceSchema = JSON.stringify({
 | Punkt           | Status / Regel                                                  |
 |-----------------|-----------------------------------------------------------------|
 | Canonical       | Auto via `Astro.url` im BaseLayout ✅                           |
-| Sitemap         | Astro `@astrojs/sitemap` prüfen — alle Seiten gelistet?         |
-| robots.txt      | `/public/robots.txt` vorhanden? `Disallow` korrekt gesetzt?     |
+| Sitemap         | `@astrojs/sitemap` aktiv ✅ — generiert automatisch bei jedem Build |
+| robots.txt      | `/public/robots.txt` vorhanden ✅ — alle Crawler erlaubt          |
 | URL-Struktur    | Deutsch, Bindestriche, Keywords enthalten (z. B. `/erlebnisse`) |
 | Interne Links   | Keine Orphan Pages — jede Seite mind. 2× intern verlinkt        |
 | Core Web Vitals | Hero-Bilder mit `loading="eager"`, Rest `loading="lazy"`        |
