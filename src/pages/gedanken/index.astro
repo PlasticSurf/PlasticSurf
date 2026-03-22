@@ -54,7 +54,8 @@ function formatDate(dateString: string): string {
                 <div class="aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 mb-4">
                   <img
                     src={post.data.featuredImage}
-                    alt={post.data.title}
+                    alt={post.data.featuredImageAlt || post.data.title}
+                    loading="lazy"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
