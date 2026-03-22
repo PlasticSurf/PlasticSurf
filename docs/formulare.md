@@ -172,7 +172,18 @@ Jedes Formular enthält ein verstecktes `seite`-Feld. Der Wert landet in der E-M
 
 ---
 
-## 10. Umgebungsvariablen (.env)
+## 10. Installation (einmalig)
+
+```bash
+npm install nodemailer @astrojs/vercel@8
+npm install @types/nodemailer -D
+```
+
+> ⚠️ `@astrojs/vercel@8` — nicht `@latest` (v10+ erfordert Astro v6).
+
+---
+
+## 11. Umgebungsvariablen (.env)
 
 ```env
 # Cloudflare Turnstile

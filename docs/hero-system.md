@@ -128,6 +128,24 @@ interface Props {
 - H1: `font-heading` (Montserrat Alternates) · `font-black` (900) · `leading-[0.9]` (unitless, kein Standard < 1)
 - Intro: `font-secondary` (Playfair Display) · `leading-snug` (unitless 1.375)
 
+### Eyebrow + Subline Styling
+
+| Prop | Element | Klassen | Farbe |
+|------|---------|---------|-------|
+| `eyebrow` | `<p>` über H1 | `font-body text-primary text-sm uppercase tracking-widest mb-2` | `#FF4E56` |
+| `subline` | `<p>` unter H1 | `font-secondary text-xl text-[#927350] leading-relaxed mt-4` | `#927350` (Gold-Braun) |
+
+**Beispiel: Kontakt-Seite (vollständige Props)**
+
+```astro
+<Hero
+  eyebrow="Mandat anfragen"
+  headline="New Business. Strategie-Dialog."
+  subline="Ich übernehme Mandate, wenn Hebelwirkung und Anspruch zusammenpassen."
+  layout="left"
+/>
+```
+
 ### Layout-Varianten
 
 | Wert | Verhalten |

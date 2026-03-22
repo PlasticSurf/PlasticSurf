@@ -17,6 +17,35 @@ Nur die **MDX-Formatierung** wird angepasst:
 
 ---
 
+## 📋 Blog-Übersicht (`gedanken/index.astro`)
+
+### Architektur-Entscheidung: Alle Posts auf einmal
+
+Die Blog-Übersicht zeigt **alle Beiträge gleichzeitig** in einem 3-spaltigen Grid. Kein Infinite Scroll, kein Pagination.
+
+**Warum:**
+- SEO: Alle Beiträge sind sofort crawlbar ohne JavaScript
+- Einfachheit: keine API-Routen, kein Client-State
+- Performance: `loading="lazy"` auf Bilder übernimmt die nötige Optimierung
+
+**Kein Infinite Scroll** — wurde erwogen und bewusst abgelehnt. Der Mehraufwand (Client-Side-State, Intersection Observer) bringt bei einem B2B-Blog mit moderater Beitragszahl keinen Mehrwert.
+
+### Bild-Einbindung in Blog-Karten
+
+```astro
+<img
+  src={post.data.featuredImage}
+  alt={post.data.featuredImageAlt || post.data.title}
+  loading="lazy"
+  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+/>
+```
+
+- `loading="lazy"` — Browser lädt Bilder erst wenn sie in den Viewport scrollen
+- `featuredImageAlt` hat Vorrang vor `title` als `alt`-Text
+
+---
+
 ## 📏 Länge & Struktur langer Beiträge
 
 ### Empfehlung: Immer eine Seite — nie paginieren

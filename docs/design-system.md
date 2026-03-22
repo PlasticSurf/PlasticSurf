@@ -77,3 +77,21 @@ Alle Seiten verwenden einheitliche Abstände über CSS-Utility-Klassen, die in `
 | `primary`     | `#FF4E56` | Akzentfarbe, CTAs, Links      |
 | `text`        | `#E0D8D2` | Fließtext                     |
 | `subline`     | `#927350` | Sublines, Highlights          |
+
+---
+
+### Footer – Soziale Medien
+
+**Aktiv:** LinkedIn (Icon-Link, `aria-label` + `title` beide gesetzt)
+**Nicht vorhanden:** Instagram — wurde entfernt (kein aktiver Account)
+
+```astro
+<!-- Komponente: src/components/global/Footer.astro -->
+<a href="https://linkedin.com/..." target="_blank" rel="noopener noreferrer"
+   aria-label="PlasticSurf auf LinkedIn"
+   title="PlasticSurf auf LinkedIn">
+  <svg ...>LinkedIn-Icon</svg>
+</a>
+```
+
+> Kein Facebook, kein Twitter/X, kein Instagram. Neue Plattformen hier eintragen und die tatsächliche Profil-URL verwenden.

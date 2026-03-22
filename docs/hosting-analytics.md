@@ -38,13 +38,24 @@ export const prerender = false;  // Diese Datei wird nicht vorgerendert
 
 Alle anderen Seiten bleiben statisch. Nur Dateien mit `export const prerender = false` laufen als Serverless Function.
 
+### Git-Authentifizierung (macOS, einmalig)
+
+Für `git push` via HTTPS auf macOS mit 2FA muss GitHub CLI eingerichtet sein:
+
+```bash
+brew install gh
+gh auth login  # Browser-Flow folgen, HTTPS wählen
+```
+
+Danach funktioniert `git push` ohne Passwort-Prompt.
+
 ### Deployment-Workflow
 
-```
-git add ...
-git commit -m "..."
+```bash
+git add datei.astro
+git commit -m "Kurzbeschreibung der Änderung"
 git push
-→ Vercel deployt automatisch (ca. 1–2 Min.)
+# → Vercel deployt automatisch (ca. 1–2 Min.)
 ```
 
 ### Limits (Hobby Plan)
@@ -56,6 +67,15 @@ git push
 | Build Minutes | 6.000/Monat | Ausreichend |
 
 **Bilder und statische Assets** liegen in GitHub (unter `public/`) — kein separater CDN nötig. Videos: extern via YouTube einbetten.
+
+### Benötigte npm-Pakete (Formular-System)
+
+```bash
+npm install nodemailer @astrojs/vercel@8
+npm install @types/nodemailer -D
+```
+
+> ⚠️ Immer `@astrojs/vercel@8` — nicht `@latest`, da v10+ Astro v6 voraussetzt.
 
 ---
 
