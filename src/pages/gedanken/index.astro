@@ -14,9 +14,12 @@ const allPosts = await getCollection('blog', ({ data }) => {
 });
 
 // Sort by date
-const sortedPosts = allPosts.sort((a, b) => 
+const sortedPosts = allPosts.sort((a, b) =>
   new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
+
+const latestPost = sortedPosts[0];
+const remainingPosts = sortedPosts.slice(1);
 
 // Format date for display
 function formatDate(dateString: string): string {
@@ -31,24 +34,69 @@ function formatDate(dateString: string): string {
 <BaseLayout title="Gedanken - Blog - PlasticSurf">
   <script type="application/ld+json" set:html={breadcrumbSchema} />
 
-  <!-- Hero Section -->
-  <section class="section-padding pt-32 bg-gradient-to-b from-background to-background/80">
-    <div class="container-custom">
-      <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Gedanken</h1>
-        <p class="font-body text-text/60 max-w-2xl mx-auto">
-          Insights, Tipps und Perspektiven aus der digitalen Welt
-        </p>
+  <!-- Hero Section: Neuester Beitrag -->
+  {latestPost && (
+    <section class="relative min-h-[85vh] flex items-end md:items-center overflow-hidden pt-20">
+      <!-- Hintergrundbild -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src={latestPost.data.featuredImage}
+          alt={latestPost.data.featuredImageAlt || latestPost.data.title}
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent z-10"></div>
       </div>
-    </div>
-  </section>
+
+      <!-- Panel links -->
+      <div class="container-custom w-full relative z-20 flex py-12 md:py-0">
+        <a
+          href={`/gedanken/${latestPost.slug}`}
+          class="block w-full md:w-2/3 lg:w-1/2 bg-black/75 backdrop-blur-sm p-8 md:p-10 group rounded-lg hover:bg-black/90 hover:opacity-100 transition-colors duration-200"
+        >
+          <!-- H1 + Intro -->
+          <h1 class="font-primary text-3xl md:text-4xl font-black text-white mb-1 leading-tight">
+            Gedanken
+          </h1>
+          <p class="font-body text-text/60 text-sm mb-6">
+            Insights, Tipps & Perspektiven aus der digitalen Welt
+          </p>
+          <hr class="border-white/10 mb-8" />
+
+          <!-- Post-Titel -->
+          <h2 class="font-primary text-xl md:text-2xl font-bold text-white mb-3 leading-tight group-hover:text-primary transition-colors">
+            {latestPost.data.title}
+          </h2>
+
+          <!-- Teaser -->
+          <p class="font-body text-text/70 text-sm leading-relaxed line-clamp-3 mb-8">
+            {latestPost.data.excerpt}
+          </p>
+
+          <!-- Meta -->
+          <div class="flex items-center justify-between text-xs text-text/50 mb-6">
+            <span>{formatDate(latestPost.data.date)}</span>
+            <span>{latestPost.data.category}</span>
+          </div>
+
+          <!-- CTA Button -->
+          <span class="btn-primary inline-flex items-center gap-2">
+            Zum Artikel
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+  )}
 
   <!-- Blog Posts Grid -->
   <section class="section-padding bg-background">
     <div class="container-custom">
-      {sortedPosts.length > 0 ? (
+      {remainingPosts.length > 0 ? (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedPosts.map((post) => (
+          {remainingPosts.map((post) => (
             <article class="group">
               <a href={`/gedanken/${post.slug}`} class="block">
                 <div class="aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 mb-4">

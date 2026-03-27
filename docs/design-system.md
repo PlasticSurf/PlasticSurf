@@ -80,6 +80,56 @@ Alle Seiten verwenden einheitliche Abstände über CSS-Utility-Klassen, die in `
 
 ---
 
+### Border-Radius
+
+| Klasse | Wert | Verwendung |
+|--------|------|------------|
+| `rounded-md` | 6px | Buttons (`btn-primary`, `btn-secondary`), Formularfelder |
+| `rounded-lg` | 8px | Karten, Boxen, Bild-Container, Panels |
+| `rounded-xl` | 12px | Größere Boxen (z.B. CTA-Komponente) |
+| `rounded-full` | 9999px | Kreisförmige Elemente (Icons, Dots, Scroll-Buttons) |
+
+**Regel:** Für interaktive Boxen und Content-Panels immer `rounded-lg`. Für Buttons immer `rounded-md` (automatisch via `btn-primary`/`btn-secondary`).
+
+---
+
+### Buttons
+
+Alle Buttons verwenden die Utility-Klassen `btn-primary` oder `btn-secondary` aus `src/styles/global.css`. **Keine eigenen Button-Styles** inline definieren.
+
+#### `btn-primary` — Primär-Button (gefüllt)
+
+```html
+<a href="/kontakt" class="btn-primary">Text</a>
+<!-- oder mit Icon -->
+<a href="/kontakt" class="btn-primary inline-flex items-center gap-2">
+  Text
+  <svg .../>
+</a>
+<!-- als Span (wenn innerhalb eines <a>-Tags) -->
+<span class="btn-primary inline-flex items-center gap-2">Text</span>
+```
+
+Styles: `bg-primary text-white px-6 py-3 rounded-md font-heading font-semibold transition-all duration-200 hover:bg-primary/90 hover:shadow-lg`
+
+#### `btn-secondary` — Sekundär-Button (Outline)
+
+```html
+<a href="/erlebnisse" class="btn-secondary">Text</a>
+```
+
+Styles: `border-2 border-primary text-primary px-6 py-3 rounded-md font-heading font-semibold transition-all duration-200 hover:bg-primary hover:text-white`
+
+#### Wichtig: `<a>`-Tags und Hover-Opacity
+
+Globaler Style in `global.css`: `a { hover:opacity-80 }`. Wenn ein Button oder Panel vollständig als `<a>` umgesetzt ist und die Opacity-Reduktion unerwünscht ist, `hover:opacity-100` als Utility-Klasse ergänzen:
+
+```html
+<a href="..." class="block ... hover:opacity-100">...</a>
+```
+
+---
+
 ### Footer – Soziale Medien
 
 **Aktiv:** LinkedIn (Icon-Link, `aria-label` + `title` beide gesetzt)
